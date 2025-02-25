@@ -14,7 +14,7 @@ return new class extends Migration
     {
         Schema::create('memorial_images', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Memorial::class)->constrained()->onDelete('cascade');
+            $table->foreignIdFor(Memorial::class);
             $table->string('filename');
             $table->string('description');
             $table->timestamps();

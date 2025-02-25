@@ -17,6 +17,7 @@ return new class extends Migration
         Schema::create('memorials', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(model: User::class);
+            $table->foreignIdFor(Memorial_image::class);
             $table->foreignIdFor(Tag::class);
             $table->string('name');
             $table->text('biography');

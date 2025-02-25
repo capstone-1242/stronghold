@@ -1,6 +1,7 @@
 <?php
 
-use App\Models\memorial;
+use App\Models\tag;
+use App\Models\video;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,11 +13,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('memorial_images', function (Blueprint $table) {
+        Schema::create('tags_videos', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Memorial::class)->constrained()->onDelete('cascade');
-            $table->string('filename');
-            $table->string('description');
+            $table->foreignIdFor(Video::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignIdFor(Tag::class)->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });
     }
@@ -26,6 +26,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('memorial_images');
+        Schema::dropIfExists('tags_videos');
     }
 };
