@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('testimonial_videos', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Tag::class);
+            $table->foreignIdFor(Tag::class)->nullable()->constrained()->nullOnDelete();
             $table->string('url');
             $table->timestamps();
         });

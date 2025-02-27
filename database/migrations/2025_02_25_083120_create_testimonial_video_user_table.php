@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('testimonial_video_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Testimonial_video::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignIdFor(Testimonial_video::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });

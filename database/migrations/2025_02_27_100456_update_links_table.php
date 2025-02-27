@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\User;
 use App\Models\video;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,11 +12,10 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('user_video', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
+        Schema::table('links', function (Blueprint $table) {
+            $table->string('url')->nullable();
+            $table->string('title')->nullable();
             $table->foreignIdFor(Video::class)->constrained()->cascadeOnDelete();
-            $table->timestamps();
         });
     }
 
@@ -26,6 +24,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('user_video');
+        Schema::table('links', function (Blueprint $table) {
+            $table->dropForeign(['video_id']);
+            $table->dropColumn(['url', 'title']);
+        });
     }
 };

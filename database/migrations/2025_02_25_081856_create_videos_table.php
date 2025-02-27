@@ -14,9 +14,11 @@ return new class extends Migration
     {
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(model: User::class);
+            $table->foreignIdFor(model: User::class)->nullable()->constrained()->nullOnDelete();
             $table->string('title');
             $table->text('description');
+            $table->string('author');
+            $table->text('author_description');
             $table->string('url');
             $table->timestamps();
         });

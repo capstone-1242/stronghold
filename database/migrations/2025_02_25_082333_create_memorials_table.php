@@ -1,8 +1,6 @@
 <?php
 
-use App\Models\memorial_image;
 use App\Models\tag;
-use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -16,8 +14,7 @@ return new class extends Migration
     {
         Schema::create('memorials', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(model: User::class);
-            $table->foreignIdFor(Tag::class);
+            $table->foreignIdFor(Tag::class)->nullable()->constrained()->nullOnDelete();
             $table->string('name');
             $table->text('biography');
             $table->year('birth_year')->nullable();

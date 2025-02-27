@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('tag_video', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Video::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignIdFor(Video::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(Tag::class)->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });

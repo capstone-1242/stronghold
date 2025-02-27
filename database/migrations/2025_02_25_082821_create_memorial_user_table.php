@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::create('memorial_user', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Memorial::class)->nullable()->constrained()->nullOnDelete();
+            $table->foreignIdFor(Memorial::class)->constrained()->cascadeOnDelete();
             $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
             $table->timestamps();
         });

@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('resources', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(User::class);
-            $table->foreignIdFor(Tag::class);
+            $table->foreignIdFor(Tag::class)->nullable()->constrained()->nullOnDelete();
             $table->string('title');
             $table->text('description')->nullable();
             $table->string('url');

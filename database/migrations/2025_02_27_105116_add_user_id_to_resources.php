@@ -1,6 +1,5 @@
 <?php
 
-use App\Models\resource;
 use App\Models\User;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
@@ -13,11 +12,8 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('resource_user_table', function (Blueprint $table) {
-            $table->id();
-            $table->foreignIdFor(Resource::class)->constrained()->cascadeOnDelete();
+        Schema::table('resources', function (Blueprint $table) {
             $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
-            $table->timestamps();
         });
     }
 
@@ -26,6 +22,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('resource_user_table');
+        Schema::table('resources', function (Blueprint $table) {
+            $table->dropForeign(['user_id']);
+            $table->dropColumn('user_id');
+        });
     }
 };
