@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Models;
+use App\Models\tag;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
@@ -9,13 +9,11 @@ class Resource extends Model
     /** @use HasFactory<\Database\Factories\ResourceFactory> */
     use HasFactory;
 
+    protected $table = 'resources';
+
     protected $fillable = ['title', 'description', 'url'];
 
     public function tag(){
-        return $this->belongsTo(Tag::class);
-    }
-
-    public function user(){
-        return $this->belongsTo(User::class);
+        $this->belongsToMany(tag::class);
     }
 }

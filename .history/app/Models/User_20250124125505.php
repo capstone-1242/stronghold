@@ -45,20 +45,4 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
-
-    public function resources(){
-        return $this->hasMany(Resource::class);
-    }
-
-    public function testimonialVideos(){
-        return $this->hasMany(TestimonialVideo::class);
-    }
-
-    public function memorials(){
-        return $this->hasMany(Memorial::class);
-    }
-
-    public function videos(){
-        return $this->hasMany(Video::class);
-    }
 }

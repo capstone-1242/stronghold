@@ -1,18 +1,19 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Resource extends Model
+class TestimonialVideo extends Model
 {
-    /** @use HasFactory<\Database\Factories\ResourceFactory> */
+    /** @use HasFactory<\Database\Factories\TestimonialVideoFactory> */
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'url'];
+    protected $fillable = ['url'];
 
     public function tag(){
-        return $this->belongsTo(Tag::class);
+       return $this->belongsTo(tag::class);
     }
 
     public function user(){

@@ -12,20 +12,20 @@ class Tag extends Model
 
     protected $fillable = ['name'];
 
-    public function resources(){
+    public function resource(){
        return $this->hasMany(Resource::class );
     }
 
-    public function memorials(){
-        return $this->hasMany(Memorial::class);
+    public function memorial(){
+        return $this->hasMany(memorial::class);
     }
 
-    public function testimonials(){
+    public function testimonial(){
         return $this->hasMany(TestimonialVideo::class);
     }
 
-    public function videos(){
-        return $this->belongsToMany(Video::class);
+    public function video(){
+        return $this->belongsToMany(video::class);
     }
 
 }

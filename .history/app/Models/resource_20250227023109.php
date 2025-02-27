@@ -1,10 +1,11 @@
 <?php
 
 namespace App\Models;
+
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Resource extends Model
+class resource extends Model
 {
     /** @use HasFactory<\Database\Factories\ResourceFactory> */
     use HasFactory;
@@ -12,10 +13,6 @@ class Resource extends Model
     protected $fillable = ['title', 'description', 'url'];
 
     public function tag(){
-        return $this->belongsTo(Tag::class);
-    }
-
-    public function user(){
-        return $this->belongsTo(User::class);
+        $this->belongsToMany(Tag::class);
     }
 }

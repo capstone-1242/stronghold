@@ -14,10 +14,10 @@ class Memorial extends Model
 
 
     public function user(){
-       return $this->belongsTo(User::class);
+       return $this->belongsToMany(User::class);
     }
 
-    public function memorialImages(){
+    public function memorial_image(){
         return $this->hasMany(MemorialImage::class);
     }
 

@@ -46,19 +46,15 @@ class User extends Authenticatable
         ];
     }
 
-    public function resources(){
+    public function resource(){
         return $this->hasMany(Resource::class);
     }
 
-    public function testimonialVideos(){
+    public function testimonial_video(){
         return $this->hasMany(TestimonialVideo::class);
     }
 
-    public function memorials(){
-        return $this->hasMany(Memorial::class);
-    }
-
-    public function videos(){
-        return $this->hasMany(Video::class);
+    public function memorial(){
+        Return $this->hasMany(Memorial::class);
     }
 }

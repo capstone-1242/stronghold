@@ -17,7 +17,7 @@ class Memorial extends Model
        return $this->belongsTo(User::class);
     }
 
-    public function memorialImages(){
+    public function memorial_image(){
         return $this->hasMany(MemorialImage::class);
     }
 

@@ -2,8 +2,10 @@
 
 namespace App\Models;
 
+use App\Models\TestimonialVideo as ModelsTestimonialVideo;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use TestimonialVideo;
 
 class Tag extends Model
 {
@@ -12,20 +14,20 @@ class Tag extends Model
 
     protected $fillable = ['name'];
 
-    public function resources(){
+    public function resource(){
        return $this->hasMany(Resource::class );
     }
 
-    public function memorials(){
-        return $this->hasMany(Memorial::class);
+    public function memorial(){
+        return $this->hasMany(memorial::class);
     }
 
-    public function testimonials(){
-        return $this->hasMany(TestimonialVideo::class);
+    public function testimonial(){
+        return $this->hasMany();
     }
 
-    public function videos(){
-        return $this->belongsToMany(Video::class);
+    public function video(){
+        return $this->belongsToMany(video::class);
     }
 
 }
