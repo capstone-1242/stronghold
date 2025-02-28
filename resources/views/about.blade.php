@@ -1,4 +1,8 @@
 <x-layout>
+    <div class="bg-white border-y">
+        {{ Breadcrumbs::render('about') }}
+    </div>
+
     <x-slot:heading>About Us</x-slot:heading>
     
     <div>

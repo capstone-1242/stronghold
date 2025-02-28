@@ -7,6 +7,10 @@
             <span>an anchor."</span>
         </p>
     </div>
+
+    <div class="bg-white border-y">
+        {{ Breadcrumbs::render('home') }}
+    </div>
     
     <section>
         <x-slot:heading>Welcome to your STRONGHOLD</x-slot:heading>

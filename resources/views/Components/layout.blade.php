@@ -27,19 +27,13 @@
                 </div>
             </header>
 
-            <div class="bg-white border-y">
-                <section class="mx-auto max-w-7xl px-4 py-2 text-sm">
-                    <p>This is where breadcrumbs will go</p>
-                </section>
-            </div>
-
-            <div>
-                <section class="mx-auto max-w-7xl p-4">
-                    <h1 class="text-3xl text-gray-900">{{ $heading }}</h1>
-                </section>
-            </div>
-
             <main class="mx-auto max-w-6xl px-4 py-6">
+                <div>
+                    <section class="mx-auto max-w-7xl p-4">
+                        <h1 class="text-3xl text-gray-900">{{ $heading }}</h1>
+                    </section>
+                </div>
+                
                 {{ $slot }}
             </main>
 
