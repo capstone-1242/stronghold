@@ -32,7 +32,7 @@
                     <p>This is where breadcrumbs will go</p>
                 </section>
             </div>
-        
+
             <div>
                 <section class="mx-auto max-w-7xl p-4">
                     <h1 class="text-3xl text-gray-900">{{ $heading }}</h1>
@@ -76,17 +76,7 @@
                     </ul>
                 </nav>
 
-                <div class="border-2 w-3/12 flex text-left p-4 mx-auto mt-6 rounded-sm">
-                    <div class="pr-2">
-                        <img src="https://unsplash.it/50/50" alt="placeholder" class="rounded-full">
-                    </div>
-
-                    <section>
-                        <h5 class="font-bold text-sm">Disclaimer:</h5>
-                        
-                        <p class="text-sm">STRONGHOLD cannot substitute professional help. If in a crisis, please call 911 or seek help from a qualified health professional.</p>
-                    </section>
-                </div>
+                <x-disclaimer/>
             </footer>
         </div>
     </body>
