@@ -16,8 +16,14 @@ class TagFactory extends Factory
      */
     public function definition(): array
     {
-        return [
-            'name' => fake()->randomElement(['firefighter', 'police', 'military', 'dispatcher' ]),
-        ];
+
+            $tags = $this->fake()->randomElement([
+                'responder' => ['firefighter', 'police', 'military', 'paramedic', 'dispatcher'],
+                'mental_health' => ['Canadian Hotlines', 'Mental Health Support Websites']]
+            );
+
+            return [
+                'name' => $tags
+            ];
     }
 }

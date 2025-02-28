@@ -7,9 +7,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Memorial>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Resource>
  */
-class MemorialFactory extends Factory
+class ResourceFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,12 +19,11 @@ class MemorialFactory extends Factory
     public function definition(): array
     {
         return [
-            'name' => fake()->name(),
-            'biography' => fake()->paragraph(3, true),
-            'birth_year' => fake()->year('1970-1990'),
-            'death_year' => fake()->year('2010-2025'),
+            'title' => fake()->company() . 'Mental Health Support',
+            'description' => fake()->text(),
+            'url' => 'https://www' . fake()->domainName(),
             'user_id' => User::factory(),
-            'tag_id' => Tag::factory(),
+            'tag_id' => Tag::factory()
         ];
     }
 }
