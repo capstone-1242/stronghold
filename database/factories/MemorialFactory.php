@@ -21,8 +21,8 @@ class MemorialFactory extends Factory
         return [
             'name' => fake()->name(),
             'biography' => fake()->paragraph(3, true),
-            'birth_year' => fake()->year('1970-1990'),
-            'death_year' => fake()->year('2010-2025'),
+            'birth_year' => fake()->numberBetween(1970, 1990),
+            'death_year' => fake()->numberBetween(2010, 2025),
             'user_id' => User::factory(),
             'tag_id' => Tag::factory(),
         ];

@@ -18,6 +18,7 @@ class TagFactory extends Factory
     {
         return [
             'name' => fake()->randomElement(['firefighter', 'police', 'military', 'dispatcher' ]),
+            'description' => fake()->paragraph(1, true)
         ];
     }
 }

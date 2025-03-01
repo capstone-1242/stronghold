@@ -13,6 +13,16 @@ class TagSeeder extends Seeder
      */
     public function run(): void
     {
-        Tag::factory(4)->create();
+       $tags = [
+        ['name' => 'Military'],
+        ['name' => 'Paramedics'],
+        ['name' => 'Police'],
+        ['name' => 'Firefighter'],
+        ['name' => '911 Dispatcher'], 
+       ];
+
+        foreach($tags as $tag_data){
+            Tag::firstOrCreate(['name' => $tag_data['name']]);
+        }
     }
 }
