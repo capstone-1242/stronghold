@@ -7,9 +7,9 @@ use App\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\testimonialVideo>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Resource>
  */
-class TestimonialVideoFactory extends Factory
+class ResourceFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -19,7 +19,9 @@ class TestimonialVideoFactory extends Factory
     public function definition(): array
     {
         return [
-            'url' => 'https://youtu.be/2EPnNOlxF8M?si=FchevgTWeQ6ONvRU',
+            'title' => fake()->company() . 'Mental Health Support',
+            'description' => fake()->text(),
+            'url' => 'https://www' . fake()->domainName(),
             'user_id' => User::factory(),
             'tag_id' => Tag::factory()
         ];

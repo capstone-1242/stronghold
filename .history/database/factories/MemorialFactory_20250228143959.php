@@ -2,13 +2,12 @@
 
 namespace Database\Factories;
 
-use App\Models\Video;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Link>
+ * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Memorial>
  */
-class LinkFactory extends Factory
+class MemorialFactory extends Factory
 {
     /**
      * Define the model's default state.
@@ -18,9 +17,8 @@ class LinkFactory extends Factory
     public function definition(): array
     {
         return [
-            'url' => fake()->url(),
-            'title' => fake()->sentence(3),
-            'video_id' => Video::factory()
+            'name' => fake()->name(),
+            'biography' => fake()->paragraph(3, true)
         ];
     }
 }
