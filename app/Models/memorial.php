@@ -10,7 +10,7 @@ class Memorial extends Model
     use HasFactory;
 
 
-    protected $fillable = ['name', 'biography', 'birth_year', 'death_year'];
+    protected $fillable = ['first_name', 'last_name', 'biography', 'birth_year', 'death_year'];
 
 
     public function user(){

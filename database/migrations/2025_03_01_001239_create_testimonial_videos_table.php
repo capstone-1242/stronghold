@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->foreignIdFor(Tag::class)->nullable()->constrained()->nullOnDelete();
             $table->string('url');
+            $table->string('title');
+            $table->string('description')->nullable();
             $table->timestamps();
             $table->foreignIdFor(User::class)->nullable()->constrained()->nullOnDelete();
            

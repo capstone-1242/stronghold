@@ -20,6 +20,8 @@ class TestimonialVideoFactory extends Factory
     {
         return [
             'url' => 'https://youtu.be/2EPnNOlxF8M?si=FchevgTWeQ6ONvRU',
+            'title' => fake()->sentence(3),
+            'description' => fake()->paragraph(1),
             'user_id' => User::factory(),
             'tag_id' => Tag::factory()
         ];
