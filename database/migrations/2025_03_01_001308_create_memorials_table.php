@@ -16,7 +16,8 @@ return new class extends Migration
         Schema::create('memorials', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(Tag::class)->nullable()->constrained()->nullOnDelete();
-            $table->string('name');
+            $table->string('first_name');
+            $table->string('last_name');
             $table->text('biography');
             $table->year('birth_year')->nullable();
             $table->year('death_year')->nullable();

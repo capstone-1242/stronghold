@@ -17,7 +17,8 @@ return new class extends Migration
             $table->foreignIdFor(model: User::class)->nullable()->constrained()->nullOnDelete();
             $table->string('title');
             $table->text('description');
-            $table->string('author');
+            $table->string('author_first_name');
+            $table->string('author_last_name');
             $table->text('author_description');
             $table->string('url');
             $table->timestamps();
