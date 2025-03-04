@@ -3,7 +3,7 @@
         {{ Breadcrumbs::render('resources') }}
     </div>
 
-    <x-slot:heading>Other Resources</x-slot:heading>
+    <h1>Other Resources</h1>
     
     <x-disclaimer/>
 

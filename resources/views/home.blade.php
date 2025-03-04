@@ -13,7 +13,7 @@
     </div>
     
     <section>
-        <x-slot:heading>Welcome to your STRONGHOLD</x-slot:heading>
+        <h1>Welcome to your STRONGHOLD</h1>
         <p>—a nonprofit, video-based mental health resource for first responders. Here, you’ll find support, stories, and strategies to help you stay strong in mind and body. You’re not alone—welcome to your safehaven.</p>
 
         <div>

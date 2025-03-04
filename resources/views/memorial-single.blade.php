@@ -3,6 +3,6 @@
         {{ Breadcrumbs::render('memorials-single') }}
     </div>
 
-    <x-slot:heading>Memorial Single</x-slot:heading>
+    <h1>Memorial Single</h1>
     
 </x-layout>

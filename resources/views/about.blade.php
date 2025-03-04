@@ -3,7 +3,7 @@
         {{ Breadcrumbs::render('about') }}
     </div>
 
-    <x-slot:heading>About Us</x-slot:heading>
+    <h1>About Us</h1>
     
     <div>
         <img src="https://unsplash.it/640/425" alt="placeholder">

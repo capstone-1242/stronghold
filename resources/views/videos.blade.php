@@ -3,7 +3,7 @@
         {{ Breadcrumbs::render('videos') }}
     </div>
 
-    <x-slot:heading>All Videos</x-slot:heading>
+    <h1>All Videos</h1>
 
     <form action="#" method="GET" class="flex">
         <label for="search" class="hidden">Search</label>

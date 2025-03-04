@@ -7,6 +7,7 @@
         <title>STRONGHOLD</title>
 
         <script src="https://cdn.tailwindcss.com"></script>
+        @vite(['resources/css/styles.css', 'resources/js/app.js'])
     </head>
     <body class="h-full">
         <div class="min-h-full">
@@ -30,7 +31,7 @@
             <main class="mx-auto max-w-6xl px-4 py-6">
                 <div>
                     <section class="mx-auto max-w-7xl p-4">
-                        <h1 class="text-3xl text-gray-900">{{ $heading }}</h1>
+                        
                     </section>
                 </div>
                 

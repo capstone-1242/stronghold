@@ -3,6 +3,6 @@
         {{ Breadcrumbs::render('videos-single') }}
     </div>
 
-    <x-slot:heading>Video Single</x-slot:heading>
+    <h1>Video Single</h1>
     
 </x-layout>
