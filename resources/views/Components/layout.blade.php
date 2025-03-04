@@ -6,41 +6,49 @@
 
         <title>STRONGHOLD</title>
 
-        <script src="https://cdn.tailwindcss.com"></script>
-        @vite(['resources/css/styles.css', 'resources/js/app.js'])
+        <script src="https://cdn.tailwindcss.com"></script> <!-- **** REMOVE BEFORE PUSHING TO PRODUCTION **** -->
+        @vite(['resources/css/styles.css', 'resources/js/main.js'])
     </head>
-    <body class="h-full">
+
+    <body>
         <div class="min-h-full">
-            <header class="bg-gray-800">
-                <div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-                    <div class="flex items-center justify-between">
-                        <h1 class="font-bold text-xl text-white"><a href="/">STRONGHOLD</a></h1>
-                        <div class="hidden md:block">
-                            <ul class="ml-10 flex items-baseline space-x-4">
+            <header>
+                <div class="container">
+                    <div class="navbar-content">
+                        <section>
+                            <h1><a href="/">STRONGHOLD</a></h1>
+    
+                            <button class="tog-btn" aria-label="Main Navigation Menu" aria-expanded="false" aria-controls="main-menu">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                    <title>Menu</title>
+                                    <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
+                                </svg>                                  
+                            </button>
+                        </section>
+
+                        <nav class="main-menu" id="main-menu">
+                            <ul>
                                 <x-nav-link href="/videos" :active="request()->is('videos')">All Videos</x-nav-link>
                                 <x-nav-link href="/resources" :active="request()->is('resources')">Resources</x-nav-link>
                                 <x-nav-link href="/testimonials" :active="request()->is('testimonials')">Testimonials</x-nav-link>
                                 <x-nav-link href="/memorials" :active="request()->is('memorials')">Memorials</x-nav-link>
                                 <x-nav-link href="/about#contact" :active="request()->is('about')">Contact Us</x-nav-link>
                             </ul>
-                        </div>
+                        </nav>
                     </div>
                 </div>
-            </header>
+            </header>            
 
             <main class="mx-auto max-w-6xl px-4 py-6">
-                <div>
-                    <section class="mx-auto max-w-7xl p-4">
-                        
-                    </section>
-                </div>
-                
                 {{ $slot }}
             </main>
 
             <footer class="bg-black text-white text-center px-4 py-8">
                 <section class="pb-6">
-                    <h4 class="font-bold text-2xl pb-2"><a>STRONGHOLD</a></h4>
+                    <h4 class="font-bold text-2xl pb-2">
+                        <a href="/">STRONGHOLD</a>
+                    </h4>
+
                     <p class="text-sm italic">"Where hope is an anchor"</p>
                 </section>
 
@@ -71,7 +79,7 @@
                     </ul>
                 </nav>
 
-                <x-disclaimer/>
+                <x-disclaimer />
             </footer>
         </div>
     </body>

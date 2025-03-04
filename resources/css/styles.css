@@ -1,3 +1,97 @@
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;
+}
+
 body {
     background-color: lightblue;
+    font-size: 1.6rem;
+    line-height: 1.5;
+}
+
+img {
+    width: 100%;
+    height: auto;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* Typopgraphy */
+h1 {
+    font-size: 3rem;
+    padding: 2rem 0;
+}
+
+/* Header */
+header nav {
+    display: none;
+    background-color: white;
+    position: absolute;
+    top: 8rem;
+    left: 0;
+    width: 100%;
+    height: fit-content;
+    z-index: 100;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 1.6rem;
+}
+
+.show-nav {
+    display: block;
+    flex-basis: fit-content;
+}
+
+.navbar-content section {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+svg {
+    width: 4rem;
+}
+
+header nav ul {
+    list-style-type: none;
+}
+
+header nav li {
+    margin: 0.5rem 0;
+}
+
+header nav li a {
+    font-size: 1.5rem;
+    display: inline-block;
+    padding: 1rem;
+}
+
+@media screen and (min-width: 800px) {
+    header nav {
+        display: block;
+        background-color: unset;
+        position: static;
+        z-index: auto;
+        width: auto;
+        box-shadow: unset;
+    }
+
+    .navbar-content {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .tog-btn {
+        display: none;
+    }
+
+    header nav ul {
+        display: flex;
+        gap: 1rem;
+    }
 }
