@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\MemorialController;
 
 Route::get('/', function () {
     return view('home');
@@ -10,13 +11,9 @@ Route::get('/about', function () {
     return view('about');
 })->name('about');
 
-Route::get('/memorials', function () {
-    return view('memorials');
-})->name('memorials');
+Route::get('/memorials', [MemorialController::class, 'index'])->name('memorials');
 
-Route::get('/memorial-single', function () {
-    return view('memorial-single');
-})->name('memorials-single');
+Route::get('/memorials/{id}', [MemorialController::class, 'show'])->name('memorial');
 
 Route::get('/testimonials', function () {
     return view('testimonials');

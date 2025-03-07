@@ -2,6 +2,7 @@
 
 use Diglactic\Breadcrumbs\Breadcrumbs;
 use Diglactic\Breadcrumbs\Generator as BreadcrumbTrail;
+use App\Models\Memorial;
 
 // Home
 Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
@@ -32,10 +33,12 @@ Breadcrumbs::for('memorials', function (BreadcrumbTrail $trail) {
     $trail->push('Memorials', route('memorials'));
 });
 
-Breadcrumbs::for('memorials-single', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('memorial', function (BreadcrumbTrail $trail, $id) {
     $trail->parent('memorials');
-    $trail->push('Memorial Name', route('memorials-single'));
+    $memorial = Memorial::find($id);
+    $trail->push($memorial->first_name . ' ' . $memorial->last_name, route('memorial', ['id' => $id]));
 });
+
 
 // Home > Videos
 Breadcrumbs::for('videos', function (BreadcrumbTrail $trail) {
