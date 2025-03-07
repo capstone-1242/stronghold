@@ -15,6 +15,7 @@ class TestimonialVideo extends Model
     public function tag(){
        return $this->belongsTo(tag::class);
     }
+    
 
     public function user(){
         return $this->belongsTo(User::class);

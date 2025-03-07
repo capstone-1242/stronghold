@@ -1,31 +1,44 @@
 <?php
+
 namespace App\Http\Controllers;
 
 use App\Models\Memorial;
+use App\Models\Tag;
 use App\Http\Requests\StorememorialRequest;
 use App\Http\Requests\UpdatememorialRequest;
+use Illuminate\Http\Request;
 
 class MemorialController extends Controller
 {
     /**
      * Display a listing of the memorials.
      */
-    public function index() {
-        $memorials = Memorial::with('memorialImages', 'tag')->paginate(6);
-        return view('memorials', compact('memorials'));
+    public function index(Request $request)
+    {
+        $tags = Tag::all();
+        $selectedTags = $request->get('tags', []);
+
+        $memorials = Memorial::when(count($selectedTags) > 0, function ($query) use ($selectedTags) {
+            return $query->whereIn('tag_id', $selectedTags);
+        })->paginate(6);
+
+        return view('memorials', compact('tags', 'memorials', 'selectedTags'));
     }
+
 
     /**
      * Show the form for creating a new memorial.
      */
-    public function create() {
+    public function create()
+    {
         return view('memorials.create');
     }
 
     /**
      * Store a newly created memorial in storage.
      */
-    public function store(StorememorialRequest $request) {
+    public function store(StorememorialRequest $request)
+    {
         $memorial = Memorial::create($request->all());
         return redirect()->route('memorial', ['memorial' => $memorial->id]);
     }
@@ -33,7 +46,8 @@ class MemorialController extends Controller
     /**
      * Display the specified memorial.
      */
-    public function show($id) {
+    public function show($id)
+    {
         $memorial = Memorial::findOrFail($id);
 
         $nextMemorial = Memorial::where('id', '>', $memorial->id)->orderBy('id', 'asc')->first();
@@ -50,14 +64,16 @@ class MemorialController extends Controller
     /**
      * Show the form for editing the specified memorial.
      */
-    public function edit(Memorial $memorial) {
+    public function edit(Memorial $memorial)
+    {
         return view('memorials.edit', compact('memorial'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatememorialRequest $request, Memorial $memorial) {
+    public function update(UpdatememorialRequest $request, Memorial $memorial)
+    {
         $memorial->update($request->validated());
         return redirect()->route('memorials');
     }
@@ -65,7 +81,8 @@ class MemorialController extends Controller
     /**
      * Remove the specified memorial from storage.
      */
-    public function destroy(Memorial $memorial) {
+    public function destroy(Memorial $memorial)
+    {
         $memorial->delete();
         return redirect()->route('memorials');
     }

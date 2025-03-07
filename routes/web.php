@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\MemorialController;
+use App\Http\Controllers\TestimonialVideoController;
 
 Route::get('/', function () {
     return view('home');
@@ -12,12 +13,9 @@ Route::get('/about', function () {
 })->name('about');
 
 Route::get('/memorials', [MemorialController::class, 'index'])->name('memorials');
-
 Route::get('/memorials/{id}', [MemorialController::class, 'show'])->name('memorial');
 
-Route::get('/testimonials', function () {
-    return view('testimonials');
-})->name('testimonials');
+Route::get('/testimonials', [TestimonialVideoController::class, 'index'])->name('testimonials');
 
 Route::get('/videos', function () {
     return view('videos');

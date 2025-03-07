@@ -1,5 +1,5 @@
 <x-layout>
-    <div class="bg-white border-y">
+    <div>
         {{ Breadcrumbs::render('videos-single') }}
     </div>
 
