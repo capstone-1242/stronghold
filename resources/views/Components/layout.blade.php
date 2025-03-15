@@ -75,7 +75,7 @@
                     <ul class="flex items-center justify-center gap-8 mx-auto max-w-xl text-left">
                         <x-nav-link href="/about" :active="request()->is('about')">About Us</x-nav-link>
                         <x-nav-link href="/about#contact" :active="request()->is('about#contact')">Contact Us</x-nav-link>
-                        <x-nav-link href="/login" :active="request()->is('login')">Admin Login</x-nav-link>
+                        <x-nav-link href="/auth/login" :active="request()->is('/auth/login')">Admin Login</x-nav-link>
                     </ul>
                 </nav>
 

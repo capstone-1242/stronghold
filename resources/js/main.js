@@ -17,3 +17,6 @@ filterDropdown.addEventListener('click', function () {
     let expanded = this.getAttribute('aria-expanded') === 'true';
     this.setAttribute('aria-expanded', !expanded); 
 });
+
+
+

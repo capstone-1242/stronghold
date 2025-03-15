@@ -60,6 +60,13 @@ class MemorialController extends Controller
         ]);
     }
 
+    public function authMemorials(Request $request)
+    {
+        $memorials = Memorial::paginate(8);
+
+        return view('auth.auth-memorials', compact('memorials'));
+    }
+
 
     /**
      * Show the form for editing the specified memorial.

@@ -5,15 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\resource;
 use App\Http\Requests\StoreresourceRequest;
 use App\Http\Requests\UpdateresourceRequest;
+use Illuminate\Http\Request;
 
 class ResourceController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function authResources(Request $request)
     {
-        //
+        $resources = Resource::paginate(8);
+
+        return view('auth.auth-resources', compact('resources'));
     }
 
     /**
