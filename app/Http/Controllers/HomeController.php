@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Tag;
 use App\Models\TestimonialVideo;
+use App\Models\Video;
 
 class HomeController extends Controller
 {
@@ -20,6 +20,11 @@ class HomeController extends Controller
             return $query->whereIn('tag_id', $selectedTags);
         })->limit(3)->get();
 
-        return view('home', compact('tags', 'testimonialVideos', 'selectedTags'));
+        $presenterVideos = Video::with('author')
+            ->orderBy('created_at', 'desc')
+            ->limit(4)
+            ->get();
+
+        return view('home', compact('tags', 'testimonialVideos', 'selectedTags', 'presenterVideos'));
     }
 }
