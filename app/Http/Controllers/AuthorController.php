@@ -6,6 +6,7 @@ use App\Models\Author;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreAuthorRequest;
 use App\Http\Requests\UpdateAuthorRequest;
+use Illuminate\Http\Request;
 
 class AuthorController extends Controller
 {
@@ -15,6 +16,13 @@ class AuthorController extends Controller
     public function index()
     {
         //
+    }
+
+    public function authAuthors(Request $request)
+    {
+        $authors = Author::paginate(8);
+
+        return view('auth.auth-presenters', compact('authors'));
     }
 
     /**

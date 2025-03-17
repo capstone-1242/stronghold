@@ -39,19 +39,23 @@ Breadcrumbs::for('memorial', function (BreadcrumbTrail $trail, $id) {
     $trail->push($memorial->first_name . ' ' . $memorial->last_name, route('memorial', ['id' => $id]));
 });
 
-
 // Home > Videos
 Breadcrumbs::for('videos', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
     $trail->push('All Videos', route('videos'));
 });
 
-Breadcrumbs::for('video-category', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('video-author', function (BreadcrumbTrail $trail, $authorId) {
     $trail->parent('videos');
-    $trail->push('Category Name', route('video-category'));
+    $author = \App\Models\Author::find($authorId);
+    $trail->push($author->first_name . ' ' . $author->last_name, route('author.videos', ['author_id' => $authorId]));
 });
 
-Breadcrumbs::for('videos-single', function (BreadcrumbTrail $trail) {
+Breadcrumbs::for('video-single', function (BreadcrumbTrail $trail, $videoId) {
     $trail->parent('videos');
-    $trail->push('Video Name', route('videos-single'));
+    $video = \App\Models\Video::find($videoId);
+    $author = $video->author;
+    
+    $trail->push($author->first_name . ' ' . $author->last_name, route('author.videos', ['author_id' => $author->id]));
+    $trail->push($video->title, route('video', ['video' => $video->id]));
 });

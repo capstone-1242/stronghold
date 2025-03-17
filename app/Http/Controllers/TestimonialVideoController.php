@@ -25,6 +25,13 @@ class TestimonialVideoController extends Controller
         return view('testimonials', compact('tags', 'testimonialVideos', 'selectedTags'));
     }
 
+    public function authTestimonials(Request $request)
+    {
+        $testimonialVideos = TestimonialVideo::paginate(8);
+
+        return view('auth.auth-testimonials', compact('testimonialVideos'));
+    }
+
     /**
      * Show the form for creating a new testimonial video.
      */
