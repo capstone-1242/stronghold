@@ -10,7 +10,7 @@ class Video extends Model
     /** @use HasFactory<\Database\Factories\VideoFactory> */
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'url'];
+    protected $fillable = ['user_id', 'title', 'description', 'url', 'author_id'];
 
     public function links(){
         return $this->hasMany(Link::class);

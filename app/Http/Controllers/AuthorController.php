@@ -4,8 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Author;
 use App\Http\Controllers\Controller;
-use App\Http\Requests\StoreAuthorRequest;
-use App\Http\Requests\UpdateAuthorRequest;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class AuthorController extends Controller
@@ -13,11 +12,6 @@ class AuthorController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
-
     public function authAuthors(Request $request)
     {
         $authors = Author::paginate(8);
@@ -30,46 +24,77 @@ class AuthorController extends Controller
      */
     public function create()
     {
-        //
+        return view('auth.create.presenters');
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreAuthorRequest $request)
+    public function store(Request $request): RedirectResponse
     {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     */
-    public function show(Author $author)
-    {
-        //
+        $request->validate([
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+        ]);
+
+        Author::create([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('auth.create.presenters')->with('success', 'Presenter created successfully!');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Author $author)
+    public function edit(Request $request)
     {
-        //
+        $author = null;
+        if ($request->has('author_id')) {
+            $author = Author::find($request->author_id);
+        }
+
+        $authors = Author::all();
+
+        return view('auth.edit.presenters', compact('author', 'authors'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateAuthorRequest $request, Author $author)
+    public function update(Request $request, $id)
     {
-        //
+        $author = Author::findOrFail($id);
+
+        $author->update([
+            'first_name' => $request->first_name,
+            'last_name' => $request->last_name,
+            'description' => $request->description,
+        ]);
+
+        return redirect()->route('auth.edit.presenters')->with('success', 'Presenter updated successfully.');
     }
+
+    public function destroyPage()
+    {
+        $authors = Author::paginate(8);
+
+        return view('auth.destroy.presenters', compact('authors'));
+    }
+
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Author $author)
+    public function destroy($id)
     {
-        //
+        $author = Author::findOrFail($id);
+        $author->delete();
+
+        return redirect()->route('auth.destroy.presenters')->with('success', 'Presenter deleted successfully.');
     }
 }

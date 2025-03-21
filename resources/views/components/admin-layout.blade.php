@@ -29,9 +29,9 @@
                             <div class="left-0 mt-2 rounded-lg shadow-lg hidden dash-drop-content">
                                 <ul class="space-y-2 py-2">
                                     <x-nav-link href="/auth/auth-videos" :active="request()->is('auth/auth-videos')">All Videos</x-nav-link>
-                                    <x-nav-link href="#">Create Video</x-nav-link>
-                                    <x-nav-link href="#">Edit Video</x-nav-link>
-                                    <x-nav-link href="#">Delete Video</x-nav-link>
+                                    <x-nav-link href="/auth/create/video" :active="request()->is('auth/create/video')">Create Video</x-nav-link>
+                                    <x-nav-link href="/auth/edit/video" :active="request()->is('auth/edit/video')">Edit Video</x-nav-link>
+                                    <x-nav-link href="/auth/destroy/video" :active="request()->is('auth/destroy/video')">Delete Video</x-nav-link>
                                 </ul>
                             </div>
                         </li>
@@ -63,9 +63,9 @@
                             <div class="left-0 mt-2 rounded-lg shadow-lg hidden dash-drop-content">
                                 <ul class="space-y-2 py-2">
                                     <x-nav-link href="/auth/auth-presenters" :active="request()->is('auth/auth-presenters')">All Presenters</x-nav-link>
-                                    <x-nav-link href="#">Create Presenter</x-nav-link>
-                                    <x-nav-link href="#">Edit Presenter</x-nav-link>
-                                    <x-nav-link href="#">Delete Presenter</x-nav-link>
+                                    <x-nav-link href="/auth/create/presenters" :active="request()->is('auth/create/presenters')">Create Presenter</x-nav-link>
+                                    <x-nav-link href="/auth/edit/presenters" :active="request()->is('auth/edit/presenters')">Edit Presenter</x-nav-link>
+                                    <x-nav-link href="/auth/destroy/presenters" :active="request()->is('auth/destroy/presenters')">Delete Presenter</x-nav-link>
                                 </ul>
                             </div>
                         </li>
@@ -114,9 +114,9 @@
                             <div class="left-0 mt-2 rounded-lg shadow-lg hidden dash-drop-content">
                                 <ul class="space-y-2 py-2">
                                     <x-nav-link href="/auth/auth-testimonials" :active="request()->is('auth/auth-testimonials')">All Testimonials</x-nav-link>
-                                    <x-nav-link href="#">Create Testimonial</x-nav-link>
-                                    <x-nav-link href="#">Edit Testimonial</x-nav-link>
-                                    <x-nav-link href="#">Delete Testimonial</x-nav-link>
+                                    <x-nav-link href="/auth/create/testimonial" :active="request()->is('auth/create/testimonial')">Create Testimonial</x-nav-link>
+                                    <x-nav-link href="/auth/edit/testimonial" :active="request()->is('auth/edit/testimonial')">Edit Testimonial</x-nav-link>
+                                    <x-nav-link href="/auth/destroy/testimonial" :active="request()->is('auth/destroy/testimonial')">Delete Testimonial</x-nav-link>
                                 </ul>
                             </div>
                         </li>
@@ -124,7 +124,7 @@
                 </nav>
             </div>
 
-            <main class="flex-1 bg-gray-100 p-6">
+            <main class="bg-gray-100 p-6">
                 {{ $slot }}
             </main>
         </div>

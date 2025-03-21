@@ -4,8 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Models\TestimonialVideo;
 use App\Models\Tag;
-use App\Http\Requests\Storetestimonial_videoRequest;
-use App\Http\Requests\Updatetestimonial_videoRequest;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
 class TestimonialVideoController extends Controller
@@ -37,16 +37,30 @@ class TestimonialVideoController extends Controller
      */
     public function create()
     {
-        return view('testimonials.create');
+        return view('auth.create.testimonial');
     }
 
     /**
      * Store a newly created testimonial video in storage.
      */
-    public function store(Storetestimonial_videoRequest $request)
+    public function store(Request $request): RedirectResponse
     {
-        $testimonialVideo = TestimonialVideo::create($request->all());
-        return redirect()->route('testimonials.show', ['testimonial_video' => $testimonialVideo->id]);
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['nullable', 'string'],
+            'url' => ['required', 'url'],
+            'tag_id' => ['required', 'exists:tags,id'],
+        ]);
+
+        TestimonialVideo::create([
+            'title' => $request->title,
+            'description' => $request->description,
+            'url' => $request->url,
+            'tag_id' => $request->tag_id,
+            'user_id' => Auth::id(),
+        ]);
+
+        return redirect()->route('auth.create.testimonial')->with('success', 'Testimonial created successfully!');
     }
 
     /**
@@ -54,32 +68,66 @@ class TestimonialVideoController extends Controller
      */
     public function show(TestimonialVideo $testimonial_video)
     {
-        return view('testimonials', compact('testimonial_video'));
+        return view('auth.show.testimonial', compact('testimonial_video'));
     }
 
     /**
      * Show the form for editing the specified testimonial video.
      */
-    public function edit(TestimonialVideo $testimonial_video)
+    public function edit(Request $request)
     {
-        return view('testimonials.edit', compact('testimonial_video'));
+        $testimonial_video = null;
+
+        if ($request->has('testimonial_video_id')) {
+            $testimonial_video = TestimonialVideo::find($request->testimonial_video_id);
+        }
+
+        $testimonialVideos = TestimonialVideo::all();
+        $tags = Tag::all();
+
+        return view('auth.edit.testimonial', compact('testimonial_video', 'testimonialVideos', 'tags'));
     }
 
     /**
      * Update the specified testimonial video in storage.
      */
-    public function update(Updatetestimonial_videoRequest $request, TestimonialVideo $testimonial_video)
+    public function update(Request $request, $id)
     {
-        $testimonial_video->update($request->validated());
-        return redirect()->route('testimonials');
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'url' => ['required', 'url'],
+            'tag_id' => ['required', 'exists:tags,id'], 
+        ]);
+
+        $testimonial_video = TestimonialVideo::findOrFail($id);
+
+        $testimonial_video->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'url' => $request->url,
+            'tag_id' => $request->tag_id,
+        ]);
+
+        return redirect()->route('auth.edit.testimonial')->with('success', 'Testimonial Video updated successfully!');
     }
+
+    public function destroyPage()
+    {
+        $testimonialVideos = TestimonialVideo::paginate(8);
+
+        return view('auth.destroy.testimonial', compact('testimonialVideos'));
+    }
+
 
     /**
      * Remove the specified testimonial video from storage.
      */
-    public function destroy(TestimonialVideo $testimonial_video)
+    public function destroy($id)
     {
+        $testimonial_video = TestimonialVideo::findOrFail($id);
         $testimonial_video->delete();
-        return redirect()->route('testimonials');
+
+        return redirect()->route('auth.destroy.testimonial')->with('success', 'Testimonial Video deleted successfully!');
     }
 }

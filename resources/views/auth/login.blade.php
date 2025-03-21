@@ -35,11 +35,4 @@
             </x-primary-button>
         </div>
     </form>
-
-    <div class="mt-4 text-center">
-        <p class="text-sm text-gray-600">
-            Don't have an account? 
-            <a href="{{ route('register') }}" class="text-blue-500 hover:text-blue-700">Register here</a>
-        </p>
-    </div>
 </x-layout>

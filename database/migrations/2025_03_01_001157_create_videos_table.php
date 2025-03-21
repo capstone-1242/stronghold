@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\User;
+use App\Models\Author;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -17,6 +18,7 @@ return new class extends Migration
             $table->foreignIdFor(model: User::class)->nullable()->constrained()->nullOnDelete();
             $table->string('title');
             $table->text('description');
+            $table->foreignIdFor(model: Author::class)->constrained()->onDelete('cascade');
             $table->string('author_first_name');
             $table->string('author_last_name');
             $table->text('author_description');

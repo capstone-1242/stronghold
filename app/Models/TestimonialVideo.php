@@ -10,7 +10,7 @@ class TestimonialVideo extends Model
     /** @use HasFactory<\Database\Factories\TestimonialVideoFactory> */
     use HasFactory;
 
-    protected $fillable = ['url', 'title', 'description'];
+    protected $fillable = ['user_id', 'url', 'title', 'description', 'tag_id'];
 
     public function tag(){
        return $this->belongsTo(tag::class);

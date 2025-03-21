@@ -92,4 +92,19 @@
             </div>
         @endforeach
     </section>
+
+    <section>
+        <h2>Career Based Testimonials</h2>
+    
+        <div class="grid grid-cols-2 gap-4">
+            @foreach($tags as $tag)
+                <x-role-button 
+                    link="{{ url()->current() . '/testimonials?tags%5B%5D=' . $tag->id . '&submit=Apply+Filters' }}" 
+                    icon="{{ $tag->name }}" 
+                    altText="{{ $tag->name }}" 
+                    title="{{ $tag->name }}" 
+                />
+            @endforeach
+        </div>
+    </section>
 </x-layout>

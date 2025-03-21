@@ -35,7 +35,6 @@ class VideoController extends Controller
         return view('auth.auth-videos', compact('videos'));
     }
 
-
     public function authorVideos($authorId)
     {
         $author = Author::findOrFail($authorId);
@@ -49,11 +48,13 @@ class VideoController extends Controller
      */
     public function create()
     {
-        return view('auth.create.video');
+        $authors = Author::all();
+
+        return view('auth.create.video', compact('authors'));
     }
 
     /**
-     * Store the newly created video in the database.
+     * Store a newly created video in the database.
      */
     public function store(Request $request): RedirectResponse
     {
@@ -61,6 +62,7 @@ class VideoController extends Controller
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
             'url' => ['required', 'url'],
+            'author_id' => ['required', 'exists:authors,id'],
         ]);
 
         Video::create([
@@ -68,10 +70,70 @@ class VideoController extends Controller
             'title' => $request->title,
             'description' => $request->description,
             'url' => $request->url,
-            'author_id' => Auth::id(),
+            'author_id' => $request->author_id,
         ]);
 
-        return redirect()->back()->with('success', 'Video added successfully!');
+        return redirect()->route('auth.create.video')->with('success', 'Video added successfully!');
+    }
+
+    /**
+     * Show the form for editing the specified video.
+     */
+    public function edit(Request $request)
+    {
+        $video = null;
+        if ($request->has('video_id')) {
+            $video = Video::find($request->video_id);
+        }
+    
+        $videos = Video::all();
+        $authors = Author::all();
+    
+        return view('auth.edit.video', compact('video', 'videos', 'authors'));
+    }
+    
+
+
+    /**
+     * Update the specified video in storage.
+     */
+    public function update(Request $request, $id)
+    {
+        $request->validate([
+            'title' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+            'url' => ['required', 'url'],
+            'author_id' => ['required', 'exists:authors,id'],
+        ]);
+
+        $video = Video::findOrFail($id);
+
+        $video->update([
+            'title' => $request->title,
+            'description' => $request->description,
+            'url' => $request->url,
+            'author_id' => $request->author_id,
+        ]);
+
+        return redirect()->route('auth.edit.video')->with('success', 'Video updated successfully!');
+    }
+
+    /**
+     * Remove the specified video from storage.
+     */
+    public function destroyPage()
+    {
+        $videos = Video::paginate(8);
+
+        return view('auth.destroy.video', compact('videos'));
+    }
+
+    public function destroy($id)
+    {
+        $video = Video::findOrFail($id);
+        $video->delete();
+
+        return redirect()->route('auth.destroy.video')->with('success', 'Video deleted successfully.');
     }
 
     /**
@@ -95,29 +157,5 @@ class VideoController extends Controller
         $relatedVideos = $author->videos->take(4);
 
         return view('video', compact('video', 'author', 'previousVideo', 'nextVideo', 'relatedVideos'));
-    }
-
-    /**
-     * Show the form for editing the specified video.
-     */
-    public function edit(Video $video)
-    {
-        // Implement edit functionality if needed
-    }
-
-    /**
-     * Update the specified video in storage.
-     */
-    public function update(Request $request, Video $video)
-    {
-        // Implement update functionality if needed
-    }
-
-    /**
-     * Remove the specified video from storage.
-     */
-    public function destroy(Video $video)
-    {
-        // Implement destroy functionality if needed
     }
 }
