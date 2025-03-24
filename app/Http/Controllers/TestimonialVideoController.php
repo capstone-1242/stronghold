@@ -25,6 +25,9 @@ class TestimonialVideoController extends Controller
         return view('testimonials', compact('tags', 'testimonialVideos', 'selectedTags'));
     }
 
+    /**
+     * Display a listing of the testimonial videos in the database.
+     */
     public function authTestimonials(Request $request)
     {
         $testimonialVideos = TestimonialVideo::paginate(8);
@@ -41,7 +44,7 @@ class TestimonialVideoController extends Controller
     }
 
     /**
-     * Store a newly created testimonial video in storage.
+     * Store a newly created testimonial video in the database.
      */
     public function store(Request $request): RedirectResponse
     {
@@ -50,6 +53,15 @@ class TestimonialVideoController extends Controller
             'description' => ['nullable', 'string'],
             'url' => ['required', 'url'],
             'tag_id' => ['required', 'exists:tags,id'],
+        ], [
+            'title.required' => 'The title is required.',
+            'title.max' => 'The title cannot exceed 255 characters.',
+            
+            'url.required' => 'The URL is required.',
+            'url.url' => 'Please provide a valid URL.',
+            
+            'tag_id.required' => 'The tag is required.',
+            'tag_id.exists' => 'The selected tag is invalid.',
         ]);
 
         TestimonialVideo::create([
@@ -64,20 +76,11 @@ class TestimonialVideoController extends Controller
     }
 
     /**
-     * Display the specified testimonial video.
-     */
-    public function show(TestimonialVideo $testimonial_video)
-    {
-        return view('auth.show.testimonial', compact('testimonial_video'));
-    }
-
-    /**
      * Show the form for editing the specified testimonial video.
      */
     public function edit(Request $request)
     {
         $testimonial_video = null;
-
         if ($request->has('testimonial_video_id')) {
             $testimonial_video = TestimonialVideo::find($request->testimonial_video_id);
         }
@@ -98,6 +101,15 @@ class TestimonialVideoController extends Controller
             'description' => ['required', 'string'],
             'url' => ['required', 'url'],
             'tag_id' => ['required', 'exists:tags,id'], 
+        ], [
+            'title.required' => 'The title is required.',
+            'title.max' => 'The title cannot exceed 255 characters.',
+            
+            'url.required' => 'The URL is required.',
+            'url.url' => 'Please provide a valid URL.',
+            
+            'tag_id.required' => 'The tag is required.',
+            'tag_id.exists' => 'The selected tag is invalid.',
         ]);
 
         $testimonial_video = TestimonialVideo::findOrFail($id);
@@ -112,6 +124,9 @@ class TestimonialVideoController extends Controller
         return redirect()->route('auth.edit.testimonial')->with('success', 'Testimonial Video updated successfully!');
     }
 
+    /**
+     * Display the testimonial videos in the database to be deleted.
+     */
     public function destroyPage()
     {
         $testimonialVideos = TestimonialVideo::paginate(8);
@@ -119,9 +134,8 @@ class TestimonialVideoController extends Controller
         return view('auth.destroy.testimonial', compact('testimonialVideos'));
     }
 
-
     /**
-     * Remove the specified testimonial video from storage.
+     * Delete the specified testimonial video in storage.
      */
     public function destroy($id)
     {

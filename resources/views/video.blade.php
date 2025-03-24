@@ -5,7 +5,7 @@
 
     <div class="flex">
         <a href="{{ url()->previous() }}">Back</a>
-        <h1>{{ $video->title }}</h1>
+        <h2>{{ $video->title }}</h2>
     </div>
 
     <div>
@@ -36,7 +36,7 @@
         </div>
 
         <div>
-            <h2>Presented by {{ $author->first_name }} {{ $author->last_name }}</h2>
+            <h3>Presented by {{ $author->first_name }} {{ $author->last_name }}</h3>
             <p>{{ $author->description }}</p>
         </div>
 

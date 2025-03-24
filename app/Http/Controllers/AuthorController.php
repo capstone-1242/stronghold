@@ -10,7 +10,7 @@ use Illuminate\Http\Request;
 class AuthorController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of the authors in the database.
      */
     public function authAuthors(Request $request)
     {
@@ -20,7 +20,7 @@ class AuthorController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
+     * Show the form for creating a new author.
      */
     public function create()
     {
@@ -28,7 +28,7 @@ class AuthorController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created author in the database.
      */
     public function store(Request $request): RedirectResponse
     {
@@ -37,6 +37,14 @@ class AuthorController extends Controller
             'first_name' => ['required', 'string', 'max:255'],
             'last_name' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
+        ], [
+            'first_name.required' => 'The first name is required.',
+            'first_name.max' => 'The first name may not be greater than 255 characters.',
+            
+            'last_name.required' => 'The last name is required.',
+            'last_name.max' => 'The last name may not be greater than 255 characters.',
+            
+            'description.required' => 'The description is required.',
         ]);
 
         Author::create([
@@ -49,7 +57,7 @@ class AuthorController extends Controller
     }
 
     /**
-     * Show the form for editing the specified resource.
+     * Show the form for editing the specified author.
      */
     public function edit(Request $request)
     {
@@ -64,10 +72,24 @@ class AuthorController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified author in storage.
      */
     public function update(Request $request, $id)
     {
+        $request->validate([
+            'first_name' => ['required', 'string', 'max:255'],
+            'last_name' => ['required', 'string', 'max:255'],
+            'description' => ['required', 'string'],
+        ], [
+            'first_name.required' => 'The first name is required.',
+            'first_name.max' => 'The first name may not be greater than 255 characters.',
+            
+            'last_name.required' => 'The last name is required.',
+            'last_name.max' => 'The last name may not be greater than 255 characters.',
+            
+            'description.required' => 'The description is required.',
+        ]);
+
         $author = Author::findOrFail($id);
 
         $author->update([
@@ -79,6 +101,9 @@ class AuthorController extends Controller
         return redirect()->route('auth.edit.presenters')->with('success', 'Presenter updated successfully.');
     }
 
+    /**
+     * Display the authors in the database to be deleted.
+     */
     public function destroyPage()
     {
         $authors = Author::paginate(8);
@@ -86,9 +111,8 @@ class AuthorController extends Controller
         return view('auth.destroy.presenters', compact('authors'));
     }
 
-
     /**
-     * Remove the specified resource from storage.
+     * Delete the specified author in storage.
      */
     public function destroy($id)
     {

@@ -9,7 +9,7 @@ class MemorialImage extends Model
 {
     /** @use HasFactory<\Database\Factories\MemorialImageFactory> */
     use HasFactory;
-    protected $fillable = ['filename', 'description'];
+    protected $fillable = ['memorial_id', 'filename', 'description'];
 
     public function memorial(){
         return $this->belongsTo(Memorial::class);

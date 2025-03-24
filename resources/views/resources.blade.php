@@ -3,15 +3,15 @@
         {{ Breadcrumbs::render('resources') }}
     </div>
 
-    <h1>Other Resources</h1>
+    <h2>Other Resources</h2>
     
     <x-disclaimer/>
 
     <section>
-        <h2>Canada Help Lines</h2>
+        <h3>Canada Help Lines</h3>
     
         <div>
-            <p>If you’re thinking about suicide, text 988</p>
+            <p>If you're thinking about suicide, text 988</p>
         </div>
     
         <ul>
@@ -28,7 +28,7 @@
     </section>
 
     <section>
-        <h2>Community Resources</h2>
+        <h3>Community Resources</h3>
 
         <ul>
             <x-link-item title="Addiction" url="https://myhealth.alberta.ca/Alberta/Pages/Find-help-for-drug-or-gambling-problem.aspx" />

@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\MemorialController;
+use App\Http\Controllers\MemorialImageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthorController;
 use App\Http\Controllers\ResourceController;
@@ -56,8 +57,9 @@ Route::middleware('auth')->group(function () {
     Route::get('auth/auth-presenters', [AuthorController::class, 'authAuthors'])->name('auth.auth-presenters');
     Route::get('auth/auth-users', [ProfileController::class, 'authUsers'])->name('auth.auth-users');
     Route::get('auth/auth-memorials', [MemorialController::class, 'authMemorials'])->name('auth.auth-memorials');
+    Route::get('auth/auth-memorial-images', [MemorialImageController::class, 'authMemorialImages'])->name('auth.auth-memorial-images');
 
-    // Video Views
+    // Video Data Views
     Route::get('/auth/create/video', [VideoController::class, 'create'])->name('auth.create.video');
     Route::post('/auth/create/video', [VideoController::class, 'store'])->name('video.store');
     Route::get('/auth/edit/video', [VideoController::class, 'edit'])->name('auth.edit.video');
@@ -65,7 +67,7 @@ Route::middleware('auth')->group(function () {
     Route::get('/auth/destroy/video', [VideoController::class, 'destroyPage'])->name('auth.destroy.video');
     Route::delete('/auth/destroy/video/{id}', [VideoController::class, 'destroy'])->name('auth.destroy.video.delete');
 
-    // Presenters (Authors) Views
+    // Presenters (Authors) Data Views
     Route::get('/auth/create/presenters', [AuthorController::class, 'create'])->name('auth.create.presenters');
     Route::post('/auth/create/presenters', [AuthorController::class, 'store'])->name('presenters.store');
     Route::get('/auth/edit/presenters', [AuthorController::class, 'edit'])->name('auth.edit.presenters');
@@ -73,12 +75,44 @@ Route::middleware('auth')->group(function () {
     Route::get('/auth/destroy/presenters', [AuthorController::class, 'destroyPage'])->name('auth.destroy.presenters');
     Route::delete('/auth/destroy/presenters/{id}', [AuthorController::class, 'destroy'])->name('auth.destroy.presenters.delete');
 
-    // Testimonial Views
+    // Testimonial Data Views
     Route::get('/auth/create/testimonial', [TestimonialVideoController::class, 'create'])->name('auth.create.testimonial');
     Route::post('/auth/create/testimonial', [TestimonialVideoController::class, 'store'])->name('testimonial.store');
     Route::get('/auth/edit/testimonial', [TestimonialVideoController::class, 'edit'])->name('auth.edit.testimonial');
     Route::put('/auth/edit/testimonial/{id}', [TestimonialVideoController::class, 'update'])->name('testimonial.update');
     Route::get('/auth/destroy/testimonial', [TestimonialVideoController::class, 'destroyPage'])->name('auth.destroy.testimonial');
     Route::delete('/auth/destroy/testimonial/{id}', [TestimonialVideoController::class, 'destroy'])->name('auth.destroy.testimonial.delete');
+
+    // Resources Data Views
+    Route::get('/auth/create/resource', [ResourceController::class, 'create'])->name('auth.create.resource');
+    Route::post('/auth/create/resource', [ResourceController::class, 'store'])->name('resource.store');
+    Route::get('/auth/edit/resource', [ResourceController::class, 'edit'])->name('auth.edit.resource');
+    Route::put('/auth/edit/resource/{id}', [ResourceController::class, 'update'])->name('resource.update');
+    Route::get('/auth/destroy/resource', [ResourceController::class, 'destroyPage'])->name('auth.destroy.resource');
+    Route::delete('/auth/destroy/resource/{id}', [ResourceController::class, 'destroy'])->name('auth.destroy.resource.delete');
+
+    // User Data Views
+    Route::get('/auth/create/user', [RegisteredUserController::class, 'create'])->name('auth.create.user');
+    Route::post('/auth/create/user', [RegisteredUserController::class, 'store'])->name('user.store');
+    Route::get('/auth/edit/user', [RegisteredUserController::class, 'edit'])->name('auth.edit.user');
+    Route::put('/auth/edit/user/{id}', [RegisteredUserController::class, 'update'])->name('user.update');
+    Route::get('/auth/destroy/user', [RegisteredUserController::class, 'destroyPage'])->name('auth.destroy.user');
+    Route::delete('/auth/destroy/user/{id}', [RegisteredUserController::class, 'destroy'])->name('auth.destroy.user.delete');
+
+    // Memorial Data Views
+    Route::get('/auth/create/memorial', [MemorialController::class, 'create'])->name('auth.create.memorial');
+    Route::post('/auth/create/memorial', [MemorialController::class, 'store'])->name('memorial.store');
+    Route::get('/auth/edit/memorial', [MemorialController::class, 'edit'])->name('auth.edit.memorial');
+    Route::put('/auth/edit/memorial/{id}', [MemorialController::class, 'update'])->name('memorial.update');
+    Route::get('/auth/destroy/memorial', [MemorialController::class, 'destroyPage'])->name('auth.destroy.memorial');
+    Route::delete('/auth/destroy/memorial/{id}', [MemorialController::class, 'destroy'])->name('auth.destroy.memorial.delete');
+
+    // Memorial Images Data Views
+    Route::get('/auth/create/memorial-images', [MemorialImageController::class, 'create'])->name('auth.create.memorial-images');
+    Route::post('/auth/create/memorial-images', [MemorialImageController::class, 'store'])->name('memorial-images.store');
+    Route::get('/auth/edit/memorial-images', [MemorialImageController::class, 'edit'])->name('auth.edit.memorial-images');
+    Route::put('/auth/edit/memorial-images/{id}', [MemorialImageController::class, 'update'])->name('memorial-images.update');
+    Route::get('/auth/destroy/memorial-images', [MemorialImageController::class, 'destroyPage'])->name('auth.destroy.memorial-images');
+    Route::delete('/auth/destroy/memorial-images/{id}', [MemorialImageController::class, 'destroy'])->name('auth.destroy.memorial-images.delete');
 });
 

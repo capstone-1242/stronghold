@@ -28,19 +28,48 @@ class VideoController extends Controller
         return view('videos', compact('videos', 'searchQuery'));
     }
 
-    public function authVideos(Request $request)
-    {
-        $videos = Video::paginate(8);
-
-        return view('auth.auth-videos', compact('videos'));
-    }
-
+    /**
+     * Display a listing of the videos made by a specific author.
+     */
     public function authorVideos($authorId)
     {
         $author = Author::findOrFail($authorId);
         $videos = Video::where('author_id', $authorId)->paginate(6);
 
         return view('video-author', compact('author', 'videos'));
+    }
+
+    /**
+     * Display the specified video.
+     */
+    public function show($videoId)
+    {
+        $video = Video::findOrFail($videoId);
+        $author = $video->author;
+
+        $previousVideo = Video::where('author_id', $author->id)
+            ->where('id', '<', $video->id)
+            ->orderBy('id', 'desc')
+            ->first();
+
+        $nextVideo = Video::where('author_id', $author->id)
+            ->where('id', '>', $video->id)
+            ->orderBy('id', 'asc')
+            ->first();
+
+        $relatedVideos = $author->videos->take(4);
+
+        return view('video', compact('video', 'author', 'previousVideo', 'nextVideo', 'relatedVideos'));
+    }
+
+    /**
+     * Display a listing of the videos in the database.
+     */
+    public function authVideos(Request $request)
+    {
+        $videos = Video::paginate(8);
+
+        return view('auth.auth-videos', compact('videos'));
     }
 
     /**
@@ -63,6 +92,17 @@ class VideoController extends Controller
             'description' => ['required', 'string'],
             'url' => ['required', 'url'],
             'author_id' => ['required', 'exists:authors,id'],
+        ], [
+            'title.required' => 'The title is required.',
+            'title.max' => 'The title cannot exceed 255 characters.',
+        
+            'description.required' => 'The description is required.',
+        
+            'url.required' => 'The URL is required.',
+            'url.url' => 'Please provide a valid URL.',
+        
+            'author_id.required' => 'The author is required.',
+            'author_id.exists' => 'The selected author is invalid.',
         ]);
 
         Video::create([
@@ -92,8 +132,6 @@ class VideoController extends Controller
         return view('auth.edit.video', compact('video', 'videos', 'authors'));
     }
     
-
-
     /**
      * Update the specified video in storage.
      */
@@ -104,6 +142,17 @@ class VideoController extends Controller
             'description' => ['required', 'string'],
             'url' => ['required', 'url'],
             'author_id' => ['required', 'exists:authors,id'],
+        ], [
+            'title.required' => 'The title field is required.',
+            'title.max' => 'The title cannot exceed 255 characters.',
+        
+            'description.required' => 'The description field is required.',
+        
+            'url.required' => 'The URL field is required.',
+            'url.url' => 'Please provide a valid URL.',
+        
+            'author_id.required' => 'The author is required.',
+            'author_id.exists' => 'The selected author is invalid.',
         ]);
 
         $video = Video::findOrFail($id);
@@ -119,7 +168,7 @@ class VideoController extends Controller
     }
 
     /**
-     * Remove the specified video from storage.
+     * Display the videos in the database to be deleted.
      */
     public function destroyPage()
     {
@@ -128,34 +177,14 @@ class VideoController extends Controller
         return view('auth.destroy.video', compact('videos'));
     }
 
+    /**
+     * Delete the specified video in storage.
+     */
     public function destroy($id)
     {
         $video = Video::findOrFail($id);
         $video->delete();
 
         return redirect()->route('auth.destroy.video')->with('success', 'Video deleted successfully.');
-    }
-
-    /**
-     * Display the specified video.
-     */
-    public function show($videoId)
-    {
-        $video = Video::findOrFail($videoId);
-        $author = $video->author;
-
-        $previousVideo = Video::where('author_id', $author->id)
-            ->where('id', '<', $video->id)
-            ->orderBy('id', 'desc')
-            ->first();
-
-        $nextVideo = Video::where('author_id', $author->id)
-            ->where('id', '>', $video->id)
-            ->orderBy('id', 'asc')
-            ->first();
-
-        $relatedVideos = $author->videos->take(4);
-
-        return view('video', compact('video', 'author', 'previousVideo', 'nextVideo', 'relatedVideos'));
     }
 }

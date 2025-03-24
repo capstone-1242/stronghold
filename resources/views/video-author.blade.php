@@ -3,7 +3,7 @@
         {{ Breadcrumbs::render('video-author', $author->id) }}
     </div>
 
-    <h1>{{ $author->first_name }} {{ $author->last_name }} - All Videos</h1>
+    <h2>{{ $author->first_name }} {{ $author->last_name }} - All Videos</h2>
 
     <p>{{ $author->description }}</p>
 
@@ -37,7 +37,7 @@
                 </div>
                 <div>
                     <a href="{{ route('video', ['video' => $video->id]) }}">
-                        <h3>{{ $video->title }}</h3>
+                        {{ $video->title }}
                     </a>
                     <p title="{{ $video->description }}">{{ ($video->description) }}</p>
                 </div>

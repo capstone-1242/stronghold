@@ -3,15 +3,15 @@
 namespace App\Http\Controllers;
 
 use App\Models\tag;
-use App\Http\Requests\StoretagRequest;
-use App\Http\Requests\UpdatetagRequest;
+use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class TagController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //
     }
@@ -27,15 +27,7 @@ class TagController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoretagRequest $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(tag $tag)
+    public function store(Request $request): RedirectResponse
     {
         //
     }
@@ -43,7 +35,7 @@ class TagController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(tag $tag)
+    public function edit(Request $request)
     {
         //
     }
@@ -51,7 +43,7 @@ class TagController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatetagRequest $request, tag $tag)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -59,7 +51,15 @@ class TagController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(tag $tag)
+    public function destroyPage()
+    {
+        //
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     */
+    public function destroy($id)
     {
         //
     }

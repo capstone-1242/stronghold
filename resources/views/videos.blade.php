@@ -12,7 +12,7 @@
         {{ Breadcrumbs::render('videos') }}
     </div>
 
-    <h1>All Videos</h1>
+    <h2>All Videos</h2>
 
     <form action="{{ url()->current() }}" method="GET" class="flex">
         <label for="search" class="hidden">Search</label>
@@ -31,7 +31,7 @@
 
         <section class="mb-8">
             <div class="flex">
-                <h2>{{ $author->first_name }} {{ $author->last_name }}</h2>
+                <h3>{{ $author->first_name }} {{ $author->last_name }}</h3>
                 <a href="{{ route('author.videos', ['author_id' => $authorId]) }}">See All</a>
             </div>
             <p>{{ $author->description }}</p>
@@ -68,7 +68,7 @@
                         </div>
                         <div>
                             <a href="{{ route('video', ['video' => $video->id]) }}">
-                                <h3>{{ $video->title }}</h3>
+                                {{ $video->title }}
                             </a>
                             <p title="{{ $video->description }}">{{ Str::limit($video->description, 50) }}</p>
                         </div>
@@ -77,5 +77,4 @@
             </div>
         </section>
     @endforeach
-
 </x-layout>

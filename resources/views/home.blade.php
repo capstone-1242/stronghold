@@ -13,8 +13,8 @@
     </div>
     
     <section>
-        <h1>Welcome to your STRONGHOLD</h1>
-        <p>—a nonprofit, video-based mental health resource for first responders. Here, you’ll find support, stories, and strategies to help you stay strong in mind and body. You’re not alone—welcome to your safehaven.</p>
+        <h2>Welcome to the STRONGHOLD</h2>
+        <p>—a nonprofit, video-based mental health resource for first responders. Here, you'll find support, stories, and strategies to help you stay strong in mind and body. You're not alone—welcome to your safehaven.</p>
 
         <div>
             <iframe width="560" height="315" src="https://www.youtube.com/embed/NOGemNxtQcA?si=ZbrJtHsfiCdlYqlI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>

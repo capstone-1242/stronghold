@@ -7,13 +7,13 @@
         <a href="{{ route('memorials') }}" class="hover:underline">Back to Memorials</a>
     </div>
 
-    <h1>Memorial</h1>
+    <h2>Memorial</h2>
 
     @if($memorial->memorialImages->count() > 0)
         <div>
             @foreach($memorial->memorialImages as $image)
                 <div class="relative w-[50rem]">
-                    <img src="{{ $image->filename }}" alt="Memorial Image" class="object-cover">
+                    <img src="{{ Storage::url($image->filename) }}" alt="Memorial Image" class="object-cover">
 
                     @if($memorial->tag)
                         <div class="absolute top-0 right-0 mt-2 mr-2 w-12 h-12">
@@ -30,7 +30,7 @@
     @endif
 
     <section>
-        <h2>{{ $memorial->first_name }} {{ $memorial->last_name }}</h2>
+        <h3>{{ $memorial->first_name }} {{ $memorial->last_name }}</h3>
     
         <p>
             {{ \Carbon\Carbon::parse($memorial->birth_year)->format('Y') }} - 

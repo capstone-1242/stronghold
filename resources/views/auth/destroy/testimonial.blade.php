@@ -1,6 +1,8 @@
 <x-admin-layout>
+    <h2>Delete a Testimonial</h2>
+
     @if(session('success'))
-        <div class="alert alert-success">
+        <div class="alert alert-success bg-green-500 text-white p-4 mb-6">
             {{ session('success') }}
         </div>
     @endif

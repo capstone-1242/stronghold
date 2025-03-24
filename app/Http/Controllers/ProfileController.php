@@ -12,12 +12,16 @@ use App\Models\User;
 
 class ProfileController extends Controller
 {
+    /**
+     * Display a listing of the users in the database.
+     */
     public function authUsers(Request $request)
     {
         $users = User::paginate(8);
 
         return view('auth.auth-users', compact('users'));
     }
+    
     /**
      * Display the user's profile form.
      */

@@ -10,7 +10,7 @@
     </div>
 
     <section>
-        <h1>Testimonials</h1>
+        <h2>Testimonials</h2>
         <p>Listen to real stories from real first responders who share how they navigated and overcame their mental health battles.</p>
     </section>
 
@@ -33,7 +33,7 @@
                 $isMatch = preg_match($youtubePattern, $testimonialVideo->url, $matches);
 
                 if ($isMatch) {
-                    $videoId = $matches[1]; // This gets the last part of the video URL which is just the id part
+                    $videoId = $matches[1];
                 }
             @endphp
 

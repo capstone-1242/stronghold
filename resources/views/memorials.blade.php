@@ -10,7 +10,7 @@
     </div>
 
     <section>
-        <h1>Memorials</h1>
+        <h2>Memorials</h2>
         <p>Honor the lives of first responders, celebrating their courage and legacy, with a space for remembrance and healing.</p>
         <p>“Lost but not forgotten”</p>
     </section>

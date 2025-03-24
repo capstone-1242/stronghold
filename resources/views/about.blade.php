@@ -3,7 +3,7 @@
         {{ Breadcrumbs::render('about') }}
     </div>
 
-    <h1>About Us</h1>
+    <h2>About Us</h2>
     
     <div>
         <img src="https://unsplash.it/640/425" alt="placeholder">
@@ -17,7 +17,7 @@
     </div>
 
     <section id="contact">
-        <h2>Contact Us</h2>
+        <h3>Contact Us</h3>
         <p>Looking to submit your own video resource or add someone you know to our memorial? </p>
         <p><strong>Email:</strong> jennifer@stronghold.help</p>
     </section>

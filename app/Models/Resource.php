@@ -9,7 +9,7 @@ class Resource extends Model
     /** @use HasFactory<\Database\Factories\ResourceFactory> */
     use HasFactory;
 
-    protected $fillable = ['title', 'description', 'url'];
+    protected $fillable = ['tag_id', 'title', 'description', 'url', 'number', 'user_id'];
 
     public function tag(){
         return $this->belongsTo(Tag::class);
