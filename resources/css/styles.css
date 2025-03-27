@@ -52,6 +52,17 @@ header nav {
     padding: 1rem;
 }
 
+.navbar-content-dash section {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+}
+
+.navbar-content-dash nav {
+    padding: 1rem;
+}
+
 svg {
     width: 4rem;
 }
@@ -86,6 +97,17 @@ header nav li a {
     display: block;
 }
 
+.table-container {
+    width: 100%;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+table {
+    width: 100%; 
+    border-collapse: collapse;
+}
+
 @media screen and (min-width: 800px) {
     header nav {
         display: block;
@@ -109,5 +131,15 @@ header nav li a {
     header nav ul {
         display: flex;
         gap: 1rem;
+    }
+
+    .sidebar-flex {
+        display: flex;
+        align-items: stretch;
+    }
+
+    .navbar-content-dash {
+        min-width: 20rem;
+        min-height: 94vh;
     }
 }

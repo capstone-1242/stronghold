@@ -1,23 +1,23 @@
 <x-admin-layout>
-    <h2>Delete a Memorial</h2>
+    <h2 class="font-semibold text-4xl my-12">Delete a Memorial</h2>
     
     @if(session('success'))
-        <div class="alert alert-success bg-green-500 text-white p-4 mb-6">
+        <div class="bg-green-700 text-white text-center rounded-xl p-4 mb-6">
             {{ session('success') }}
         </div>
     @endif
 
-    <div class="p-6">
-        <table class="min-w-full text-left table-auto">
+    <div class="table-container">
+        <table>
             <thead class="bg-gray-100">
                 <tr>
-                    <th class="p-4">First Name</th>
-                    <th class="p-4">Last Name</th>
-                    <th class="p-4">Biography</th>
-                    <th class="p-4">Birth Year</th>
-                    <th class="p-4">Death Year</th>
-                    <th class="p-4">Tag</th>
-                    <th class="p-4">Actions</th>
+                    <th class="p-4 text-left">First Name</th>
+                    <th class="p-4 text-left">Last Name</th>
+                    <th class="p-4 text-left">Biography</th>
+                    <th class="p-4 text-left">Birth Year</th>
+                    <th class="p-4 text-left">Death Year</th>
+                    <th class="p-4 text-left">Tag</th>
+                    <th class="p-4 text-left">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -32,10 +32,10 @@
                             {{ $memorial->tag ? $memorial->tag->name : 'No tag' }}
                         </td>
                         <td class="p-4">
-                            <form action="{{ route('auth.destroy.memorial.delete', $memorial->id) }}" method="POST" style="display: inline;">
+                            <form action="{{ route('auth.destroy.memorial.delete', $memorial->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" value="Delete" class="bg-red-500 text-white p-2 rounded hover:bg-red-600 cursor-pointer" onclick="return confirmDelete('{{ $memorial->first_name }} {{ $memorial->last_name }}')" />
+                                <input type="submit" value="Delete" class="bg-red-500 text-white px-4 py-2 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $memorial->first_name }} {{ $memorial->last_name }}')" />
                             </form>
                         </td>
                     </tr>

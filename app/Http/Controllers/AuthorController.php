@@ -117,8 +117,12 @@ class AuthorController extends Controller
     public function destroy($id)
     {
         $author = Author::findOrFail($id);
+
+        $author->links()->delete();
+        $author->videos()->delete();
+
         $author->delete();
 
-        return redirect()->route('auth.destroy.presenters')->with('success', 'Presenter deleted successfully.');
+        return redirect()->route('auth.destroy.presenters')->with('success', 'Presenter and all associated data deleted successfully.');
     }
 }

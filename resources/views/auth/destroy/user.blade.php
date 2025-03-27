@@ -1,21 +1,21 @@
 <x-admin-layout>
-    <h2>Delete a User</h2>
+    <h2 class="font-semibold text-4xl my-12">Delete a User</h2>
 
     @if(session('success'))
-        <div class="alert alert-success bg-green-500 text-white p-4 mb-6">
+        <div class="bg-green-700 text-white text-center rounded-xl p-4 mb-6">
             {{ session('success') }}
         </div>
     @endif
 
-    <div class="p-6">
-        <table class="min-w-full text-left table-auto">
+    <div class="table-container">
+        <table>
             <thead class="bg-gray-100">
                 <tr>
-                    <th class="p-4">First Name</th>
-                    <th class="p-4">Last Name</th>
-                    <th class="p-4">Email</th>
-                    <th class="p-4">Role</th>
-                    <th class="p-4">Actions</th>
+                    <th class="p-4 text-left">First Name</th>
+                    <th class="p-4 text-left">Last Name</th>
+                    <th class="p-4 text-left">Email</th>
+                    <th class="p-4 text-left">Role</th>
+                    <th class="p-4 text-left">Actions</th>
                 </tr>
             </thead>
             <tbody>
@@ -26,10 +26,10 @@
                         <td class="p-4">{{ $user->email }}</td>
                         <td class="p-4">{{ ucfirst($user->role) }}</td>
                         <td class="p-4">
-                            <form action="{{ route('auth.destroy.user.delete', $user->id) }}" method="POST" style="display: inline;">
+                            <form action="{{ route('auth.destroy.user.delete', $user->id) }}" method="POST">
                                 @csrf
                                 @method('DELETE')
-                                <input type="submit" value="Delete" class="bg-red-500 text-white p-2 rounded hover:bg-red-600 cursor-pointer" onclick="return confirmDelete('{{ $user->first_name }} {{ $user->last_name }}')" />
+                                <input type="submit" value="Delete" class="bg-red-500 text-white px-4 py-2 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $user->first_name }} {{ $user->last_name }}')" />
                             </form>
                         </td>
                     </tr>

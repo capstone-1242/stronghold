@@ -7,6 +7,7 @@ use App\Http\Controllers\MemorialController;
 use App\Http\Controllers\MemorialImageController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\AuthorController;
+use App\Http\Controllers\LinkController;
 use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\TestimonialVideoController;
 use App\Http\Controllers\Auth\RegisteredUserController;
@@ -55,6 +56,7 @@ Route::middleware('auth')->group(function () {
     Route::get('auth/auth-testimonials', [TestimonialVideoController::class, 'authTestimonials'])->name('auth.auth-testimonials');
     Route::get('auth/auth-resources', [ResourceController::class, 'authResources'])->name('auth.auth-resources');
     Route::get('auth/auth-presenters', [AuthorController::class, 'authAuthors'])->name('auth.auth-presenters');
+    Route::get('auth/auth-links', [LinkController::class, 'authLinks'])->name('auth.auth-links');
     Route::get('auth/auth-users', [ProfileController::class, 'authUsers'])->name('auth.auth-users');
     Route::get('auth/auth-memorials', [MemorialController::class, 'authMemorials'])->name('auth.auth-memorials');
     Route::get('auth/auth-memorial-images', [MemorialImageController::class, 'authMemorialImages'])->name('auth.auth-memorial-images');
@@ -74,6 +76,14 @@ Route::middleware('auth')->group(function () {
     Route::put('/auth/edit/presenters/{id}', [AuthorController::class, 'update'])->name('presenters.update');
     Route::get('/auth/destroy/presenters', [AuthorController::class, 'destroyPage'])->name('auth.destroy.presenters');
     Route::delete('/auth/destroy/presenters/{id}', [AuthorController::class, 'destroy'])->name('auth.destroy.presenters.delete');
+
+    // Links Data Views
+    Route::get('/auth/create/links', [LinkController::class, 'create'])->name('auth.create.links');
+    Route::post('/auth/create/links', [LinkController::class, 'store'])->name('links.store');
+    Route::get('/auth/edit/links', [LinkController::class, 'edit'])->name('auth.edit.links');
+    Route::put('/auth/edit/links/{id}', [LinkController::class, 'update'])->name('links.update');
+    Route::get('/auth/destroy/links', [LinkController::class, 'destroyPage'])->name('auth.destroy.links');
+    Route::delete('/auth/destroy/links/{id}', [LinkController::class, 'destroy'])->name('auth.destroy.links.delete');
 
     // Testimonial Data Views
     Route::get('/auth/create/testimonial', [TestimonialVideoController::class, 'create'])->name('auth.create.testimonial');

@@ -47,7 +47,7 @@ class MemorialImageController extends Controller
         ], [            
             'filename.required' => 'The image file is required.',
             'filename.image' => 'The file must be an image.',
-            'filename.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, svg, webp.',
+            'filename.mimes' => 'The image must be a file of type: jpeg, png, jpg, gif, or svg.',
             'filename.max' => 'The image size cannot exceed 2MB.',
             
             'description.required' => 'The description is required.',

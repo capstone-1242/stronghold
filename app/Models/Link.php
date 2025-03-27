@@ -10,7 +10,7 @@ class Link extends Model
        /** @use HasFactory<\Database\Factories\MemorialFactory> */
        use HasFactory;
 
-       protected $fillable = ['url', 'title'];
+       protected $fillable = ['url', 'title', 'author_id'];
 
        public function author(){
             return $this->belongsTo(Author::class);
