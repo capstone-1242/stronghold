@@ -12,9 +12,6 @@ class Video extends Model
 
     protected $fillable = ['user_id', 'title', 'description', 'url', 'author_id'];
 
-    public function links(){
-        return $this->hasMany(Link::class);
-    }
 
     public function tags(){
         return $this->belongsToMany(Tag::class);

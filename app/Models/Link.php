@@ -12,9 +12,8 @@ class Link extends Model
 
        protected $fillable = ['url', 'title'];
 
-       public function video(){
-            return $this->belongsTo(Video::class);
+       public function author(){
+            return $this->belongsTo(Author::class);
        }
-
 
 }

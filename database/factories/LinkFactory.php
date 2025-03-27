@@ -2,7 +2,7 @@
 
 namespace Database\Factories;
 
-use App\Models\Video;
+use App\Models\Author;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -20,7 +20,7 @@ class LinkFactory extends Factory
         return [
             'url' => fake()->url(),
             'title' => fake()->sentence(3),
-            'video_id' => Video::factory()
+            'author_id' => Author::factory()
         ];
     }
 }

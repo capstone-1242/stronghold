@@ -16,4 +16,8 @@ class Author extends Model
         return $this->hasMany(Video::class);
     }
 
+    public function links(){
+        return $this->hasMany(Link::class);
+    }
+
 }
