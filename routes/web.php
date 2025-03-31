@@ -1,7 +1,6 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\VideoController;
 use App\Http\Controllers\MemorialController;
@@ -13,13 +12,6 @@ use App\Http\Controllers\ResourceController;
 use App\Http\Controllers\TestimonialVideoController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
-
-use App\Http\Controllers\Auth\PasswordController;
-
-Route::get('forgot-password', [PasswordController::class, 'request'])->name('password.request');
-Route::post('forgot-password', [PasswordController::class, 'email'])->name('password.email');
-Route::get('reset-password/{token}', [PasswordController::class, 'reset'])->name('password.reset');
-Route::post('reset-password', [PasswordController::class, 'update'])->name('password.update');
 
 // Home Routes
 Route::get('/', [HomeController::class, 'index'])->name('home');
@@ -52,8 +44,6 @@ Route::get('/auth/login', [AuthenticatedSessionController::class, 'create'])
     ->name('login');
 Route::post('/login', [AuthenticatedSessionController::class, 'store'])
     ->name('login.store');
-
-Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
 
 // Authenticated User Routes
 Route::middleware('auth')->group(function () {
