@@ -18,11 +18,11 @@ class HomeController extends Controller
 
         $testimonialVideos = TestimonialVideo::when(count($selectedTags) > 0, function ($query) use ($selectedTags) {
             return $query->whereIn('tag_id', $selectedTags);
-        })->limit(3)->get();
+        })->limit(4)->get();
 
         $presenterVideos = Video::with('author')
             ->orderBy('created_at', 'desc')
-            ->limit(4)
+            ->limit(8)
             ->get();
 
         return view('home', compact('tags', 'testimonialVideos', 'selectedTags', 'presenterVideos'));

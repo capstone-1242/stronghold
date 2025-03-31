@@ -12,13 +12,13 @@ Breadcrumbs::for('home', function (BreadcrumbTrail $trail) {
 // Home > Resources
 Breadcrumbs::for('resources', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('Resources', route('resources'));
+    $trail->push('Local Resources', route('resources'));
 });
 
 // Home > About
 Breadcrumbs::for('about', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('About Us', route('about'));
+    $trail->push('About/Contact Us', route('about'));
 });
 
 // Home > Testimonails
@@ -42,7 +42,7 @@ Breadcrumbs::for('memorial', function (BreadcrumbTrail $trail, $id) {
 // Home > Videos
 Breadcrumbs::for('videos', function (BreadcrumbTrail $trail) {
     $trail->parent('home');
-    $trail->push('All Videos', route('videos'));
+    $trail->push('Insightful Videos', route('videos'));
 });
 
 Breadcrumbs::for('video-author', function (BreadcrumbTrail $trail, $authorId) {

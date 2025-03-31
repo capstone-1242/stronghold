@@ -1,4 +1,4 @@
 <li>
-    <p><strong>{{ $name }}:</strong></p>
+    <p>{{ $name }}:</p>
     <p>{{ $number }}</p>
 </li>

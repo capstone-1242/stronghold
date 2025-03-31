@@ -1,10 +1,13 @@
-<div class="border-2 w-6/12 text-left flex items-start p-4 mx-auto mt-6 rounded-sm">
-    <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-20">
-        <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m9-.75a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 3.75h.008v.008H12v-.008Z" />
-    </svg>
+<div class="disclaimer">
+    <div class="icon">
+        <svg width="6" height="19" viewBox="0 0 6 19" xmlns="http://www.w3.org/2000/svg">
+            <path class="icon-path" d="M0.5 0H5.25L4.19444 13.7222H1.55556L0.5 0Z"/>
+            <path class="icon-path" d="M4.72228 17.1528C4.72228 18.173 3.89525 19 2.87505 19C1.85486 19 1.02783 18.173 1.02783 17.1528C1.02783 16.1326 1.85486 15.3055 2.87505 15.3055C3.89525 15.3055 4.72228 16.1326 4.72228 17.1528Z"/>
+        </svg>
+    </div>
     
     <div>
         <strong>Disclaimer:</strong>
-        <p>STRONGHOLD cannot substitute professional help. If in a crisis, please call 911 or seek help from a qualified healthcare professional.</p>
+        <p>STRONGHOLD cannot replace personalized care from mental health professionals. If in an emergency crisis, please call 911.</p>
     </div>
 </div>
