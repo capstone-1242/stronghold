@@ -614,6 +614,11 @@ header nav li a {
     display: block;
 }
 
+body.dashboard .tog-btn {
+    width: 5rem;
+    cursor: pointer;
+}
+
 .dash-menu {
     display: none;
     position: absolute;
@@ -718,6 +723,10 @@ footer a {
         display: flex;
         align-items: stretch;
     }
+
+    body.dashboard footer {
+        margin-top: unset;
+    }    
 
     .dash-menu {
         display: block;
