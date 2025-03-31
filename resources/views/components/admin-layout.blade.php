@@ -170,10 +170,7 @@
                             </ul>
                         </nav>
     
-                        <form method="POST" action="{{ route('logout') }}" class="flex mb-12">
-                            @csrf
-                            <input type="submit" value="Logout" class="text-white bg-red-600 rounded-xl p-2 hover:bg-red-700 p-2 rounded w-[90%] my-4 mx-auto block cursor-pointer">
-                        </form> 
+                        
                     </div>
                 </div>
             
