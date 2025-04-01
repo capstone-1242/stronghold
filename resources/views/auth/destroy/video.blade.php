@@ -12,25 +12,25 @@
             <table>
                 <thead class="bg-gray-100">
                     <tr>
-                        <th class="p-4 text-left">Title</th>
-                        <th class="p-4 text-left">Description</th>
-                        <th class="p-4 text-left">URL</th>
-                        <th class="p-4 text-left">Author</th>
-                        <th class="p-4 text-left">Actions</th>
+                        <th class="px-6 text-left">Title</th>
+                        <th class="px-6 text-left">Description</th>
+                        <th class="px-6 text-left">URL</th>
+                        <th class="px-6 text-left">Author</th>
+                        <th class="px-6 text-left">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($videos as $video)
                         <tr class="border-b">
-                            <td class="p-4">{{ $video->title }}</td>
-                            <td class="p-4">{{ Str::limit($video->description, 50) }}</td>
-                            <td class="p-4">
+                            <td class="px-6 py-4">{{ $video->title }}</td>
+                            <td class="px-6 py-4">{{ Str::limit($video->description, 50) }}</td>
+                            <td class="px-6 py-4">
                                 <a href="{{ $video->url }}" target="_blank" class="text-blue-500">{{ $video->url }}</a>
                             </td>
-                            <td class="p-4">
+                            <td class="px-6 py-4">
                                 {{ $video->author->first_name }} {{ $video->author->last_name }}
                             </td>
-                            <td class="p-6">
+                            <td class="px-6 py-4">
                                 <form action="{{ route('auth.destroy.video.delete', $video->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

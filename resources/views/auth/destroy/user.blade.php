@@ -12,21 +12,21 @@
             <table>
                 <thead class="bg-gray-100">
                     <tr>
-                        <th class="p-4 text-left">First Name</th>
-                        <th class="p-4 text-left">Last Name</th>
-                        <th class="p-4 text-left">Email</th>
-                        <th class="p-4 text-left">Role</th>
-                        <th class="p-4 text-left">Actions</th>
+                        <th class="px-6 text-left">First Name</th>
+                        <th class="px-6 text-left">Last Name</th>
+                        <th class="px-6 text-left">Email</th>
+                        <th class="px-6 text-left">Role</th>
+                        <th class="px-6 text-left">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
                         <tr class="border-b">
-                            <td class="p-4">{{ $user->first_name }}</td>
-                            <td class="p-4">{{ $user->last_name }}</td>
-                            <td class="p-4">{{ $user->email }}</td>
-                            <td class="p-4">{{ ucfirst($user->role) }}</td>
-                            <td class="p-6">
+                            <td class="px-6 py-4">{{ $user->first_name }}</td>
+                            <td class="px-6 py-4">{{ $user->last_name }}</td>
+                            <td class="px-6 py-4">{{ $user->email }}</td>
+                            <td class="px-6 py-4">{{ ucfirst($user->role) }}</td>
+                            <td class="px-6 py-4">
                                 <form action="{{ route('auth.destroy.user.delete', $user->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

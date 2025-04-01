@@ -14,19 +14,19 @@
             <table>
                 <thead class="bg-gray-100">
                     <tr>
-                        <th class="p-4 text-left">First Name</th>
-                        <th class="p-4 text-left">Last Name</th>
-                        <th class="p-4 text-left">Description</th>
-                        <th class="p-4 text-left">Actions</th>
+                        <th class="px-6 text-left">First Name</th>
+                        <th class="px-6 text-left">Last Name</th>
+                        <th class="px-6 text-left">Description</th>
+                        <th class="px-6 text-left">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($authors as $author)
                         <tr class="border-b">
-                            <td class="p-4">{{ $author->first_name }}</td>
-                            <td class="p-4">{{ $author->last_name }}</td>
-                            <td class="p-4">{{ Str::limit($author->description, 50) }}</td>
-                            <td class="p-6">
+                            <td class="px-6 py-4">{{ $author->first_name }}</td>
+                            <td class="px-6 py-4">{{ $author->last_name }}</td>
+                            <td class="px-6 py-4">{{ Str::limit($author->description, 50) }}</td>
+                            <td class="px-6 py-4">
                                 <form action="{{ route('auth.destroy.presenters.delete', $author->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

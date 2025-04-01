@@ -12,25 +12,25 @@
             <table>
                 <thead class="bg-gray-100">
                     <tr>
-                        <th class="p-4 text-left">Title</th>
-                        <th class="p-4 text-left">Description</th>
-                        <th class="p-4 text-left">URL</th>
-                        <th class="p-4 text-left">Tag</th>
-                        <th class="p-4 text-left">Actions</th>
+                        <th class="px-6 text-left">Title</th>
+                        <th class="px-6 text-left">Description</th>
+                        <th class="px-6 text-left">URL</th>
+                        <th class="px-6 text-left">Tag</th>
+                        <th class="px-6 text-left">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($testimonialVideos as $testimonial)
                         <tr class="border-b">
-                            <td class="p-4">{{ $testimonial->title }}</td>
-                            <td class="p-4">{{ Str::limit($testimonial->description, 50) }}</td>
-                            <td class="p-4">
+                            <td class="px-6 py-4">{{ $testimonial->title }}</td>
+                            <td class="px-6 py-4">{{ Str::limit($testimonial->description, 50) }}</td>
+                            <td class="px-6 py-4">
                                 <a href="{{ $testimonial->url }}" target="_blank" class="text-blue-500">{{ $testimonial->url }}</a>
                             </td>
-                            <td class="p-4">
+                            <td class="px-6 py-4">
                                 {{ $testimonial->tag ? $testimonial->tag->name : 'No tag' }}
                             </td>
-                            <td class="p-6">
+                            <td class="px-6 py-4">
                                 <form action="{{ route('auth.destroy.testimonial.delete', $testimonial->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

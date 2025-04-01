@@ -31,11 +31,11 @@
                     $memorial = $images->first()->memorial;
                 @endphp
     
-                <div class="mb-6">
+                <div class="mb-6 min-h-fit">
                     <h2 class="text-2xl font-semibold">{{ $memorial->first_name }} {{ $memorial->last_name }}</h2>
                     <hr class="my-2">
     
-                    <div class="flex space-x-4">
+                    <div class="flex flex-wrap space-x-4 py-2">
                         @foreach ($images as $image)
                             <div class="w-32 h-32">
                                 <img src="{{ asset('storage/' . $image->filename) }}" alt="{{ $image->description }}" class="w-full h-full object-cover rounded-xl">

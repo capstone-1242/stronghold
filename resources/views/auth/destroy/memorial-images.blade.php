@@ -18,10 +18,10 @@
                     <h3 class="text-2xl font-bold">{{ $memorial->first_name }} {{ $memorial->last_name }}</h3>
                     <hr class="my-2">
     
-                    <div class="flex flex-wrap space-x-4 py-2">
+                    <div class="flex space-x-4 py-2">
                         @foreach ($images as $image)
-                            <div class="mb-6 flex flex-col items-center gap-6">
-                                <img src="{{ asset('storage/' . $image->filename) }}" alt="{{ $image->description }}" class="w-48 h-48 object-cover rounded-md">
+                            <div class="mb-6 flex flex-col items-center gap-6 w-32 h-32">
+                                <img src="{{ asset('storage/' . $image->filename) }}" alt="{{ $image->description }}" class="object-cover rounded-md">
     
                                 <form action="{{ route('auth.destroy.memorial-images.delete', ['id' => $image->id]) }}" method="POST" onsubmit="return confirmDelete('{{ $memorial->first_name }} {{ $memorial->last_name }}', '{{ $image->filename }}');" class="mt-2 w-full">
                                     @csrf

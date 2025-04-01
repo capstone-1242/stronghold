@@ -12,27 +12,27 @@
             <table>
                 <thead class="bg-gray-100">
                     <tr>
-                        <th class="p-4 text-left">Title</th>
-                        <th class="p-4 text-left">Description</th>
-                        <th class="p-4 text-left">URL</th>
-                        <th class="p-4 text-left">Phone Number</th>
-                        <th class="p-4 text-left">Tag</th>
-                        <th class="p-4 text-left">Actions</th>
+                        <th class="px-6 text-left">Title</th>
+                        <th class="px-6 text-left">Description</th>
+                        <th class="px-6 text-left">URL</th>
+                        <th class="px-6 text-left">Phone Number</th>
+                        <th class="px-6 text-left">Tag</th>
+                        <th class="px-6 text-left">Actions</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($resources as $resource)
                         <tr class="border-b">
-                            <td class="p-4">{{ $resource->title }}</td>
-                            <td class="p-4">{{ Str::limit($resource->description, 50) }}</td>
-                            <td class="p-4">
+                            <td class="px-6 py-4">{{ $resource->title }}</td>
+                            <td class="px-6 py-4">{{ Str::limit($resource->description, 50) }}</td>
+                            <td class="px-6 py-4">
                                 <a href="{{ $resource->url }}" target="_blank" class="text-blue-500">{{ $resource->url ?? '-' }}</a>
                             </td>
-                            <td class="p-4">{{ $resource->number ?? '-' }}</td> 
-                            <td class="p-4">
+                            <td class="px-6 py-4">{{ $resource->number ?? '-' }}</td> 
+                            <td class="px-6 py-4">
                                 {{ $resource->tag ? $resource->tag->name : '-' }}
                             </td>
-                            <td class="p-6">
+                            <td class="px-6 py-4">
                                 <form action="{{ route('auth.destroy.resource.delete', $resource->id) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')

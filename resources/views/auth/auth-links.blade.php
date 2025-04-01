@@ -2,7 +2,7 @@
     <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Links to Presenter Resources</h2>
     
-        <div class="flex flex-wrap justify-evenly mb-6 gap-6">
+        <div class="flex flex-wrap justify-evenly my-12 gap-6">
             <a href="{{ route('auth.create.links') }}" class="p-6 border-2 border-yellow-400 bg-yellow-200 flex items-center gap-2 rounded-xl">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -29,15 +29,15 @@
             <table>
                 <thead class="bg-gray-100">
                     <tr>
-                        <th class="p-4 text-left">Title</th>
-                        <th class="p-4 text-left">URL</th>
+                        <th class="px-6 text-left">Title</th>
+                        <th class="px-6 text-left">URL</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($links as $link)
                         <tr class="border-b">
-                            <td class="p-4">{{ $link->title }}</td>
-                            <td class="p-4">
+                            <td class="p-6">{{ $link->title }}</td>
+                            <td class="p-6">
                                 <a href="{{ $link->url }}" target="_blank" class="text-blue-500">{{ $link->url }}</a>
                             </td>
                         </tr>

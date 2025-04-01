@@ -2,7 +2,7 @@
    <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Users</h2>
     
-        <div class="flex flex-wrap justify-evenly mb-6 gap-6">
+        <div class="flex flex-wrap justify-evenly my-12 gap-6">
             <a href="{{ route('auth.create.user') }}" class="p-6 border-2 border-yellow-400 bg-yellow-200 flex items-center gap-2 rounded-xl">
             <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-8">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v6m3-3H9m12 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
@@ -29,19 +29,19 @@
             <table>
                 <thead class="bg-gray-100">
                     <tr>
-                        <th class="p-4 text-left">First Name</th>
-                        <th class="p-4 text-left">Last Name</th>
-                        <th class="p-4 text-left">Email</th>
-                        <th class="p-4 text-left">Role</th>
+                        <th class="px-6 text-left">First Name</th>
+                        <th class="px-6 text-left">Last Name</th>
+                        <th class="px-6 text-left">Email</th>
+                        <th class="px-6 text-left">Role</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($users as $user)
                         <tr class="border-b">
-                            <td class="p-4">{{ $user->first_name }}</td>
-                            <td class="p-4">{{ $user->last_name }}</td>
-                            <td class="p-4">{{ $user->email }}</td>
-                            <td class="p-4">{{ $user->role }}</td>
+                            <td class="p-6">{{ $user->first_name }}</td>
+                            <td class="p-6">{{ $user->last_name }}</td>
+                            <td class="p-6">{{ $user->email }}</td>
+                            <td class="p-6">{{ $user->role }}</td>
                         </tr>
                     @endforeach
                 </tbody>
