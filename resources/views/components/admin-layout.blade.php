@@ -93,7 +93,7 @@
                                         <path fill-rule="evenodd" d="M11.47 19.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 1 0-1.06-1.06L12 17.69l-6.97-6.97a.75.75 0 0 0-1.06 1.06l7.5 7.5Z" clip-rule="evenodd" />
                                     </svg>
                                 </button>
-                                <div class="left-0 mt-2 w-full bg-gray-600 rounded-xl p-2 hidden dash-drop-content">
+                                <div class="left-0 bg-gray-600 rounded-bl-xl rounded-br-xl p-2 hidden dash-drop-content">
                                     <ul class="space-y-3 py-2 link-group">
                                         <x-nav-link href="/auth/auth-memorials" :active="request()->is('auth/auth-memorials')">All Memorials</x-nav-link>
                                         <x-nav-link href="/auth/create/memorial" :active="request()->is('auth/create/memorial')">Create Memorial</x-nav-link>
@@ -111,7 +111,7 @@
                                         <path fill-rule="evenodd" d="M11.47 19.28a.75.75 0 0 0 1.06 0l7.5-7.5a.75.75 0 1 0-1.06-1.06L12 17.69l-6.97-6.97a.75.75 0 0 0-1.06 1.06l7.5 7.5Z" clip-rule="evenodd" />
                                     </svg>
                                 </button>
-                                <div class="left-0 mt-2 bg-gray-600 rounded-xl p-2 hidden dash-drop-content w-full">
+                                <div class="left-0 bg-gray-600 rounded-bl-xl rounded-br-xl p-2 hidden dash-drop-content">
                                     <ul class="space-y-3 py-2 link-group">
                                         <x-nav-link href="/auth/auth-memorial-images" :active="request()->is('auth/auth-memorial-images')">All Memorial Images</x-nav-link>
                                         <x-nav-link href="/auth/create/memorial-images" :active="request()->is('auth/create/memorial-images')">Add Memorial Images</x-nav-link>
@@ -173,7 +173,16 @@
                                         <x-nav-link href="/auth/destroy/links" :active="request()->is('auth/destroy/links')">Delete Link</x-nav-link>
                                     </ul>
                                 </div>
-                            </li>                           
+                            </li> 
+                            
+                            <li>
+                                <form method="POST" action="{{ route('logout') }}">
+                                    @csrf
+                                    <button type="submit" class="bg-red-700 w-full p-2 rounded-lg my-6 hover:bg-red-600 cursor-pointer">
+                                        Logout
+                                    </button>
+                                </form>
+                            </li>                            
                         </ul>
                     </nav>
                 </div>

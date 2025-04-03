@@ -11,6 +11,24 @@ use Illuminate\Http\RedirectResponse;
 class ResourceController extends Controller
 {
     /**
+     * Display a listing of the resources.
+     */
+    public function index()
+    {
+        $resources = Resource::all();
+
+        $phoneResources = $resources->filter(function ($resource) {
+            return !empty($resource->number);
+        });
+
+        $linkResources = $resources->filter(function ($resource) {
+            return !empty($resource->url);
+        });
+
+        return view('resources', compact('phoneResources', 'linkResources'));
+    }
+
+    /**
      * Display a listing of the resources in the database.
      */
     public function authResources(Request $request)
@@ -38,15 +56,27 @@ class ResourceController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
-            'url' => ['required', 'url'],
-            'number' => ['nullable', 'string'],
+            'url' => ['nullable', 'url'],
+            'number' => ['nullable', 'string', 'regex:/^(\d{1,3}-)?\d{3}-\d{3}-\d{4}$/'],
             'tag_id' => ['nullable', 'exists:tags,id'],
         ], [
             'title.required' => 'The title is required.',
             'title.max' => 'The title cannot exceed 255 characters.',
-        
-            'url.required' => 'The URL is required.',
             'url.url' => 'Please provide a valid URL.',
+            'number.regex' => 'Please provide a valid phone number in the format 123-456-7890 or 1-800-232-7288.',
+        ]);
+
+        $request->validate([
+            'url' => ['nullable', function ($attribute, $value, $fail) use ($request) {
+                if ($value && $request->number) {
+                    return $fail('If the resource is a URL, the phone number must be empty.');
+                }
+            }],
+            'number' => ['nullable', function ($attribute, $value, $fail) use ($request) {
+                if ($value && $request->url) {
+                    return $fail('If the resource is a phone number, the URL must be empty.');
+                }
+            }],
         ]);
 
         Resource::create([
@@ -85,15 +115,27 @@ class ResourceController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
-            'url' => ['required', 'url'],
-            'number' => ['nullable', 'string'],
+            'url' => ['nullable', 'url'],
+            'number' => ['nullable', 'string', 'regex:/^(\d{1,3}-)?\d{3}-\d{3}-\d{4}$/'],
             'tag_id' => ['nullable', 'exists:tags,id'],
         ], [
             'title.required' => 'The title is required.',
             'title.max' => 'The title cannot exceed 255 characters.',
-        
-            'url.required' => 'The URL is required.',
             'url.url' => 'Please provide a valid URL.',
+            'number.regex' => 'Please provide a valid phone number in the format 123-456-7890 or 1-800-232-7288.',
+        ]);
+
+        $request->validate([
+            'url' => ['nullable', function ($attribute, $value, $fail) use ($request) {
+                if ($value && $request->number) {
+                    return $fail('If the resource is a URL, the phone number must be empty.');
+                }
+            }],
+            'number' => ['nullable', function ($attribute, $value, $fail) use ($request) {
+                if ($value && $request->url) {
+                    return $fail('If the resource is a phone number, the URL must be empty.');
+                }
+            }],
         ]);
 
         $resource = Resource::findOrFail($id);

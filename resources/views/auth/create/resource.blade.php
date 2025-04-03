@@ -32,7 +32,7 @@
             <div class="mb-6">
                 <label for="number" class="block w-full">Phone Number</label>
                 <input type="text" id="number" name="number" value="{{ old('number') }}" class="border border-gray-800 p-2 w-full rounded-xl bg-white">
-                <small>If applicable, provide a phone number for the resource.</small>
+                <small>If the resource is a phone number, please provide it in the format 123-456-7890.</small>
             </div>
     
             <div class="mb-6">
