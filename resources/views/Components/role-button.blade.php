@@ -1,22 +1,22 @@
 <div class="role-btn-container">
     @foreach ($tags as $tag)
-        <a href="{{ url('/testimonials?tags[]=' . $tag->id . '&submit=Apply+Filters') }}" class="role-btn">
+        <a href="{{ url('/testimonials?tags[]=' . $tag->id . '&submit=Apply+Filters') }}" class="role-btn cursor-pointer {{ strtolower($tag->name) }}">
             @php
                 $componentName = strtolower($tag->name);
             @endphp
 
             @if (view()->exists("components.$componentName"))
-                @component("components.$componentName", ['fill' => 'white', 'stroke' => 'white']) @endcomponent
+                @component("components.$componentName") @endcomponent
             @else
-                <x-all fill="white"/>
+                <x-all/>
             @endif
 
             {{ $tag->name }}
         </a>
     @endforeach
 
-    <a href="/testimonials" class="role-btn">
-        <x-all fill="white"/>
+    <a href="/testimonials" class="role-btn cursor-pointer all">
+        <x-all/>
         All Resources
     </a>
 </div>

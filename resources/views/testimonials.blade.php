@@ -9,20 +9,13 @@
         {{ Breadcrumbs::render('testimonials') }}
     </div>
 
-    <section>
+    <section  class="heading-section">
         <h2>Testimonials</h2>
         <p>Listen to real stories from real first responders who share how they navigated and overcame their mental health battles.</p>
     </section>
 
     <div>
         <x-filter-dropdown :tags="$tags" :selectedTags="$selectedTags" />
-        <x-selected-filters :tags="$tags" :selectedTags="$selectedTags" />
-    
-        @if ($selectedTags)
-            <div>
-                <a href="{{ url()->current() }}" class="bg-gray-500 text-white p-3">Clear all filters</a>
-            </div>
-        @endif
     </div>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">

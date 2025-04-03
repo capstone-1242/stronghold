@@ -60,6 +60,10 @@ iframe {
     aspect-ratio: 16/9;
 }
 
+.heading-section {
+    padding: var(--min-spacing);
+}
+
 /* Typography */
 h1 {
     font-size: 3rem;
@@ -89,6 +93,12 @@ body.dashboard h1 {
 
 body.dashboard header nav {
     font-size: 1.8rem;
+}
+
+/* Breadcrumbs */
+.breadcrumbs {
+    background-color: var(--bg-tertiary);
+    padding: 0.4rem var(--min-spacing);
 }
 
 /* Buttons */
@@ -126,20 +136,11 @@ body.dashboard header nav {
     width: 100%;
     height: 100%;
     text-align: center;
+    fill: var(--text-accent);
 }
 
-.role-btn:hover,
-.role-btn:active,
-.role-btn:focus {
-    background-color: rgba(173, 217, 237, 0.6);
-    border-radius: var(--border-radius);
-    backdrop-filter: blur(10.2px);
-    padding: 0.8rem;
-    box-shadow: 0 2px 6.3px 0 rgba(24, 49, 85, 0.12);
-    display: block;
-    width: 100%;
-    height: 100%;
-    text-align: center;
+.dispatcher svg {
+    stroke: var(--text-accent);
 }
 
 .role-btn img {
@@ -158,6 +159,151 @@ body.dashboard header nav {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.6rem;
+    padding: var(--min-spacing);
+}
+
+/* Specific Career Button Colours */
+.role-btn.military:hover,
+.role-btn.military:focus,
+.role-btn.military.checked {
+    background-color: var(--yellow);
+    color: var(--text-primary);
+    fill: var(--text-primary);
+}
+
+.icon div.military {
+    border-radius: 50%;
+    background-color: var(--yellow);
+    fill: var(--text-primary);
+    padding: 1rem;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.role-btn.police:hover,
+.role-btn.police:focus,
+.role-btn.police.checked {
+    background-color: var(--text-accent);
+    color: var(--bg-primary);
+    fill: var(--bg-primary);
+}
+
+.icon div.police {
+    border-radius: 50%;
+    background-color: var(--text-accent);
+    fill: var(--bg-primary);
+    padding: 1rem;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.role-btn.firefighter:hover,
+.role-btn.firefighter:focus,
+.role-btn.firefighter.checked {
+    background-color: var(--text-accent);
+    color: var(--red);
+    fill: var(--red);
+}
+
+.icon div.firefighter {
+    border-radius: 50%;
+    background-color: var(--text-accent);
+    fill: var(--red);
+    padding: 1rem;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.role-btn.paramedic:hover,
+.role-btn.paramedic:focus,
+.role-btn.paramedic.checked {
+    background-color: var(--red);
+    color: var(--text-accent);
+    fill: var(--text-accent);
+}
+
+.icon div.paramedic {
+    border-radius: 50%;
+    background-color: var(--red);
+    fill: var(--text-accent);
+    padding: 1rem;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.role-btn.hospital:hover,
+.role-btn.hospital:focus,
+.role-btn.hospital.checked {
+    background-color: var(--text-accent);
+    color: var(--green);
+    fill: var(--green);
+}
+
+.icon div.hospital {
+    border-radius: 50%;
+    background-color: var(--text-accent);
+    fill: var(--green);
+    padding: 1rem;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.role-btn.dispatcher:hover,
+.role-btn.dispatcher:focus,
+.role-btn.dispatcher.checked {
+    background-color: var(--bg-primary);
+    color: var(--text-accent);
+    fill: var(--text-accent);
+    stroke: var(--text-accent);
+}
+
+.icon div.dispatcher {
+    border-radius: 50%;
+    background-color: var(--bg-primary);
+    fill: var(--text-accent);
+    stroke: var(--text-accent);
+    padding: 1rem;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.role-btn.families:hover,
+.role-btn.families:focus,
+.role-btn.families.checked {
+    background-color: var(--green);
+    color: var(--text-accent);
+    fill: var(--text-accent);
+}
+
+.icon div.families {
+    border-radius: 50%;
+    background-color: var(--green);
+    fill: var(--text-accent);
+    padding: 1rem;
+    aspect-ratio: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.role-btn.all:hover,
+.role-btn.all:focus,
+.role-btn.all.checked {
+    background-color: var(--text-accent);
+    color: var(--red);
+    fill: var(--red);
 }
 
 /* Disclaimer */
@@ -208,8 +354,9 @@ footer .disclaimer svg {
 /* Pagination */
 .pagination-container {
     display: flex !important;
-    justify-content: space-between !important;
+    justify-content: center !important;
     align-items: center !important;
+    gap: var(--min-spacing);
     margin: var(--min-spacing) auto !important;
     padding: var(--min-spacing) !important;
 }
@@ -271,6 +418,18 @@ footer .disclaimer svg {
 }
 
 /* Header */
+header {
+    position: sticky;
+    top: 0;
+    background-color: var(--bg-secondary);
+    z-index: 1000;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+header.bg-nav {
+    background-color: #728C98;
+}
+
 header nav {
     display: none;
     background-color: #728C98;
@@ -280,7 +439,7 @@ header nav {
     width: 100%;
     height: fit-content;
     z-index: 100;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 8px -4px rgba(0, 0, 0, 0.2);
     padding: var(--min-spacing);
 }
 
@@ -309,6 +468,11 @@ header nav li a {
     font-size: 1.5;
     display: inline-block;
     padding: 1rem;
+}
+
+header nav li a:hover,
+header nav li a:focus {
+    text-decoration: underline
 }
 
 /* Home */
@@ -361,6 +525,18 @@ header nav li a {
     margin-bottom: 3.2rem;
 }
 
+/* Memorials */
+.icon div {
+    margin: unset;
+    fill: var(--text-accent);
+}
+
+.icon a {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-top: 0.6rem;
+}
+
 /* Videos */
 .videos h2 {
     padding: var(--min-spacing);
@@ -384,6 +560,16 @@ header nav li a {
     width: 100%;
     height: auto;
     padding: 0.5rem;
+    margin: 0 0.8rem;
+    border: 2px solid transparent;
+    border-radius: var(--border-radius);
+    background-color: transparent !important;
+}
+
+#search:focus {
+    outline: none;
+    border: 2px solid var(--text-accent);
+    border-radius: var(--border-radius);
 }
 
 .videos input::placeholder {
@@ -693,7 +879,7 @@ body.dashboard .link-group a:focus,
 
 /* Footer */
 footer {
-    background-image: url("images/footer-bg.png");
+    background-image: url("../../public/images/footer-bg.png");
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

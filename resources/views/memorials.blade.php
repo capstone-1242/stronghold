@@ -1,6 +1,6 @@
 @php
     use App\Models\Tag;
-    $tags = \App\Models\Tag::all(); 
+    $tags = Tag::all(); 
     $selectedTags = request()->input('tags', []);
 @endphp
 
@@ -9,7 +9,7 @@
         {{ Breadcrumbs::render('memorials') }}
     </div>
 
-    <section>
+    <section class="heading-section">
         <h2>Memorials</h2>
         <p>Honor the lives of first responders, celebrating their courage and legacy, with a space for remembrance and healing.</p>
         <p>“Lost but not forgotten”</p>
@@ -17,38 +17,38 @@
 
     <div>
         <x-filter-dropdown :tags="$tags" :selectedTags="$selectedTags" />
-        <x-selected-filters :tags="$tags" :selectedTags="$selectedTags" />
-
-        @if ($selectedTags)
-            <div>
-                <a href="{{ url()->current() }}" class="bg-gray-500 text-white p-3">Clear all filters</a>
-            </div>
-        @endif
     </div>
 
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-[1.6rem]">
         @foreach($memorials as $memorial)
             <div class="overflow-hidden relative">
                 @if($memorial->memorialImages->count() > 0)
                     <a href="{{ route('memorial', ['id' => $memorial->id]) }}" class="block w-full">
                         <div class="relative w-full">
-                            <img src="{{ $memorial->memorialImages->first()->filename }}" alt="Memorial Image" class="object-cover w-full h-64 md:h-80 lg:h-96">
+                            <img src="{{ $memorial->memorialImages->first()->filename }}" alt="Memorial Image" class="object-cover w-full h-64 md:h-80 lg:h-96 rounded-sm">
+                            <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black to-transparent opacity-50 rounded-sm"></div>
                         </div>
                     </a>
                 @endif
 
-                <div class="absolute bottom-4 left-4 right-4 flex flex-col items-baseline">
+                <div class="icon absolute bottom-4 left-4 right-4 flex flex-col gap-2 items-baseline">
                     @if($memorial->tag)
-                        <div class="mb-2">
-                            <img src="{{ asset('images/' . $memorial->tag->name . '.svg') }}" alt="{{ $memorial->tag->name }} icon" class="w-12 h-12 object-contain">
-                        </div>
+                        @php
+                            $componentName = strtolower($memorial->tag->name);
+                        @endphp
+
+                        @if (view()->exists("components.$componentName"))
+                            @component("components.$componentName") @endcomponent
+                        @else
+                            <x-all/>
+                        @endif
                     @else
                         <p>No Icon Available</p>
                     @endif
 
                     <a href="{{ route('memorial', ['id' => $memorial->id]) }}">
                         {{ $memorial->first_name }} {{ $memorial->last_name }}
-                    </a>                       
+                    </a>
                 </div>
             </div>
         @endforeach

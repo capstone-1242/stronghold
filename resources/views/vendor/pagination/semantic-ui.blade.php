@@ -43,7 +43,7 @@
         @endif
 
         {{-- Last Page Link --}}
-        <a class="pagination-item" href="{{ $paginator->url($paginator->lastPage()) }}" aria-label="@lang('pagination.last')">{{ $paginator->lastPage() }}</a>
+        <a class="pagination-item @if ($paginator->currentPage() == $paginator->lastPage()) active @endif" href="{{ $paginator->url($paginator->lastPage()) }}" aria-label="@lang('pagination.last')">{{ $paginator->lastPage() }}</a>
 
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())

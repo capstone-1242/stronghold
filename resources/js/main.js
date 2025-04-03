@@ -8,15 +8,22 @@ btn.addEventListener('click', function () {
     this.setAttribute('aria-expanded', !expanded);
 });
 
-let filterDropdown = document.querySelector('.filter-dropdown-btn');
 
-filterDropdown.addEventListener('click', function () {
-    let tagDropdown = document.querySelector('.filter-dropdown-content');
-    tagDropdown.classList.toggle('show');
+const toggleButton = document.querySelector('.tog-btn');
+const header = document.querySelector('header');
 
-    let expanded = this.getAttribute('aria-expanded') === 'true';
-    this.setAttribute('aria-expanded', !expanded); 
+toggleButton.addEventListener('click', function () {
+    header.classList.toggle('bg-nav');
 });
 
+document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('input[type="checkbox"]').forEach(checkbox => {
 
+        const label = checkbox.closest('label');
+
+        if (checkbox.checked) {
+            label.classList.add('checked');
+        }
+    });
+});
 

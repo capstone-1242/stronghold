@@ -21,7 +21,7 @@
                             <h1><a href="/">STRONGHOLD</a></h1>
 
                             <button class="tog-btn cursor-pointer" aria-label="Main Navigation Menu" aria-expanded="false" aria-controls="main-menu">
-                                <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="40" height="40" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                     <title>Menu</title>
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
                                 </svg>
