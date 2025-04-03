@@ -28,14 +28,14 @@
             @endphp
 
             @if ($videoId)
-                <iframe 
-                    src="https://www.youtube.com/embed/{{ $videoId }}?controls=1" 
-                    width="100%" 
-                    height="315" 
-                    title="{{ $video->title }}" 
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
+                <iframe
+                    src="https://www.youtube.com/embed/{{ $videoId }}?controls=1"
+                    width="100%"
+                    height="315"
+                    title="{{ $video->title }}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
                     allowfullscreen>
                 </iframe>
             @else
@@ -57,16 +57,16 @@
                     Previous
                 </a>
             @endif
-        
+
             @if ($nextVideo)
                 <a href="{{ route('video', ['video' => $nextVideo->id]) }}" class="pagination-link">
                     Next
                     <svg class="pagination-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M9 5L16 12L9 19" stroke="#0072C2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
-                    </svg> 
+                    </svg>
                 </a>
             @endif
-        </div>        
+        </div>
 
         <div>
             <h3>Resources by {{ $author->first_name }} {{ $author->last_name }}</h3>
@@ -94,14 +94,14 @@
 
                         <div>
                             @if ($relatedVideoId)
-                                <iframe 
-                                    src="https://www.youtube.com/embed/{{ $relatedVideoId }}?controls=0" 
-                                    width="auto" 
-                                    height="200" 
-                                    title="{{ $relatedVideo->title }}" 
-                                    frameborder="0" 
-                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                    referrerpolicy="strict-origin-when-cross-origin" 
+                                <iframe
+                                    src="https://www.youtube.com/embed/{{ $relatedVideoId }}?controls=0"
+                                    width="auto"
+                                    height="200"
+                                    title="{{ $relatedVideo->title }}"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin"
                                     allowfullscreen>
                                 </iframe>
                             @else

@@ -22,7 +22,7 @@
                         <svg xmlns="http://www.w3.org/2000/svg" fill="white" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                             <title>Menu</title>
                             <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                        </svg>                                  
+                        </svg>
                     </button>
                 </section>
 
@@ -30,7 +30,7 @@
                     <nav class="mt-6">
                         <ul class="space-y-6">
                             <x-nav-link href="/dashboard" :active="request()->is('dashboard')" class="p-2 x-nav-link block rounded-xl">Dashboard</x-nav-link>
-                            
+
                             <li>
                                 <button class="x-nav-link w-[100%] text-left dash-dropdown rounded-tl-xl rounded-tr-xl cursor-pointer flex justify-between items-center p-2" aria-expanded="false">
                                     Videos
@@ -48,7 +48,7 @@
                                     </ul>
                                 </div>
                             </li>
-                            
+
                             <li>
                                 <button class="x-nav-link w-[100%] text-left dash-dropdown rounded-tl-xl rounded-tr-xl cursor-pointer flex justify-between items-center p-2" aria-expanded="false">
                                     Resources
@@ -65,8 +65,8 @@
                                         <x-nav-link href="/auth/destroy/resource" :active="request()->is('auth/destroy/resource')">Delete Resource</x-nav-link>
                                     </ul>
                                 </div>
-                            </li>                                
-                            
+                            </li>
+
                             <li>
                                 <button class="x-nav-link w-[100%] text-left dash-dropdown rounded-tl-xl rounded-tr-xl cursor-pointer flex justify-between items-center p-2" aria-expanded="false">
                                     Presenters
@@ -173,8 +173,8 @@
                                         <x-nav-link href="/auth/destroy/links" :active="request()->is('auth/destroy/links')">Delete Link</x-nav-link>
                                     </ul>
                                 </div>
-                            </li> 
-                            
+                            </li>
+
                             <li>
                                 <form method="POST" action="{{ route('logout') }}">
                                     @csrf
@@ -182,7 +182,7 @@
                                         Logout
                                     </button>
                                 </form>
-                            </li>                            
+                            </li>
                         </ul>
                     </nav>
                 </div>
@@ -224,7 +224,7 @@
         button.addEventListener('click', function () {
             let dropdownContent = this.nextElementSibling;
             dropdownContent.classList.toggle('show');
-            
+
             let expanded = this.getAttribute('aria-expanded') === 'true';
             this.setAttribute('aria-expanded', !expanded);
 

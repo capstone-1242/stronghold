@@ -1,13 +1,13 @@
 <x-admin-layout>
     <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Delete a Resource</h2>
-        
+
         @if(session('success'))
             <div class="bg-green-700 text-white text-center rounded-xl p-4 mb-6">
                 {{ session('success') }}
             </div>
         @endif
-    
+
         <div class="table-container">
             <table>
                 <thead class="bg-gray-100">
@@ -27,7 +27,7 @@
                             <td class="px-6 py-4">
                                 <a href="{{ $resource->url }}" target="_blank" class="text-blue-500">{{ $resource->url ?? '-' }}</a>
                             </td>
-                            <td class="px-6 py-4">{{ $resource->number ?? '-' }}</td> 
+                            <td class="px-6 py-4">{{ $resource->number ?? '-' }}</td>
                             <td class="px-6 py-4">
                                 <form action="{{ route('auth.destroy.resource.delete', $resource->id) }}" method="POST" style="display: inline;">
                                     @csrf
@@ -39,7 +39,7 @@
                     @endforeach
                 </tbody>
             </table>
-    
+
             <div>
                 {{ $resources->appends(request()->query())->links('pagination::semantic-ui') }}
             </div>

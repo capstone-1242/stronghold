@@ -11,12 +11,12 @@
         </div>
 
         <p>This resource section is designed to provide content to support mental health. Please access the topics you believe will apply to your situation.</p>
-        
+
         <x-disclaimer/>
 
         <section>
             <h3>Canada Help Lines</h3>
-        
+
             @if ($phoneResources->isEmpty())
                 <p>No help lines available.</p>
             @else

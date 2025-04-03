@@ -95,12 +95,12 @@ class VideoController extends Controller
         ], [
             'title.required' => 'The title is required.',
             'title.max' => 'The title cannot exceed 255 characters.',
-        
+
             'description.required' => 'The description is required.',
-        
+
             'url.required' => 'The URL is required.',
             'url.url' => 'Please provide a valid URL.',
-        
+
             'author_id.required' => 'The author is required.',
             'author_id.exists' => 'The selected author is invalid.',
         ]);
@@ -125,13 +125,13 @@ class VideoController extends Controller
         if ($request->has('video_id')) {
             $video = Video::find($request->video_id);
         }
-    
+
         $videos = Video::all();
         $authors = Author::all();
-    
+
         return view('auth.edit.video', compact('video', 'videos', 'authors'));
     }
-    
+
     /**
      * Update the specified video in storage.
      */
@@ -145,12 +145,12 @@ class VideoController extends Controller
         ], [
             'title.required' => 'The title field is required.',
             'title.max' => 'The title cannot exceed 255 characters.',
-        
+
             'description.required' => 'The description field is required.',
-        
+
             'url.required' => 'The URL field is required.',
             'url.url' => 'Please provide a valid URL.',
-        
+
             'author_id.required' => 'The author is required.',
             'author_id.exists' => 'The selected author is invalid.',
         ]);

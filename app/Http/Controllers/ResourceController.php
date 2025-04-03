@@ -11,7 +11,7 @@ use Illuminate\Http\RedirectResponse;
 class ResourceController extends Controller
 {
     /**
-     * Display a listing of the resources.
+     * Display a listing of the resources in the site.
      */
     public function index()
     {
@@ -43,7 +43,7 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        $tags = Tag::all(); 
+        $tags = Tag::all();
 
         return view('auth.create.resource', compact('tags'));
     }
