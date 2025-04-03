@@ -34,13 +34,13 @@
     
                 <div class="mb-6">
                     <label for="description" class="block w-full">Description</label>
-                    <textarea id="description" name="description" class="border border-gray-800 p-2 w-full rounded-xl bg-white" required>{{ old('description', $resource->description) }}</textarea>
+                    <textarea id="description" name="description" class="border border-gray-800 p-2 w-full rounded-xl bg-white">{{ old('description', $resource->description) }}</textarea>
                     <small>Provide a description of the resource.</small>
                 </div>
     
                 <div class="mb-6">
                     <label for="url" class="block w-full">URL</label>
-                    <input type="url" id="url" name="url" value="{{ old('url', $resource->url) }}" class="border border-gray-800 p-2 w-full rounded-xl bg-white" required>
+                    <input type="url" id="url" name="url" value="{{ old('url', $resource->url) }}" class="border border-gray-800 p-2 w-full rounded-xl bg-white">
                     <small>Please provide the URL for the resource.</small>
                 </div>
     

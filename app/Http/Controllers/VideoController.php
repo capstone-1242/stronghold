@@ -45,7 +45,7 @@ class VideoController extends Controller
     public function show($videoId)
     {
         $video = Video::findOrFail($videoId);
-        $author = $video->author;
+        $author = $video->author()->with('links')->first();
 
         $previousVideo = Video::where('author_id', $author->id)
             ->where('id', '<', $video->id)

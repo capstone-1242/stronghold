@@ -70,6 +70,13 @@
 
         <div>
             <h3>Resources by {{ $author->first_name }} {{ $author->last_name }}</h3>
+            <ul class="author-links">
+                @foreach ($author->links as $link)
+                    <li>
+                        <a href="{{ $link->url }}" target="_blank" class="underline">{{ $link->title }}</a>
+                    </li>
+                @endforeach
+            </ul>
         </div>
 
         <div>

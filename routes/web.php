@@ -32,18 +32,16 @@ Route::get('/memorials/{id}', [MemorialController::class, 'show'])->name('memori
 Route::get('/testimonials', [TestimonialVideoController::class, 'index'])->name('testimonials');
 
 // Resource Routes
-Route::get('/resources', function () {
-    return view('resources');
-})->name('resources');
+Route::get('/resources', [ResourceController::class, 'index'])->name('resources');
 
 // Authentication Routes
 Route::get('/auth/register', [RegisteredUserController::class, 'create'])->name('register');
 Route::post('/auth/register', [RegisteredUserController::class, 'store'])->name('register.store');
 
-Route::get('/auth/login', [AuthenticatedSessionController::class, 'create'])
-    ->name('login');
-Route::post('/login', [AuthenticatedSessionController::class, 'store'])
-    ->name('login.store');
+Route::get('/auth/login', [AuthenticatedSessionController::class, 'create'])->name('login');
+Route::post('/login', [AuthenticatedSessionController::class, 'store'])->name('login.store');
+Route::post('/logout', [AuthenticatedSessionController::class, 'destroy'])->name('logout');
+
 
 // Authenticated User Routes
 Route::middleware('auth')->group(function () {
