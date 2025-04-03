@@ -1,8 +1,8 @@
 <x-layout>
     <div class="banner">
         <p>
-            <span>Enter the</span> 
-            <span>STRONGHOLD</span> 
+            <span>Enter the</span>
+            <span>STRONGHOLD</span>
             <span>where <strong>hope</strong> is an anchor.</span>
         </p>
 
@@ -14,7 +14,7 @@
             </svg>
         </div>
     </div>
-    
+
     <section class="welcome">
         <h2><span>Welcome </span>to the <span>STRONGHOLD</span></h2>
         <p>— a nonprofit, video-based mental health resource for first responders. Here, you’ll find support, stories, and strategies to help you stay strong in mind and body. You’re not alone—welcome to your safehaven.</p>
@@ -24,8 +24,8 @@
             width="100%"
             height="auto"
              frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-        </div>        
-            
+        </div>
+
         <x-disclaimer/>
     </section>
 
@@ -34,7 +34,7 @@
             <h2>Explore Insightful Videos</h2>
             <p>Browse our mental health video collection for support on everything from depression to overall well-being.</p>
         </div>
-    
+
         @foreach ($presenterVideos as $video)
             <div>
                 @php
@@ -48,14 +48,14 @@
             @endphp
 
                 @if ($videoId)
-                <iframe 
-                src="https://www.youtube.com/embed/{{ $videoId }}" 
+                <iframe
+                src="https://www.youtube.com/embed/{{ $videoId }}"
                 width="100%"
                 height="auto"
-                title="{{ $video->title }}" 
-                frameborder="0" 
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                referrerpolicy="strict-origin-when-cross-origin" 
+                title="{{ $video->title }}"
+                frameborder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerpolicy="strict-origin-when-cross-origin"
                 allowfullscreen>
             </iframe>
                 @else
@@ -68,7 +68,7 @@
 
         <a href="/videos" :active="request()->is('videos')" class="button">Explore More Videos</a>
     </section>
-    
+
     <section class="home-testimonial">
         <h2>Our Testimonials of Triumph</h2>
 
@@ -86,14 +86,14 @@
 
             <div>
                 @if ($videoId)
-                    <iframe 
-                        src="https://www.youtube.com/embed/{{ $videoId }}" 
-                        width="100%" 
-                        height="auto" 
-                        title="{{ $testimonialVideo->title }}" 
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
+                    <iframe
+                        src="https://www.youtube.com/embed/{{ $videoId }}"
+                        width="100%"
+                        height="auto"
+                        title="{{ $testimonialVideo->title }}"
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
                         allowfullscreen>
                     </iframe>
                 @else
@@ -105,7 +105,7 @@
 
     <section class="home-testimonial">
         <h2>Career-Based Testimonials</h2>
-    
+
         <div>
             <x-role-button/>
         </div>

@@ -19,12 +19,12 @@
                     <div class="navbar-content">
                         <section>
                             <h1><a href="/">STRONGHOLD</a></h1>
-    
+
                             <button class="tog-btn cursor-pointer" aria-label="Main Navigation Menu" aria-expanded="false" aria-controls="main-menu">
                                 <svg xmlns="http://www.w3.org/2000/svg" fill="white" width="24" height="24" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
                                     <title>Menu</title>
                                     <path stroke-linecap="round" stroke-linejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-                                </svg>                                  
+                                </svg>
                             </button>
                         </section>
 
@@ -39,48 +39,48 @@
                         </nav>
                     </div>
                 </div>
-            </header>            
+            </header>
 
             <main>
                 {{ $slot }}
             </main>
 
             <footer>
-                <section>
-                    <h4 class="font-bold">
-                        <a href="/">STRONGHOLD</a>
-                    </h4>
 
-                    <p>"Where hope is an anchor"</p>
-                </section>
+                <div class="lg:flex lg:gap-10 items-center lg:items-start lg:max-w-[70%] mx-auto lg:flex-wrap">
+                    <div class=" md:max-w-full mx-auto lg:flex-1">
+                        <section class="text-center lg:text-left">
+                            <h4 class="font-bold">
+                                <a href="/">STRONGHOLD</a>
+                            </h4>
 
-                <nav>
-                    <ul>
-                        <div>
-                            <x-nav-link href="/sitemap" :active="request()->is('sitemap')">Sitemap</x-nav-link>
-                            <x-nav-link href="/privacy" :active="request()->is('privacy')">Privacy</x-nav-link>
-                        </div>
-                        <div>
-                            <x-nav-link href="/videos" :active="request()->is('videos')">Videos</x-nav-link>
-                            <x-nav-link href="/resources" :active="request()->is('resources')">Resources</x-nav-link>
-                        </div>
-                        <div>
-                            <x-nav-link href="/testimonials" :active="request()->is('testimonials')">Testimonials</x-nav-link>
-                            <x-nav-link href="/memorials" :active="request()->is('memorials')">Memorials</x-nav-link>
-                        </div>
-                    </ul>
-                </nav>
+                            <p>"Where hope is an anchor"</p>
+                        </section>
+                        <nav class="">
+                            <ul>
+                                <div class="grid grid-cols-3 mx-auto md:flex md:gap-8 lg:mx-0 ">
+                                    <x-nav-link href="/sitemap" :active="request()->is('sitemap')">Sitemap</x-nav-link>
+                                    <x-nav-link href="/videos" :active="request()->is('videos')">Videos</x-nav-link>
+                                    <x-nav-link href="/testimonials" :active="request()->is('testimonials')">Testimonials</x-nav-link>
+                                    <x-nav-link href="/privacy" :active="request()->is('privacy')">Privacy</x-nav-link>
+                                    <x-nav-link href="/resources" :active="request()->is('resources')">Resources</x-nav-link>
+                                    <x-nav-link href="/memorials" :active="request()->is('memorials')">Memorials</x-nav-link>
+                                </div>
+                            </ul>
+                        </nav>
 
-                <hr class="w-10/12 mx-auto my-[1.6rem]">
+                        <div class="divider"></div>
 
-                <nav>
-                    <ul>
-                        <x-nav-link href="/about" :active="request()->is('about')">About Us</x-nav-link>
-                        <x-nav-link href="/auth/login" :active="request()->is('/auth/login')">Admin Login</x-nav-link>
-                    </ul>
-                </nav>
+                        <nav>
+                            <ul class="flex gap-6 justify-center lg:justify-start">
+                                <x-nav-link href="/about" :active="request()->is('about')">About Us</x-nav-link>
+                                <x-nav-link href="/auth/login" :active="request()->is('/auth/login')">Admin Login</x-nav-link>
+                            </ul>
+                        </nav>
+                    </div>
 
-                <x-disclaimer />
+                    <x-disclaimer />
+                </div>
             </footer>
         </div>
     </body>
