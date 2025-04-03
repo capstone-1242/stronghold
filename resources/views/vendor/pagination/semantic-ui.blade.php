@@ -1,36 +1,55 @@
 @if ($paginator->hasPages())
-    <div class="ui pagination menu" role="navigation">
+    <div class="pagination-container" role="navigation">
         {{-- Previous Page Link --}}
         @if ($paginator->onFirstPage())
-            <a class="icon item disabled" aria-disabled="true" aria-label="@lang('pagination.previous')"> <i class="left chevron icon"></i> </a>
+            <!-- Hide the "Previous" button when on the first page -->
         @else
-            <a class="icon item" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')"> <i class="left chevron icon"></i> </a>
+            <a class="pagination-item" href="{{ $paginator->previousPageUrl() }}" rel="prev" aria-label="@lang('pagination.previous')"> Previous </a>
         @endif
 
-        {{-- Pagination Elements --}}
-        @foreach ($elements as $element)
-            {{-- "Three Dots" Separator --}}
-            @if (is_string($element))
-                <a class="icon item disabled" aria-disabled="true">{{ $element }}</a>
-            @endif
+        {{-- First Page Link --}}
+        <a class="pagination-item @if ($paginator->currentPage() == 1) active @endif" href="{{ $paginator->url(1) }}" aria-label="@lang('pagination.first')">1</a>
 
-            {{-- Array Of Links --}}
-            @if (is_array($element))
-                @foreach ($element as $page => $url)
-                    @if ($page == $paginator->currentPage())
-                        <a class="item active" href="{{ $url }}" aria-current="page">{{ $page }}</a>
-                    @else
-                        <a class="item" href="{{ $url }}">{{ $page }}</a>
-                    @endif
-                @endforeach
+        {{-- Pagination Elements --}}
+        @php
+            $start = $paginator->currentPage() - 2;
+            $end = $paginator->currentPage() + 2;
+            if ($start < 2) {
+                $start = 2;
+                $end = min(3, $paginator->lastPage());
+            }
+            if ($end > $paginator->lastPage() - 1) {
+                $end = $paginator->lastPage() - 1;
+                $start = max(2, $paginator->lastPage() - 3);
+            }
+        @endphp
+
+        {{-- "Three Dots" Separator --}}
+        @if ($start > 2)
+            <span class="pagination-item disabled">...</span>
+        @endif
+
+        @for ($i = $start; $i <= $end; $i++)
+            @if ($i == $paginator->currentPage())
+                <a class="pagination-item active" href="{{ $paginator->url($i) }}" aria-current="page">{{ $i }}</a>
+            @else
+                <a class="pagination-item" href="{{ $paginator->url($i) }}">{{ $i }}</a>
             @endif
-        @endforeach
+        @endfor
+
+        {{-- "Three Dots" Separator --}}
+        @if ($end < $paginator->lastPage() - 1)
+            <span class="pagination-item disabled">...</span>
+        @endif
+
+        {{-- Last Page Link --}}
+        <a class="pagination-item" href="{{ $paginator->url($paginator->lastPage()) }}" aria-label="@lang('pagination.last')">{{ $paginator->lastPage() }}</a>
 
         {{-- Next Page Link --}}
         @if ($paginator->hasMorePages())
-            <a class="icon item" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')"> <i class="right chevron icon"></i> </a>
+            <a class="pagination-item" href="{{ $paginator->nextPageUrl() }}" rel="next" aria-label="@lang('pagination.next')"> Next </a>
         @else
-            <a class="icon item disabled" aria-disabled="true" aria-label="@lang('pagination.next')"> <i class="right chevron icon"></i> </a>
+            <!-- Hide the "Next" button when on the last page -->
         @endif
     </div>
 @endif

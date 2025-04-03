@@ -20,7 +20,7 @@ class MemorialController extends Controller
 
         $memorials = Memorial::when(count($selectedTags) > 0, function ($query) use ($selectedTags) {
             return $query->whereIn('tag_id', $selectedTags);
-        })->paginate(6);
+        })->paginate(1);
 
         return view('memorials', compact('tags', 'memorials', 'selectedTags'));
     }

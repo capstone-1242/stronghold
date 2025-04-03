@@ -199,6 +199,29 @@ footer .disclaimer svg {
     fill: var(--text-primary);
 }
 
+/* Pagination */
+.pagination-container {
+    display: flex !important;
+    justify-content: space-between !important;
+    align-items: center !important;
+    margin: var(--min-spacing) auto !important;
+    padding: var(--min-spacing) !important;
+}
+
+.pagination-item {
+    background-color: #add9ed67 !important;
+    color: var(--text-accent) !important;
+    border: unset !important;
+    border-radius: var(--border-radius) !important;
+    padding: 1rem 1.6rem !important;
+}
+
+.pagination-item.active {
+    background-color: #e2ebefd9 !important;
+    border: unset !important;
+    color: var(--bg-tertiary) !important;
+}
+
 /* Home Banner */
 .banner {
     height: 100vh;

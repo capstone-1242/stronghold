@@ -29,26 +29,26 @@
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         @foreach($memorials as $memorial)
             <div class="overflow-hidden relative">
-                @foreach($memorial->memorialImages as $image)
+                @if($memorial->memorialImages->count() > 0)
                     <a href="{{ route('memorial', ['id' => $memorial->id]) }}" class="block w-full">
                         <div class="relative w-full">
-                            <img src="{{ $image->filename }}" alt="Memorial Image" class="object-cover w-full h-64 md:h-80 lg:h-96">
+                            <img src="{{ $memorial->memorialImages->first()->filename }}" alt="Memorial Image" class="object-cover w-full h-64 md:h-80 lg:h-96">
                         </div>
                     </a>
-                @endforeach
-
-                @if($memorial->tag)
-                    <div class="absolute top-2 right-2 w-12 h-12">
-                        <img src="{{ asset('images/' . $memorial->tag->name . '.svg') }}" alt="{{ $memorial->tag->name }} icon" class="w-full h-full object-contain">
-                    </div>
-                @else
-                    <p>No Icon Available</p>
                 @endif
 
-                <div class="absolute bottom-0 left-0 p-4">
+                <div class="absolute bottom-4 left-4 right-4 flex flex-col items-baseline">
+                    @if($memorial->tag)
+                        <div class="mb-2">
+                            <img src="{{ asset('images/' . $memorial->tag->name . '.svg') }}" alt="{{ $memorial->tag->name }} icon" class="w-12 h-12 object-contain">
+                        </div>
+                    @else
+                        <p>No Icon Available</p>
+                    @endif
+
                     <a href="{{ route('memorial', ['id' => $memorial->id]) }}">
                         {{ $memorial->first_name }} {{ $memorial->last_name }}
-                    </a>                      
+                    </a>                       
                 </div>
             </div>
         @endforeach

@@ -63,7 +63,7 @@ class ResourceController extends Controller
             'title.required' => 'The title is required.',
             'title.max' => 'The title cannot exceed 255 characters.',
             'url.url' => 'Please provide a valid URL.',
-            'number.regex' => 'Please provide a valid phone number in the format 123-456-7890 or 1-800-232-7288.',
+            'number.regex' => 'Please provide a valid phone number in the format 123-456-7890 or 1-800-456-7890.',
         ]);
 
         $request->validate([
@@ -122,7 +122,7 @@ class ResourceController extends Controller
             'title.required' => 'The title is required.',
             'title.max' => 'The title cannot exceed 255 characters.',
             'url.url' => 'Please provide a valid URL.',
-            'number.regex' => 'Please provide a valid phone number in the format 123-456-7890 or 1-800-232-7288.',
+            'number.regex' => 'Please provide a valid phone number in the format 123-456-7890 or 1-800-123-4567.',
         ]);
 
         $request->validate([
