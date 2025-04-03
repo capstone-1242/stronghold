@@ -34,20 +34,20 @@
     
                 <div class="mb-6">
                     <label for="description" class="block w-full">Description</label>
-                    <textarea id="description" name="description" class="border border-gray-800 p-2 w-full rounded-xl bg-white" required>{{ old('description', $resource->description) }}</textarea>
+                    <textarea id="description" name="description" class="border border-gray-800 p-2 w-full rounded-xl bg-white">{{ old('description', $resource->description) }}</textarea>
                     <small>Provide a description of the resource.</small>
                 </div>
     
                 <div class="mb-6">
                     <label for="url" class="block w-full">URL</label>
-                    <input type="url" id="url" name="url" value="{{ old('url', $resource->url) }}" class="border border-gray-800 p-2 w-full rounded-xl bg-white" required>
+                    <input type="url" id="url" name="url" value="{{ old('url', $resource->url) }}" class="border border-gray-800 p-2 w-full rounded-xl bg-white">
                     <small>Please provide the URL for the resource.</small>
                 </div>
     
                 <div class="mb-6">
                     <label for="number" class="block w-full">Phone Number</label>
                     <input type="text" id="number" name="number" value="{{ old('number', $resource->number) }}" class="border border-gray-800 p-2 w-full rounded-xl bg-white">
-                    <small>If applicable, provide a phone number for contacting the resource provider.</small>
+                    <small>If the resource is a phone number, please provide it in the format 123-456-7890.</small>
                 </div>
     
                 <div class="mb-6">

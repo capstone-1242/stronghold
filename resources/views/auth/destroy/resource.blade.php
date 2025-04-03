@@ -16,7 +16,6 @@
                         <th class="px-6 text-left">Description</th>
                         <th class="px-6 text-left">URL</th>
                         <th class="px-6 text-left">Phone Number</th>
-                        <th class="px-6 text-left">Tag</th>
                         <th class="px-6 text-left">Actions</th>
                     </tr>
                 </thead>
@@ -29,9 +28,6 @@
                                 <a href="{{ $resource->url }}" target="_blank" class="text-blue-500">{{ $resource->url ?? '-' }}</a>
                             </td>
                             <td class="px-6 py-4">{{ $resource->number ?? '-' }}</td> 
-                            <td class="px-6 py-4">
-                                {{ $resource->tag ? $resource->tag->name : '-' }}
-                            </td>
                             <td class="px-6 py-4">
                                 <form action="{{ route('auth.destroy.resource.delete', $resource->id) }}" method="POST" style="display: inline;">
                                     @csrf
