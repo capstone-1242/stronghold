@@ -154,6 +154,12 @@ body.dashboard header nav {
     gap: 1.6rem;
 }
 
+.role-btn-filter-container form {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.6rem;
+}
+
 /* Disclaimer */
 .disclaimer {
     display: flex;
