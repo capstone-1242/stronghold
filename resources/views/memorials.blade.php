@@ -16,10 +16,10 @@
             <p>“Lost but not forgotten”</p>
         </section>
     
-        <div>
+        <section>
             <h3>Filter by Career</h3>
             <x-filter-dropdown :tags="$tags" :selectedTags="$selectedTags" />
-        </div>
+        </section>
     
         <div class="grid grid-cols-1 md:grid-cols-2 gap-6 p-[1.6rem]">
             @foreach($memorials as $memorial)
