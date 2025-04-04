@@ -48,7 +48,7 @@
                             <h3>{{ $author->first_name }} {{ $author->last_name }}</h3>
                             <a href="{{ route('author.videos', ['author_id' => $authorId]) }}" class="see-all-link">See All</a>
                         </div>
-                        <p>{{ $author->author_description }}</p>
+                        <p>{{ $author->description }}</p>
 
                         <div class="author-videos">
                             @foreach ($authorVideos as $video)

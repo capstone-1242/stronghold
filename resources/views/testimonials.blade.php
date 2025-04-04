@@ -14,9 +14,10 @@
         <p>Listen to real stories from real first responders who share how they navigated and overcame their mental health battles.</p>
     </section>
 
-    <div>
-        <x-filter-dropdown :tags="$tags" :selectedTags="$selectedTags" />
-    </div>
+    <section>
+        <h3>Filter by Career</h3>
+            <x-filter-dropdown :tags="$tags" :selectedTags="$selectedTags" />
+    </section>
 
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
         @foreach ($testimonialVideos as $testimonialVideo)

@@ -35,36 +35,38 @@
             <p>Browse our mental health video collection for support on everything from depression to overall well-being.</p>
         </div>
 
-        @foreach ($presenterVideos as $video)
-            <div>
-                @php
-                $videoId = null;
-                $youtubePattern = '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/';
-                $isMatch = preg_match($youtubePattern, $video->url, $matches);
-
-                if ($isMatch) {
-                    $videoId = $matches[1];
-                }
-            @endphp
-
-                @if ($videoId)
-                <iframe
-                src="https://www.youtube.com/embed/{{ $videoId }}"
-                width="100%"
-                height="auto"
-                title="{{ $video->title }}"
-                frameborder="0"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerpolicy="strict-origin-when-cross-origin"
-                allowfullscreen>
-            </iframe>
-                @else
-                    <p>Video not available.</p>
-                @endif
-
-                <h3>{{ $video->title }}</h3>
-            </div>
-        @endforeach
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:p-[1.6rem]">
+            @foreach ($presenterVideos as $video)
+                <div>
+                    @php
+                    $videoId = null;
+                    $youtubePattern = '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/';
+                    $isMatch = preg_match($youtubePattern, $video->url, $matches);
+    
+                    if ($isMatch) {
+                        $videoId = $matches[1];
+                    }
+                @endphp
+    
+                    @if ($videoId)
+                    <iframe
+                    src="https://www.youtube.com/embed/{{ $videoId }}"
+                    width="100%"
+                    height="auto"
+                    title="{{ $video->title }}"
+                    frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    referrerpolicy="strict-origin-when-cross-origin"
+                    allowfullscreen>
+                </iframe>
+                    @else
+                        <p>Video not available.</p>
+                    @endif
+    
+                    <h3>{{ $video->title }}</h3>
+                </div>
+            @endforeach
+        </div>
 
         <a href="/videos" :active="request()->is('videos')" class="button">Explore More Videos</a>
     </section>
@@ -72,35 +74,37 @@
     <section class="home-testimonial">
         <h2>Our Testimonials of Triumph</h2>
 
-        @foreach($testimonialVideos as $testimonialVideo)
-            @php
-                $videoId = null;
-                $youtubePattern = '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/';
-
-                $isMatch = preg_match($youtubePattern, $testimonialVideo->url, $matches);
-
-                if ($isMatch) {
-                    $videoId = $matches[1];
-                }
-            @endphp
-
-            <div>
-                @if ($videoId)
-                    <iframe
-                        src="https://www.youtube.com/embed/{{ $videoId }}"
-                        width="100%"
-                        height="auto"
-                        title="{{ $testimonialVideo->title }}"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                    </iframe>
-                @else
-                    <a href="{{ $testimonialVideo->url }}" target="_blank">Watch {{ $testimonialVideo->title }}</a>
-                @endif
-            </div>
-        @endforeach
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:p-[1.6rem]">
+            @foreach($testimonialVideos as $testimonialVideo)
+                @php
+                    $videoId = null;
+                    $youtubePattern = '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/';
+    
+                    $isMatch = preg_match($youtubePattern, $testimonialVideo->url, $matches);
+    
+                    if ($isMatch) {
+                        $videoId = $matches[1];
+                    }
+                @endphp
+    
+                <div>
+                    @if ($videoId)
+                        <iframe
+                            src="https://www.youtube.com/embed/{{ $videoId }}"
+                            width="100%"
+                            height="auto"
+                            title="{{ $testimonialVideo->title }}"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen>
+                        </iframe>
+                    @else
+                        <a href="{{ $testimonialVideo->url }}" target="_blank">Watch {{ $testimonialVideo->title }}</a>
+                    @endif
+                </div>
+            @endforeach
+        </div>
     </section>
 
     <section class="home-testimonial">

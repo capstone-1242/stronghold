@@ -1,5 +1,5 @@
 <x-layout>
-    <div>
+    <div class="memorials">
         {{ Breadcrumbs::render('memorial', $memorial->id) }}
     </div>
 
@@ -12,7 +12,7 @@
         </a>
     </div>
 
-    <section>
+    <section class="memorial-single">
         <h2>Memorial</h2>
     
         @if($memorial->memorialImages->count() > 0)
@@ -26,14 +26,14 @@
                     <img id="main-image" src="{{ $isCdn ? $mainImage : Storage::url($mainImage) }}" alt="Memorial Image" class="object-cover">
                 </div>
     
-                <div class="thumbnail-container flex justify-start mt-4 space-x-4">
+                <div class="thumbnail-container flex justify-start mt-4">
                     @foreach($memorial->memorialImages as $image)
                         @php
                             $isCdn = strpos($image->filename, 'http') === 0;
                         @endphp
     
-                        <div class="thumbnail relative w-24 h-24">
-                            <img src="{{ $isCdn ? $image->filename : Storage::url($image->filename) }}" alt="Memorial Thumbnail" class="object-cover cursor-pointer" onclick="changeMainImage('{{ $isCdn ? $image->filename : Storage::url($image->filename) }}')">
+                        <div class="thumbnail relative w-40 h-40 pl-[1.6rem]">
+                            <img src="{{ $isCdn ? $image->filename : Storage::url($image->filename) }}" alt="Memorial Thumbnail" class="object-cover cursor-pointer rounded-sm" onclick="changeMainImage('{{ $isCdn ? $image->filename : Storage::url($image->filename) }}')">
                         </div>
                     @endforeach
                 </div>
@@ -42,40 +42,58 @@
             <p>No images available.</p>
         @endif
     
-        <section class="flex items-center justify-between">
-            <div>
-                <h3>{{ $memorial->first_name }} {{ $memorial->last_name }}</h3>
-                <p>
-                    {{ \Carbon\Carbon::parse($memorial->birth_year)->format('Y') }} - 
-                    {{ \Carbon\Carbon::parse($memorial->death_year)->format('Y') }}
-                </p>
-            </div>
-    
-            @if($memorial->tag)
-                <div class="w-12 h-12">
-                    <img src="{{ asset('images/' . $memorial->tag->name . '.svg') }}" alt="{{ $memorial->tag->name }} icon" class="w-full h-full object-contain">
+       <div class="info">
+            <section class="flex items-center justify-between">
+                <div>
+                    <h3>{{ $memorial->first_name }} {{ $memorial->last_name }}</h3>
+                    <p>
+                        @if($memorial->birth_year && $memorial->death_year)
+                            {{ \Carbon\Carbon::parse($memorial->birth_year)->format('Y') }} - 
+                            {{ \Carbon\Carbon::parse($memorial->death_year)->format('Y') }}
+                        @endif
+                    </p>
                 </div>
-            @else
-                <p>No Icon Available</p>
-            @endif
-        </section>
-    
-        <p>{{ $memorial->biography }}</p>
+        
+                <div class="icon">
+                    @if($memorial->tag)
+                        @php
+                            $componentName = strtolower($memorial->tag->name);
+                        @endphp
+
+                        @if (view()->exists("components.$componentName"))
+                            @component("components.$componentName") @endcomponent
+                        @else
+                            <x-all/>
+                        @endif
+                    @else
+                        <p>No Icon Available</p>
+                    @endif
+                </div>
+            </section>
+        
+            <p>{{ $memorial->biography }}</p>
+       </div>
     </section>
 
-    <div class="flex justify-between">
+    <div class="video-pag flex justify-between p-[1.6rem]">
         @if($previousMemorial)
-            <a href="{{ route('memorial', ['id' => $previousMemorial->id]) }}" class="hover:underline">Previous Memorial</a>
-        @else
-            <span></span>
+            <a href="{{ route('memorial', ['id' => $previousMemorial->id]) }}" class="pagination-link flex items-center">
+                <svg class="pagination-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M15 19L8 12L15 5" stroke="#0072C2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Previous
+            </a>
         @endif
-
+    
         @if($nextMemorial)
-            <a href="{{ route('memorial', ['id' => $nextMemorial->id]) }}" class="hover:underline">Next Memorial</a>
-        @else
-            <span></span>
+            <a href="{{ route('memorial', ['id' => $nextMemorial->id]) }}" class="pagination-link flex items-center">
+                Next
+                <svg class="pagination-icon" width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9 5L16 12L9 19" stroke="#0072C2" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </a>
         @endif
-    </div>
+    </div>    
 </x-layout>
 
 <script>

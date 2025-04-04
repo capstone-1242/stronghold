@@ -61,13 +61,15 @@ iframe {
 }
 
 .heading-section {
+    margin-top: var(--min-spacing);
     padding: var(--min-spacing);
 }
 
 /* Typography */
 h1 {
-    font-size: 3rem;
+    font-size: 2.4rem;
     padding: 2rem 0;
+    font-weight: 700;
 }
 
 h2 {
@@ -377,7 +379,7 @@ footer .disclaimer svg {
 
 /* Home Banner */
 .banner {
-    height: 100vh;
+    height: 84vh;
     background: linear-gradient(to bottom,
     #052856 0%,
     #032136 21%,
@@ -387,6 +389,8 @@ footer .disclaimer svg {
     color: var(--text-accent);
     font-family: var(--font-family-heading);
     padding: var(--min-spacing);
+    display: flex;
+    flex-direction: column;
 }
 
 .banner>p {
@@ -421,9 +425,9 @@ footer .disclaimer svg {
 header {
     position: sticky;
     top: 0;
-    background-color: var(--bg-secondary);
+    background-color: #ADD9ED94;
+    backdrop-filter: blur(10.2px);
     z-index: 1000;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 header.bg-nav {
@@ -529,6 +533,9 @@ header nav li a:focus {
 .icon div {
     margin: unset;
     fill: var(--text-accent);
+    min-width: 46px;
+    min-height: 46px;
+    aspect-ratio: 1;
 }
 
 .icon a {
@@ -537,6 +544,34 @@ header nav li a:focus {
     margin-top: 0.6rem;
 }
 
+.memorials.heading-section p:last-of-type {
+    padding-top: var(--min-spacing);
+    text-align: center;
+}
+
+.memorials h3 {
+    font-size: 1.6rem;
+    margin-top: var(--min-spacing);
+    padding-left: var(--min-spacing);
+}
+
+.memorials .breadcrumbs {
+    color: black;
+    background-color: #1153A352;
+}
+
+/* Single MemoriaL */
+.memorial-single h2 {
+    margin: var(--min-spacing);
+}
+
+.memorial-single .info {
+    padding: var(--min-spacing);
+}
+
+.memorial-single .info section {
+    margin-bottom: var(--min-spacing);
+}
 /* Videos */
 .videos h2 {
     padding: var(--min-spacing);
