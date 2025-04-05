@@ -8,10 +8,23 @@
             </div>
         @endif
     
-        <p class="my-8"><strong>Note:</strong> Before creating a new video, please verify that the presenter is listed in the database. You can check this in the 'Select a Presenter' dropdown. If their name is not listed, visit the <a href="/auth/create/presenters" class="underline">Create Presenter</a> page to add them to the database.</p>
+        <p class="my-8"><strong>Note:</strong> Before creating a new video, check if the presenter is in the system. You can do this by looking in the 'Select a Presenter' dropdown. If their name isn't there, visit the <a href="/auth/create/presenters" class="underline">Create Presenter</a> page to add them.</p>
     
         <form action="{{ route('video.store') }}" method="POST">
             @csrf
+
+            <div class="mb-6">
+                <label for="author_id" class="block w-full">Presenter</label>
+                <select id="author_id" name="author_id" class="border border-gray-800 p-2 w-full rounded-xl bg-white" required>
+                    <option value="">Select a Presenter</option>
+                    @foreach ($authors as $author)
+                        <option value="{{ $author->id }}" {{ old('author_id') == $author->id ? 'selected' : '' }}>
+                            {{ $author->first_name }} {{ $author->last_name }}
+                        </option>
+                    @endforeach
+                </select>
+                <small>Please select the presenter from the list that the video will be associated with.</small>
+            </div>
             
             <div class="mb-6">
                 <label for="title" class="block w-full">Title</label>
@@ -29,19 +42,6 @@
                 <label for="url" class="block w-full">Youtube Video URL</label>
                 <input type="url" id="url" name="url" class="border border-gray-800 p-2 w-full rounded-xl bg-white" value="{{ old('url') }}" required>
                 <small>Enter the URL of the YouTube video. The video will not work on the website if it's not on YouTube.</small>
-            </div>
-        
-            <div class="mb-6">
-                <label for="author_id" class="block w-full">Presenter</label>
-                <select id="author_id" name="author_id" class="border border-gray-800 p-2 w-full rounded-xl bg-white" required>
-                    <option value="">Select a Presenter</option>
-                    @foreach ($authors as $author)
-                        <option value="{{ $author->id }}" {{ old('author_id') == $author->id ? 'selected' : '' }}>
-                            {{ $author->first_name }} {{ $author->last_name }}
-                        </option>
-                    @endforeach
-                </select>
-                <small>Please select the presenter from the list that the video will be associated with.</small>
             </div>
     
             <div class="mb-6">

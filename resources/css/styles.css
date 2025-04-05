@@ -170,6 +170,16 @@ body.dashboard header nav {
     padding: var(--min-spacing);
 }
 
+input[type=file]::file-selector-button {
+    border: 1px solid var(--text-primary);
+    background-color: #e2e8f0;
+    padding: 0 0.8rem;
+    margin: 0.2rem 1rem 0.2rem 0.2rem;
+    border-radius: var(--border-radius);
+    cursor: pointer;
+}
+  
+
 /* Specific Career Button Colours */
 .role-btn.military:hover,
 .role-btn.military:focus,

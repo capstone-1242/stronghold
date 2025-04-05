@@ -8,13 +8,13 @@
             </div>
         @endif
     
-        <div>
+        <div class="mt-18">
             @foreach ($memorialImages->groupBy('memorial_id') as $memorialId => $images)
                 @php
                     $memorial = $images->first()->memorial;
                 @endphp
     
-                <div class="mb-6 min-h-fit">
+                <div class="mb-6 h-80">
                     <h3 class="text-2xl font-bold">{{ $memorial->first_name }} {{ $memorial->last_name }}</h3>
                     <hr class="my-2">
     

@@ -8,7 +8,7 @@
             </div>
         @endif
     
-        <p class="my-8"><strong>Note:</strong> Before adding a new memorial image, please verify that the memorial is listed in the database. You can check this in the 'Select a Memorial' dropdown. If their name is not listed, visit the <a href="/auth/create/memorial" class="underline">Create Memorial</a> page to add them to the database.</p>
+        <p class="my-8"><strong>Note:</strong> Before adding a new image, make sure the memorial is listed in the database. You can check this in the 'Select a Memorial' dropdown. If it’s not there, go to the <a href="/auth/create/memorial" class="underline">Create Memorial</a> page to add it.</p>
     
         <form action="{{ route('memorial-images.store') }}" method="POST" enctype="multipart/form-data">
             @csrf

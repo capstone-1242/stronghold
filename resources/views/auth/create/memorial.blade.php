@@ -2,7 +2,7 @@
     <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Create a Memorial</h2>
     
-        <p class="my-8"><strong>Note:</strong> Upon the completion of creating a memorial, visit the <a href="/auth/create/memorial-images" class="underline">Add Memorial Images</a> page to add corresponding images to this memorial.</p>
+        <p class="my-8"><strong>Note:</strong> Once you've created a memorial, visit the <a href="/auth/create/memorial-images" class="underline">Add Memorial Images</a> page to add images to the new memorial.</p>
     
         @if(session('success'))
             <div class="bg-green-700 text-white text-center rounded-xl p-4 mb-6">

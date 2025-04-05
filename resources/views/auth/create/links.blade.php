@@ -2,7 +2,7 @@
    <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Create a Link for a Presenter</h2>
     
-        <p class="my-8"><strong>Note:</strong> If the link you are entering is for a video resource, please visit the <a href="/auth/create/video" class="underline">Create Video</a> page to add it to the database. These links are intended for external resources and will be displayed below a video for that presenter.</p>
+        <p class="my-8"><strong>Note:</strong> If the link you're entering is for a YouTube video, please visit the <a href="/auth/create/video" class="underline">Create Video</a> page to add it to the video database. These links are for external resources and will be shown below the video for that presenter.</p>
     
         @if(session('success'))
             <div class="bg-green-700 text-white text-center rounded-xl p-4 mb-6">

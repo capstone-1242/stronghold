@@ -45,7 +45,7 @@
                 </div>
     
                 <div class="mb-6">
-                    <label for="author_id" class="block w-full">Author</label>
+                    <label for="author_id" class="block w-full">Presenter</label>
                     <select id="author_id" name="author_id" class="border border-gray-800 p-2 w-full rounded-xl bg-white" required>
                         <option value="">Select an Author</option>
                         @foreach ($authors as $author)

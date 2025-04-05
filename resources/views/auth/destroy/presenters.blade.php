@@ -2,7 +2,7 @@
     <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Delete a Presenter</h2>
     
-        <p class="my-8"><strong>Note:</strong> Deleting a presenter will also remove all associated videos and links from the database and the website.</p>
+        <p class="my-8"><strong>Note:</strong> Deleting a presenter will also remove all their videos and links from the website and database.</p>
         
         @if(session('success'))
             <div class="bg-green-700 text-white text-center rounded-xl p-4 mb-6">
@@ -10,7 +10,7 @@
             </div>
         @endif
     
-        <div class="table-container">
+        <div class="table-container mt-18">
             <table>
                 <thead class="bg-gray-100">
                     <tr>

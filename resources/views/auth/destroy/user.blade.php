@@ -8,7 +8,7 @@
             </div>
         @endif
     
-        <div class="table-container">
+        <div class="table-container mt-18">
             <table>
                 <thead class="bg-gray-100">
                     <tr>
