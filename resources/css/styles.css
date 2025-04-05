@@ -24,17 +24,23 @@ html {
     font-size: 62.5%;
 }
 
+body.dashboard {
+    height: 100%;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    background-color: unset;
+    color: unset;
+}
+
+/* The height, margin, flex and flex-direction is what I used to make sure the footer is always at the bottom of the page. I also put margin-top: auto on the footer. It broke when I tried to do this on the front facing site but not sure if we need it there. There were just too many floating footers on the dashboard. */
+
 body {
     background-color: var(--bg-secondary);
     color: var(--text-accent);
     font-size: 1.6rem;
     line-height: 1.5;
     font-family: var(--font-family-body);
-}
-
-body.dashboard {
-    background-color: unset;
-    color: unset;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -371,10 +377,20 @@ footer .disclaimer svg {
     padding: 1rem 1.6rem !important;
 }
 
+body.dashboard .pagination-item {
+    background-color: #075985 !important;
+    color: var(--text-accent) !important;
+}
+
 .pagination-item.active {
     background-color: #e2ebefd9 !important;
     border: unset !important;
     color: var(--bg-tertiary) !important;
+}
+
+body.dashboard .pagination-item.active {
+    background-color: #0284c7 !important;
+    color: var(--text-accent) !important;
 }
 
 /* Home Banner */
@@ -920,6 +936,11 @@ footer {
     background-repeat: no-repeat;
     padding: var(--min-spacing);
     margin-top: 3.2rem;
+}
+
+body.dashboard footer {
+    margin-top: auto;
+    background-image: unset;
 }
 
 footer section {
