@@ -931,7 +931,7 @@ body.dashboard .link-group a:focus,
     border-radius: var(--border-radius);
     background-position: center;
     background-size: cover;
-    background-color: #ffffffc5;
+    background-color: #ffffffb2;
     color: var(--text-primary);
     padding: 4rem;
     max-width: 700px;

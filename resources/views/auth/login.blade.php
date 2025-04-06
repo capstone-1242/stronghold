@@ -1,5 +1,5 @@
 <x-layout>
-<div class="min-h-[60vh]">
+<div class="min-h-[60vh] mt-26">
     <section class="login">
           <div class="max-w-[500px] mx-auto">  
             <h2 class="font-semibold text-4xl my-12">Login</h2>

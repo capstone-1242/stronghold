@@ -44,7 +44,7 @@
             </div>
     
             <div class="mb-6">
-                <label for="tag_id" class="block w-full">Tag</label>
+                <label for="tag_id" class="block w-full">Career Tag</label>
                 <select name="tag_id" id="tag_id" class="border border-gray-800 p-2 w-full rounded-xl bg-white">
                     <option value="">Select a Tag</option>
                     @foreach ($tags as $tag)

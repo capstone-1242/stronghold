@@ -15,7 +15,7 @@
                         <th class="px-6 text-left">Title</th>
                         <th class="px-6 text-left">Description</th>
                         <th class="px-6 text-left">URL</th>
-                        <th class="px-6 text-left">Author</th>
+                        <th class="px-6 text-left">Presenter</th>
                         <th class="px-6 text-left">Actions</th>
                     </tr>
                 </thead>

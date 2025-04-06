@@ -45,7 +45,7 @@
             </div>
     
             <div class="mb-6">
-                <input type="submit" value="Add Video" class="bg-sky-900 text-white p-2 rounded-xl hover:bg-sky-600 w-full">
+                <input type="submit" value="Create Video" class="bg-sky-900 text-white p-2 rounded-xl hover:bg-sky-600 w-full">
             </div>
         </form>    
     

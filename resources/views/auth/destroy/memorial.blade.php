@@ -27,8 +27,8 @@
                             <td class="px-6 py-4">{{ $memorial->first_name }}</td>
                             <td class="px-6 py-4">{{ $memorial->last_name }}</td>
                             <td class="px-6 py-4">{{ Str::limit($memorial->biography, 50) }}</td>
-                            <td class="px-6 py-4">{{ $memorial->birth_year }}</td>
-                            <td class="px-6 py-4">{{ $memorial->death_year }}</td>
+                            <td class="px-6 py-4">{{ $memorial->birth_year ?: '-' }}</td>
+                            <td class="px-6 py-4">{{ $memorial->death_year ?: '-' }}</td>
                             <td class="px-6 py-4">
                                 {{ $memorial->tag ? $memorial->tag->name : 'No tag' }}
                             </td>
