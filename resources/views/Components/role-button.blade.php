@@ -1,4 +1,4 @@
-<div class="role-btn-container">
+<div class="role-btn-container grid grid-cols-2 gap-4 lg:flex lg:gap-4">
     @foreach ($tags as $tag)
         <a href="{{ url('/testimonials?tags[]=' . $tag->id . '&submit=Apply+Filters') }}" class="role-btn cursor-pointer {{ strtolower($tag->name) }}">
             @php

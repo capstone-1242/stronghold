@@ -17,6 +17,7 @@
     --font-family-heading: "Work Sans", sans-serif;
     --min-spacing: 1.6rem;
     --border-radius: 4px;
+    --bottom-padding: 8rem;
 }
 
 html {
@@ -30,7 +31,7 @@ body.dashboard {
     display: flex;
     flex-direction: column;
     background-color: unset;
-    color: unset;
+    color: black;
 }
 
 /* The height, margin, flex and flex-direction is what I used to make sure the footer is always at the bottom of the page. I also put margin-top: auto on the footer. It broke when I tried to do this on the front facing site but not sure if we need it there. There were just too many floating footers on the dashboard. */
@@ -41,6 +42,14 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     font-family: var(--font-family-body);
+}
+
+body:not(.dashboard, .memorials)  main{
+    background-image: url(../../public/images/bottom-bg.png);
+    background-repeat: no-repeat;
+    background-position: center bottom;
+    background-size: 100%;
+
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -68,7 +77,6 @@ iframe {
 
 .heading-section {
     margin-top: var(--min-spacing);
-    padding: var(--min-spacing);
 }
 
 /* Typography */
@@ -157,18 +165,18 @@ body.dashboard header nav {
     margin: 0 auto;
 }
 
-.role-btn-container {
+/* .role-btn-container {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.6rem;
-}
+} */
 
-.role-btn-filter-container form {
+/* .role-btn-filter-container form {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     gap: 1.6rem;
     padding: var(--min-spacing);
-}
+} */
 
 input[type=file]::file-selector-button {
     border: 1px solid var(--text-primary);
@@ -178,7 +186,7 @@ input[type=file]::file-selector-button {
     border-radius: var(--border-radius);
     cursor: pointer;
 }
-  
+
 
 /* Specific Career Button Colours */
 .role-btn.military:hover,
@@ -328,14 +336,16 @@ input[type=file]::file-selector-button {
 .disclaimer {
     display: flex;
     gap: 1.6rem;
-    padding: var(--min-spacing);
+    padding: 2rem;
     color: var(--text-primary);
     background-color: rgba(173, 217, 237, 0.6);
     border-radius: var(--border-radius);
-    max-width: 360px;
-    margin: var(--min-spacing) auto;
     backdrop-filter: blur(10.2px);
     box-shadow: 0 2px 6.3px 0 rgba(24, 49, 85, 0.12);
+}
+
+.disclaimer div p {
+    margin-bottom: 0;
 }
 
 .disclaimer .icon {
@@ -375,7 +385,6 @@ footer .disclaimer svg {
     justify-content: center !important;
     align-items: center !important;
     gap: var(--min-spacing);
-    margin: var(--min-spacing) auto !important;
     padding: var(--min-spacing) !important;
 }
 
@@ -403,15 +412,29 @@ body.dashboard .pagination-item.active {
     color: var(--text-accent) !important;
 }
 
+section.welcome {
+    background-image: url(../../public/images/bg-top.png);
+    background-position: center 0;
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+}
+
+@media screen and (min-width:1024px) {
+    section.welcome {
+        background-image: url(../../public/images/bg-top.png);
+        background-position: center 0;
+        background-size: 100% 80%;
+        background-repeat: no-repeat;
+    }
+}
+
 /* Home Banner */
 .banner {
-    height: 84vh;
+    height: 70vh;
     background: linear-gradient(to bottom,
     #052856 0%,
     #032136 21%,
-    #0D283D 48%,
-    #033D66 68%,
-    rgba(3, 61, 102, 0) 74%);
+    #0D283D 48%);
     color: var(--text-accent);
     font-family: var(--font-family-heading);
     padding: var(--min-spacing);
@@ -508,7 +531,6 @@ header nav li a:focus {
 /* Home */
 .welcome {
     font-family: var(--font-family-heading);
-    padding: var(--min-spacing);
 }
 
 .welcome h2 {
@@ -549,6 +571,10 @@ header nav li a:focus {
 
 .home-testimonial {
     padding: var(--min-spacing);
+}
+
+.home-testimonial:last-of-type {
+    padding-bottom: 422px;
 }
 
 .home-testimonial h2 {
@@ -942,10 +968,9 @@ body.dashboard .link-group a:focus,
 footer {
     background-image: url("../../public/images/footer-bg.png");
     background-size: cover;
-    background-position: center;
+    background-position: top;
     background-repeat: no-repeat;
-    padding: var(--min-spacing);
-    margin-top: 3.2rem;
+    padding: 6rem 4rem;
 }
 
 body.dashboard footer {

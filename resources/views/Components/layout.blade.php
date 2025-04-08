@@ -79,7 +79,7 @@
                         </nav>
                     </div>
 
-                    <x-disclaimer />
+                    <div class="max-w-[420px]"><x-disclaimer /></div>
                 </div>
             </footer>
         </div>

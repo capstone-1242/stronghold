@@ -20,7 +20,7 @@
         {{ Breadcrumbs::render('videos') }}
     </div>
 
-    <section class="videos">
+    <section class="videos container pt-24 pb-[422px]">
         <h2>Insightful Videos</h2>
 
         <form action="{{ url()->current() }}" method="GET" class="flex">
@@ -31,7 +31,7 @@
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
-            </button> 
+            </button>
         </form>
 
         @if($videos->isEmpty())
@@ -65,14 +65,14 @@
                                     <div class="video-wrapper">
                                         <a href="{{ route('video', ['video' => $video->id]) }}">
                                             @if ($videoId)
-                                                <iframe 
-                                                    src="https://www.youtube.com/embed/{{ $videoId }}?controls=0" 
-                                                    width="100%" 
-                                                    height="auto" 
-                                                    title="{{ $video->title }}" 
-                                                    frameborder="0" 
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                                                    referrerpolicy="strict-origin-when-cross-origin" 
+                                                <iframe
+                                                    src="https://www.youtube.com/embed/{{ $videoId }}?controls=0"
+                                                    width="100%"
+                                                    height="auto"
+                                                    title="{{ $video->title }}"
+                                                    frameborder="0"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                    referrerpolicy="strict-origin-when-cross-origin"
                                                     allowfullscreen>
                                                 </iframe>
                                             @else
