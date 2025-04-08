@@ -19,7 +19,7 @@
         <section class="welcome pt-[50rem]">
             <div class="lg:flex lg:flex-wrap gap-6 container items-center p-6">
                 <div class="lg:max-w-[360px] items-start mb-4">
-                    <h2 class="flex flex-col "><span>Welcome to the</span> <span>STRONGHOLD</span></h2>
+                    <h1 class="flex flex-col "><span>Welcome to the</span> <span>STRONGHOLD</span></h1>
                     <p>— a nonprofit, video-based mental health resource for first responders. Here, you’ll find support, stories, and strategies to help you stay strong in mind and body. You’re not alone—welcome to your safehaven.</p>
 
                     <x-disclaimer/>

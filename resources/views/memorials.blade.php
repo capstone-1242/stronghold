@@ -5,12 +5,12 @@
 @endphp
 
 <x-layout>
-   <div class="memorials">
+   <main class="memorials">
         <div>
             {{ Breadcrumbs::render('memorials') }}
         </div>
 
-        <div class="container pt-24">
+        <div class="container pt-48 px-6">
             <section class="heading-section">
                 <h2>Memorials</h2>
                 <p>Honor the lives of first responders, celebrating their courage and legacy, with a space for remembrance and healing.</p>
@@ -61,5 +61,5 @@
                 {{ $memorials->appends(request()->query())->links('pagination::semantic-ui') }}
             </div>
         </div>
-   </div>
+   </main>
 </x-layout>
