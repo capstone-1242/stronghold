@@ -4,7 +4,7 @@
             {{ Breadcrumbs::render('resources') }}
         </div>
 
-        <section class="resources container pt-24 pb-[422px]">
+        <section class="resources container pt-24 pb-[422px] px-[1.6rem]">
             <h2>Local Resources</h2>
 
             <div class="lg:max-w-6xl">
@@ -29,7 +29,6 @@
                         <ul>
                             @foreach ($phoneResources as $resource)
                                 <x-phone-resource name="{{ $resource->title }}" number="{{ $resource->number }}" />
-                                <div class="divider"></div>
                             @endforeach
                         </ul>
                     @endif

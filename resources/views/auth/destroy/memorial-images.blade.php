@@ -26,7 +26,7 @@
                                 <form action="{{ route('auth.destroy.memorial-images.delete', ['id' => $image->id]) }}" method="POST" onsubmit="return confirmDelete('{{ $memorial->first_name }} {{ $memorial->last_name }}', '{{ $image->description }}');" class="mt-2 w-full">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="Delete" class="bg-red-500 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer w-full">
+                                    <input type="submit" value="Delete" class="bg-red-600 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer w-full">
                                 </form>
                             </div>
                         @endforeach

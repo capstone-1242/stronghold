@@ -39,7 +39,7 @@
                         <tr class="border-b">
                             <td class="p-6">{{ $link->title }}</td>
                             <td class="p-6">
-                                <a href="{{ $link->url }}" target="_blank" class="text-blue-500">{{ $link->url }}</a>
+                                <a href="{{ $link->url }}" target="_blank" class="text-blue-600">{{ $link->url }}</a>
                             </td>
                             <td class="p-6">
                                 {{ $link->author->first_name }} 

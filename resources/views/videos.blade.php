@@ -27,7 +27,7 @@
             <label for="search" class="hidden">Search</label>
             <input type="text" name="search" placeholder="Search..." id="search" value="{{ request('search', '') }}">
 
-            <button type="submit" class="search-button">
+            <button type="submit" class="search-button" aria-label="Search">
                 <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
                 </svg>
@@ -65,17 +65,16 @@
                                     <div class="video-wrapper">
                                         <a href="{{ route('video', ['video' => $video->id]) }}">
                                             @if ($videoId)
-                                                <iframe
-                                                    src="https://www.youtube.com/embed/{{ $videoId }}?controls=0"
-                                                    width="100%"
-                                                    height="auto"
-                                                    title="{{ $video->title }}"
+                                                <lite-youtube 
+                                                    videoid="{{ $videoId }}" 
+                                                    width="100%" 
+                                                    height="auto"  
                                                     frameborder="0"
-                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
                                                     referrerpolicy="strict-origin-when-cross-origin"
                                                     allowfullscreen
-                                                    loading="lazy">
-                                                </iframe>
+                                                    title="{{ $video->title }}">
+                                                </lite-youtube>
                                             @else
                                                 <a href="{{ $video->url }}" target="_blank">Watch {{ $video->title }}</a>
                                             @endif

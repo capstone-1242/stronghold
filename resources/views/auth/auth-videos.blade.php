@@ -41,7 +41,7 @@
                             <td class="p-6">{{ $video->title }}</td>
                             <td class="p-6">{{ Str::limit($video->description, 50) }}</td>
                             <td class="p-6">
-                                <a href="{{ $video->url }}" target="_blank" class="text-blue-500">{{ $video->url }}</a>
+                                <a href="{{ $video->url }}" target="_blank" class="text-blue-600">{{ $video->url }}</a>
                             </td>
                             <td class="p-6">
                                 {{ $video->author->first_name }} {{ $video->author->last_name }}

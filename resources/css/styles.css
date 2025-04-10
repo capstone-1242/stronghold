@@ -45,7 +45,7 @@ body {
 }
 
 body:not(.dashboard)  main{
-    background-image: url(../../public/images/bottom-bg.png);
+    background-image: url(../../public/images/bottom-bg.webp);
     background-repeat: no-repeat;
     background-position: center bottom;
     background-size: 100%;
@@ -73,13 +73,19 @@ img {
     margin: 0 auto;
 }
 
+lite-youtube,
 iframe {
     width: 100%;
     height: auto;
     border-radius: var(--border-radius);
     margin-bottom: var(--min-spacing);
-    min-width: 180px;
+    min-width: 200px;
     aspect-ratio: 16/9;
+    max-width: none !important;
+}
+
+lite-youtube::before {
+    background-image: unset !important;
 }
 
 .heading-section {
@@ -119,7 +125,7 @@ div.disclaimer p {
     font-size: 16px;
 }
 
-a, .link-size-sm {
+a, .link-size-sm, .note {
     font-size: clamp(16px, 1.5vw, 18px);
 }
 
@@ -435,7 +441,7 @@ body.dashboard .pagination-item.active {
 }
 
 section.welcome {
-    background-image: url(../../public/images/bg-top.png);
+    background-image: url(../../public/images/bg-top.webp);
     background-position: center 0;
     background-size: 100% 50%;
     background-repeat: no-repeat;
@@ -443,7 +449,7 @@ section.welcome {
 
 @media screen and (min-width:1024px) {
     section.welcome {
-        background-image: url(../../public/images/bg-top.png);
+        background-image: url(../../public/images/bg-top.webp);
         background-position: center 0;
         background-size: 100% 80%;
         background-repeat: no-repeat;
@@ -496,7 +502,7 @@ section.welcome {
 header {
     position: sticky;
     top: 0;
-    background-color: #ADD9ED94;
+    background-color: #8ac6e279;
     backdrop-filter: blur(10.2px);
     z-index: 1000;
 }
@@ -587,7 +593,7 @@ header nav li a:focus {
     padding: 0 1.6rem 1.6rem 1.6rem;
 }
 
-.home-videos div:first-of-type{
+.home-videos>div:first-of-type{
     padding: 0 1.6rem 1.6rem 1.6rem;
 }
 
@@ -651,6 +657,7 @@ header nav li a:focus {
 
 .videos form {
     background-color: rgba(173, 217, 237, 0.28);
+    color: #1A1E28;
     border-radius: var(--border-radius);
     backdrop-filter: blur(10.2px);
     margin: var(--min-spacing);
@@ -671,19 +678,19 @@ header nav li a:focus {
 
 #search:focus {
     outline: none;
-    border: 2px solid var(--text-accent);
+    border: 2px solid #1A1E28;
     border-radius: var(--border-radius);
 }
 
 .videos input::placeholder {
-    color: white;
+    color: #1A1E28;
 }
 
 .videos button svg {
     width: 2rem;
 }
 
-.videos iframe {
+.videos lite-youtube {
     margin-bottom: 8px;
     flex: 1;
 }
@@ -754,11 +761,13 @@ header nav li a:focus {
     padding: 0 1.6rem 1.6rem 1.6rem;
 }
 
-.author-single>div div {
+.author-single>div div div {
     padding: 0 1.6rem 3.2rem 1.6rem;
 }
 
-.author-single h3 {
+.author-single h3 a {
+    font-size: 2.4rem;
+    display: block;
     margin-bottom: var(--min-spacing);
 }
 
@@ -809,7 +818,7 @@ header nav li a:focus {
 }
 
 .single-video>div:nth-of-type(4) {
-    background-color: rgba(173, 217, 237, 0.2);
+    background-color: #2355a5d5;
     border-radius: var(--border-radius);
     backdrop-filter: blur(10.2px);
     padding: var(--min-spacing);
@@ -958,7 +967,7 @@ body.dashboard .link-group a:focus,
 
 /* Footer */
 footer {
-    background-image: url("../../public/images/footer-bg.png");
+    background-image: url("../../public/images/footer-bg.webp");
     background-size: cover;
     background-position: top;
     background-repeat: no-repeat;
@@ -975,11 +984,12 @@ footer section {
     margin-bottom: 1.6rem;
 }
 
-footer section h4 {
+footer section p.font-bold {
     font-size: 2rem;
+    font-family: var(--font-family-heading);
 }
 
-footer nav:first-of-type ul {
+footer nav:first-of-type div {
     display: flex;
     justify-content: space-between;
     align-items: center;

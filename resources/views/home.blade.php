@@ -26,16 +26,16 @@
                 </div>
 
                 <div class="video-container md:flex-1">
-                    <iframe 
-                        src="https://www.youtube.com/embed/NOGemNxtQcA?si=ZbrJtHsfiCdlYqlI" title="YouTube video player"
-                        width="100%"
-                        height="auto"
-                        frameborder="0" 
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                        referrerpolicy="strict-origin-when-cross-origin" 
-                        allowfullscreen
-                        loading="lazy">
-                    </iframe>
+                    <lite-youtube 
+                        videoid="NOGemNxtQcA" 
+                        title="Welcome Video"
+                        width="100%" 
+                        height="auto"  
+                        frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
+                        referrerpolicy="strict-origin-when-cross-origin"
+                        allowfullscreen>
+                    </lite-youtube>
                 </div>
             </div>
         </section>
@@ -46,31 +46,30 @@
                 <p>Browse our mental health video collection for support on everything from depression to overall well-being.</p>
             </div>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:p-[1.6rem]">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:p-[1.6rem]">
                 @foreach ($presenterVideos as $video)
                     <div>
                         @php
-                        $videoId = null;
-                        $youtubePattern = '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/';
-                        $isMatch = preg_match($youtubePattern, $video->url, $matches);
+                            $videoId = null;
+                            $youtubePattern = '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/';
+                            $isMatch = preg_match($youtubePattern, $video->url, $matches);
 
-                        if ($isMatch) {
-                            $videoId = $matches[1];
-                        }
-                    @endphp
+                            if ($isMatch) {
+                                $videoId = $matches[1];
+                            }
+                        @endphp
 
                         @if ($videoId)
-                        <iframe
-                            src="https://www.youtube.com/embed/{{ $videoId }}"
-                            width="100%"
-                            height="auto"
-                            title="{{ $video->title }}"
-                            frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                            referrerpolicy="strict-origin-when-cross-origin"
-                            allowfullscreen
-                            loading="lazy">
-                        </iframe>
+                            <lite-youtube 
+                                videoid="{{ $videoId }}" 
+                                width="100%" 
+                                height="auto"  
+                                frameborder="0"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
+                                referrerpolicy="strict-origin-when-cross-origin"
+                                allowfullscreen
+                                title="{{ $video->title }}">
+                            </lite-youtube>
                         @else
                             <p>Video not available.</p>
                         @endif
@@ -83,15 +82,14 @@
             <a href="/videos" :active="request()->is('videos')" class="button m-0">Explore More Videos</a>
         </section>
 
-        <section class="home-testimonial ">
+        <section class="home-testimonial">
             <h2 class="container">Our Testimonials of Triumph</h2>
 
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-6 md:p-[1.6rem]">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:p-[1.6rem]">
                 @foreach($testimonialVideos as $testimonialVideo)
                     @php
                         $videoId = null;
                         $youtubePattern = '/(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/';
-
                         $isMatch = preg_match($youtubePattern, $testimonialVideo->url, $matches);
 
                         if ($isMatch) {
@@ -101,17 +99,16 @@
 
                     <div>
                         @if ($videoId)
-                            <iframe
-                                src="https://www.youtube.com/embed/{{ $videoId }}"
-                                width="100%"
-                                height="auto"
-                                title="{{ $testimonialVideo->title }}"
+                            <lite-youtube 
+                                videoid="{{ $videoId }}" 
+                                width="100%" 
+                                height="auto"  
                                 frameborder="0"
-                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
                                 referrerpolicy="strict-origin-when-cross-origin"
                                 allowfullscreen
-                                loading="lazy">
-                            </iframe>
+                                title="{{ $testimonialVideo->title }}">
+                            </lite-youtube>
                         @else
                             <a href="{{ $testimonialVideo->url }}" target="_blank">Watch {{ $testimonialVideo->title }}</a>
                         @endif

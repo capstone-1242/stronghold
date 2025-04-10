@@ -25,7 +25,7 @@
                             <td class="px-6 py-4">{{ $video->title }}</td>
                             <td class="px-6 py-4">{{ Str::limit($video->description, 50) }}</td>
                             <td class="px-6 py-4">
-                                <a href="{{ $video->url }}" target="_blank" class="text-blue-500">{{ $video->url }}</a>
+                                <a href="{{ $video->url }}" target="_blank" class="text-blue-600">{{ $video->url }}</a>
                             </td>
                             <td class="px-6 py-4">
                                 {{ $video->author->first_name }} {{ $video->author->last_name }}
@@ -34,7 +34,7 @@
                                 <form action="{{ route('auth.destroy.video.delete', $video->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="Delete" class="bg-red-500 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $video->title }}')" />
+                                    <input type="submit" value="Delete" class="bg-red-600 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $video->title }}')" />
                                 </form>
                             </td>
                         </tr>

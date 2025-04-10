@@ -38,7 +38,9 @@
                     @foreach ($resources as $resource)
                         <tr class="border-b">
                             <td class="p-6">{{ $resource->title }}</td>
-                            <td class="p-6">{{ $resource->url ?? '-' }}</td>
+                            <td class="p-6">
+                                <a href="{{ $resource->url }}" target="_blank" class="text-blue-600">{{ $resource->url }}</a>
+                            </td>
                             <td class="p-6">{{ $resource->number ?? '-' }}</td>
                         </tr>
                     @endforeach

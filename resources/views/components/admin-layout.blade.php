@@ -5,6 +5,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{{ isset($title) ? $title . ' | STRONGHOLD' : 'STRONGHOLD' }}</title>
+        <meta name="description" content="Video-based mental health support for first responders—real stories, expert insights, local resources, and tools to help.">
 
         @vite(['resources/css/styles.css', 'resources/js/main.js'])
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -194,9 +195,9 @@
         </div>
 
         <footer class="bg-black text-white text-center px-4 py-8">
-            <section class="pb-6">
-                <h4 class="font-bold text-2xl pb-2">STRONGHOLD</h4>
-            </section>
+            <div class="pb-6">
+                <p class="font-bold text-2xl pb-2">STRONGHOLD</p>
+            </div>
 
             <nav>
                 <ul class="flex items-center justify-center gap-8 mx-auto max-w-xl text-left">

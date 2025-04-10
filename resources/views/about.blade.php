@@ -4,7 +4,7 @@
             {{ Breadcrumbs::render('about') }}
         </div>
 
-        <section class="about container pt-24 pb-[422px]">
+        <section class="about container pt-24 pb-[422px] px-[1.6rem]">
             <h2>About Us</h2>
 
             <div class="lg:flex gap-8">

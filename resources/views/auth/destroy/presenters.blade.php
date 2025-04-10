@@ -2,7 +2,7 @@
     <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Delete a Presenter</h2>
     
-        <p class="my-8"><strong>Note:</strong> Deleting a presenter will also remove all their videos and links from the website and database.</p>
+        <p class="my-8 note"><strong>Note:</strong> Deleting a presenter will also remove all their videos and links from the website and database.</p>
         
         @if(session('success'))
             <div class="bg-green-700 text-white text-center rounded-xl p-4 mb-6">
@@ -30,7 +30,7 @@
                                 <form action="{{ route('auth.destroy.presenters.delete', $author->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="Delete" class="bg-red-500 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $author->first_name }} {{ $author->last_name }}')" />
+                                    <input type="submit" value="Delete" class="bg-red-600 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $author->first_name }} {{ $author->last_name }}')" />
                                 </form>
                             </td>
                         </tr>

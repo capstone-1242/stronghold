@@ -25,14 +25,14 @@
                             <td class="px-6 py-4">{{ $resource->title }}</td>
                             <td class="px-6 py-4">{{ Str::limit($resource->description, 50) }}</td>
                             <td class="px-6 py-4">
-                                <a href="{{ $resource->url }}" target="_blank" class="text-blue-500">{{ $resource->url ?? '-' }}</a>
+                                <a href="{{ $resource->url }}" target="_blank" class="text-blue-600">{{ $resource->url ?? '-' }}</a>
                             </td>
                             <td class="px-6 py-4">{{ $resource->number ?? '-' }}</td> 
                             <td class="px-6 py-4">
                                 <form action="{{ route('auth.destroy.resource.delete', $resource->id) }}" method="POST" style="display: inline;">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="Delete" class="bg-red-500 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $resource->title }}')" />
+                                    <input type="submit" value="Delete" class="bg-red-600 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $resource->title }}')" />
                                 </form>
                             </td>
                         </tr>

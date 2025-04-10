@@ -5,11 +5,17 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
         <title>{{ isset($title) ? $title . ' | STRONGHOLD' : 'STRONGHOLD' }}</title>
+        <meta name="description" content="Video-based mental health support for first responders—real stories, expert insights, local resources, and tools to help.">
+
+        <link rel="prefetch" href="/images/bg-top.webp" as="image" type="image/webp" />
 
         @vite(['resources/css/styles.css', 'resources/js/main.js'])
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400;1,700&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.1.3/src/lite-yt-embed.css" />
+        <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.1.3/src/lite-yt-embed.js" defer></script>
     </head>
 
     <body>
@@ -48,23 +54,23 @@
                 <div class="lg:flex lg:gap-10 items-center lg:items-start lg:max-w-[70%] mx-auto lg:flex-wrap">
                     <div class=" md:max-w-full mx-auto lg:flex-1">
                         <section class="text-center lg:text-left">
-                            <h4 class="font-bold">
+                            <p class="font-bold">
                                 <a href="/">STRONGHOLD</a>
-                            </h4>
+                            </p>
 
                             <p>"Where hope is an anchor"</p>
                         </section>
                         <nav class="">
-                            <ul>
-                                <div class="grid grid-cols-3 mx-auto md:flex md:gap-8 lg:mx-0 ">
+                            <div>
+                                <ul class="grid grid-cols-3 mx-auto md:flex md:gap-8 lg:mx-0 ">
                                     <x-nav-link href="/sitemap" :active="request()->is('sitemap')">Sitemap</x-nav-link>
                                     <x-nav-link href="/videos" :active="request()->is('videos')">Videos</x-nav-link>
                                     <x-nav-link href="/testimonials" :active="request()->is('testimonials')">Testimonials</x-nav-link>
                                     <x-nav-link href="/privacy" :active="request()->is('privacy')">Privacy</x-nav-link>
                                     <x-nav-link href="/resources" :active="request()->is('resources')">Resources</x-nav-link>
                                     <x-nav-link href="/memorials" :active="request()->is('memorials')">Memorials</x-nav-link>
-                                </div>
-                            </ul>
+                                </ul>
+                            </div>
                         </nav>
 
                         <div class="divider"></div>

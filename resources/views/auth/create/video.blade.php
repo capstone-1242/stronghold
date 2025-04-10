@@ -8,7 +8,7 @@
             </div>
         @endif
     
-        <p class="my-8"><strong>Note:</strong> Before creating a new video, check if the presenter is in the system. You can do this by looking in the 'Select a Presenter' dropdown. If their name isn't there, visit the <a href="/auth/create/presenters" class="underline">Create Presenter</a> page to add them.</p>
+        <p class="my-8 note"><strong>Note:</strong> Before creating a new video, check if the presenter is in the system. You can do this by looking in the 'Select a Presenter' dropdown. If their name isn't there, visit the <a href="/auth/create/presenters" class="underline">Create Presenter</a> page to add them.</p>
     
         <form action="{{ route('video.store') }}" method="POST">
             @csrf

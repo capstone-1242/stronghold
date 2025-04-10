@@ -25,7 +25,7 @@
                             <td class="px-6 py-4">{{ $testimonial->title }}</td>
                             <td class="px-6 py-4">{{ Str::limit($testimonial->description, 50) }}</td>
                             <td class="px-6 py-4">
-                                <a href="{{ $testimonial->url }}" target="_blank" class="text-blue-500">{{ $testimonial->url }}</a>
+                                <a href="{{ $testimonial->url }}" target="_blank" class="text-blue-600">{{ $testimonial->url }}</a>
                             </td>
                             <td class="px-6 py-4">
                                 {{ $testimonial->tag ? $testimonial->tag->name : 'No tag' }}
@@ -34,7 +34,7 @@
                                 <form action="{{ route('auth.destroy.testimonial.delete', $testimonial->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="Delete" class="bg-red-500 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $testimonial->title }}')" />
+                                    <input type="submit" value="Delete" class="bg-red-600 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $testimonial->title }}')" />
                                 </form>
                             </td>
                         </tr>

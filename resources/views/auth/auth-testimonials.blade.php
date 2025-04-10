@@ -40,7 +40,7 @@
                             <td class="p-6">{{ $testimonialVideo->title }}</td>
                             <td class="p-6">{{ Str::limit($testimonialVideo->description, 50) }}</td>
                             <td class="p-6">
-                                <a href="{{ $testimonialVideo->url }}" target="_blank" class="text-blue-500">{{ $testimonialVideo->url }}</a>
+                                <a href="{{ $testimonialVideo->url }}" target="_blank" class="text-blue-600">{{ $testimonialVideo->url }}</a>
                             </td>
                         </tr>
                     @endforeach

@@ -30,7 +30,7 @@
                                 <form action="{{ route('auth.destroy.user.delete', $user->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="Delete" class="bg-red-500 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $user->first_name }} {{ $user->last_name }}')" />
+                                    <input type="submit" value="Delete" class="bg-red-600 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $user->first_name }} {{ $user->last_name }}')" />
                                 </form>
                             </td>
                         </tr>

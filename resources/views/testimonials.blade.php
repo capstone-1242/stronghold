@@ -10,7 +10,7 @@
             {{ Breadcrumbs::render('testimonials') }}
         </div>
 
-        <section  class="heading-section container pt-24">
+        <section class="heading-section container pt-24">
             <h2>Testimonials</h2>
             <p>Listen to real stories from real first responders who share how they navigated and overcame their mental health battles.</p>
         </section>
@@ -34,17 +34,16 @@
 
                 <div>
                     @if ($videoId)
-                        <iframe
-                            src="https://www.youtube.com/embed/{{ $videoId }}"
-                            width="100%"
-                            height="315"
-                            title="{{ $testimonialVideo->title }}"
+                        <lite-youtube 
+                            videoid="{{ $videoId }}" 
+                            width="100%" 
+                            height="auto"  
                             frameborder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
                             referrerpolicy="strict-origin-when-cross-origin"
                             allowfullscreen
-                            loading="lazy">
-                        </iframe>
+                            title="{{ $testimonialVideo->title }}">
+                        </lite-youtube>
                     @else
                         <a href="{{ $testimonialVideo->url }}" target="_blank">Watch {{ $testimonialVideo->title }}</a>
                     @endif

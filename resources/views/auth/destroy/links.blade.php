@@ -23,7 +23,7 @@
                         <tr class="border-b">
                             <td class="px-6 py-4">{{ $link->title }}</td>
                             <td class="px-6 py-4">
-                                <a href="{{ $link->url }}" target="_blank" class="text-blue-500">{{ $link->url }}</a>
+                                <a href="{{ $link->url }}" target="_blank" class="text-blue-600">{{ $link->url }}</a>
                             </td>
                             <td class="px-6 py-4">
                                 {{ $link->author->first_name }} {{ $link->author->last_name }}
@@ -32,7 +32,7 @@
                                 <form action="{{ route('auth.destroy.links.delete', $link->id) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" value="Delete" class="bg-red-500 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $link->title }}')" />
+                                    <input type="submit" value="Delete" class="bg-red-600 text-white px-6 py-4 rounded-xl hover:bg-red-700 cursor-pointer" onclick="return confirmDelete('{{ $link->title }}')" />
                                 </form>
                             </td>
                         </tr>
