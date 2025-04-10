@@ -26,10 +26,16 @@
                 </div>
 
                 <div class="video-container md:flex-1">
-                    <iframe src="https://www.youtube.com/embed/NOGemNxtQcA?si=ZbrJtHsfiCdlYqlI" title="YouTube video player"
-                    width="100%"
-                    height="auto"
-                     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                    <iframe 
+                        src="https://www.youtube.com/embed/NOGemNxtQcA?si=ZbrJtHsfiCdlYqlI" title="YouTube video player"
+                        width="100%"
+                        height="auto"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                        referrerpolicy="strict-origin-when-cross-origin" 
+                        allowfullscreen
+                        loading="lazy">
+                    </iframe>
                 </div>
             </div>
         </section>
@@ -55,15 +61,16 @@
 
                         @if ($videoId)
                         <iframe
-                        src="https://www.youtube.com/embed/{{ $videoId }}"
-                        width="100%"
-                        height="auto"
-                        title="{{ $video->title }}"
-                        frameborder="0"
-                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                        referrerpolicy="strict-origin-when-cross-origin"
-                        allowfullscreen>
-                    </iframe>
+                            src="https://www.youtube.com/embed/{{ $videoId }}"
+                            width="100%"
+                            height="auto"
+                            title="{{ $video->title }}"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                            loading="lazy">
+                        </iframe>
                         @else
                             <p>Video not available.</p>
                         @endif
@@ -102,7 +109,8 @@
                                 frameborder="0"
                                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                                 referrerpolicy="strict-origin-when-cross-origin"
-                                allowfullscreen>
+                                allowfullscreen
+                                loading="lazy">
                             </iframe>
                         @else
                             <a href="{{ $testimonialVideo->url }}" target="_blank">Watch {{ $testimonialVideo->title }}</a>

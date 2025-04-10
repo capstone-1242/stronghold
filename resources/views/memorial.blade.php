@@ -35,7 +35,7 @@
                                 @endphp
 
                                 <div class="thumbnail relative w-40 h-40 pl-[1.6rem]">
-                                    <img src="{{ $isCdn ? $image->filename : Storage::url($image->filename) }}" alt="Memorial Thumbnail" class="object-cover cursor-pointer rounded-sm" onclick="changeMainImage('{{ $isCdn ? $image->filename : Storage::url($image->filename) }}')">
+                                    <img src="{{ $isCdn ? $image->filename : Storage::url($image->filename) }}" alt="Memorial Thumbnail" class="object-cover cursor-pointer rounded-sm" onclick="changeMainImage('{{ $isCdn ? $image->filename : Storage::url($image->filename) }}')" loading="lazy">
                                 </div>
                             @endforeach
                         </div>

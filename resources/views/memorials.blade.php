@@ -28,7 +28,7 @@
                         @if($memorial->memorialImages->count() > 0)
                             <a href="{{ route('memorial', ['id' => $memorial->id]) }}" class="block w-full">
                                 <div class="relative w-full">
-                                    <img src="{{ $memorial->memorialImages->first()->filename }}" alt="Memorial Image" class="object-cover w-full h-64 md:h-80 lg:h-96 rounded-sm">
+                                    <img src="{{ $memorial->memorialImages->first()->filename }}" alt="Memorial Image" class="object-cover w-full h-64 md:h-80 lg:h-96 rounded-sm" loading="lazy">
                                     <div class="absolute inset-x-0 bottom-0 h-1/3 bg-gradient-to-t from-black to-transparent opacity-50 rounded-sm"></div>
                                 </div>
                             </a>
