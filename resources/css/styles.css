@@ -111,7 +111,7 @@ h2 {
     font-size: clamp(40px , 2.5vw, 48px);
 }
 
-p, li {
+p, li, .link-size {
     font-size: clamp(16px, 2.5vw, 24px);
 }
 
@@ -119,7 +119,7 @@ div.disclaimer p {
     font-size: 16px;
 }
 
-a {
+a, .link-size-sm {
     font-size: clamp(16px, 1.5vw, 18px);
 }
 
@@ -1034,7 +1034,7 @@ footer .divider {
     }
 
     .navbar-content-dash {
-        min-width: 20rem;
+        min-width: 24rem;
         min-height: 94vh;
     }
 

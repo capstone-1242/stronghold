@@ -29,7 +29,7 @@
                 <div class="dash-menu mb-6 bg-gray-800">
                     <nav class="mt-6">
                         <ul class="space-y-6">
-                            <x-nav-link href="/dashboard" :active="request()->is('dashboard')" class="p-2 x-nav-link block rounded-xl">Dashboard</x-nav-link>
+                            <x-nav-link href="/dashboard" :active="request()->is('dashboard')" class="p-2 x-nav-link block rounded-xl link-size">Dashboard</x-nav-link>
                             
                             <li>
                                 <button class="x-nav-link w-[100%] text-left dash-dropdown rounded-tl-xl rounded-tr-xl cursor-pointer flex justify-between items-center p-2" aria-expanded="false">
@@ -41,10 +41,10 @@
                                 </button>
                                 <div class="left-0 bg-gray-600 rounded-bl-xl rounded-br-xl p-2 hidden dash-drop-content">
                                     <ul class="space-y-3 py-2 link-group">
-                                        <x-nav-link href="/auth/auth-videos" :active="request()->is('auth/auth-videos')">All Videos</x-nav-link>
-                                        <x-nav-link href="/auth/create/video" :active="request()->is('auth/create/video')">Create Video</x-nav-link>
-                                        <x-nav-link href="/auth/edit/video" :active="request()->is('auth/edit/video')">Edit Video</x-nav-link>
-                                        <x-nav-link href="/auth/destroy/video" :active="request()->is('auth/destroy/video')">Delete Video</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/auth-videos" :active="request()->is('auth/auth-videos')">All Videos</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/create/video" :active="request()->is('auth/create/video')">Create Video</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/edit/video" :active="request()->is('auth/edit/video')">Edit Video</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/destroy/video" :active="request()->is('auth/destroy/video')">Delete Video</x-nav-link>
                                     </ul>
                                 </div>
                             </li>
@@ -59,10 +59,10 @@
                                 </button>
                                 <div class="left-0 bg-gray-600 rounded-bl-xl rounded-br-xl p-2 hidden dash-drop-content">
                                     <ul class="space-y-3 py-2 link-group">
-                                        <x-nav-link href="/auth/auth-resources" :active="request()->is('auth/auth-resources')">All Resources</x-nav-link>
-                                        <x-nav-link href="/auth/create/resource" :active="request()->is('auth/create/resource')">Create Resource</x-nav-link>
-                                        <x-nav-link href="/auth/edit/resource" :active="request()->is('auth/edit/resource')">Edit Resource</x-nav-link>
-                                        <x-nav-link href="/auth/destroy/resource" :active="request()->is('auth/destroy/resource')">Delete Resource</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/auth-resources" :active="request()->is('auth/auth-resources')">All Resources</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/create/resource" :active="request()->is('auth/create/resource')">Create Resource</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/edit/resource" :active="request()->is('auth/edit/resource')">Edit Resource</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/destroy/resource" :active="request()->is('auth/destroy/resource')">Delete Resource</x-nav-link>
                                     </ul>
                                 </div>
                             </li>                                
@@ -77,10 +77,10 @@
                                 </button>
                                 <div class="left-0 bg-gray-600 rounded-bl-xl rounded-br-xl p-2 hidden dash-drop-content">
                                     <ul class="space-y-3 py-2 link-group">
-                                        <x-nav-link href="/auth/auth-presenters" :active="request()->is('auth/auth-presenters')">All Presenters</x-nav-link>
-                                        <x-nav-link href="/auth/create/presenters" :active="request()->is('auth/create/presenters')">Create Presenter</x-nav-link>
-                                        <x-nav-link href="/auth/edit/presenters" :active="request()->is('auth/edit/presenters')">Edit Presenter</x-nav-link>
-                                        <x-nav-link href="/auth/destroy/presenters" :active="request()->is('auth/destroy/presenters')">Delete Presenter</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/auth-presenters" :active="request()->is('auth/auth-presenters')">All Presenters</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/create/presenters" :active="request()->is('auth/create/presenters')">Create Presenter</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/edit/presenters" :active="request()->is('auth/edit/presenters')">Edit Presenter</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/destroy/presenters" :active="request()->is('auth/destroy/presenters')">Delete Presenter</x-nav-link>
                                     </ul>
                                 </div>
                             </li>
@@ -95,10 +95,10 @@
                                 </button>
                                 <div class="left-0 bg-gray-600 rounded-bl-xl rounded-br-xl p-2 hidden dash-drop-content">
                                     <ul class="space-y-3 py-2 link-group">
-                                        <x-nav-link href="/auth/auth-memorials" :active="request()->is('auth/auth-memorials')">All Memorials</x-nav-link>
-                                        <x-nav-link href="/auth/create/memorial" :active="request()->is('auth/create/memorial')">Create Memorial</x-nav-link>
-                                        <x-nav-link href="/auth/edit/memorial" :active="request()->is('auth/edit/memorial')">Edit Memorial</x-nav-link>
-                                        <x-nav-link href="/auth/destroy/memorial" :active="request()->is('auth/destroy/memorial')">Delete Memorial</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/auth-memorials" :active="request()->is('auth/auth-memorials')">All Memorials</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/create/memorial" :active="request()->is('auth/create/memorial')">Create Memorial</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/edit/memorial" :active="request()->is('auth/edit/memorial')">Edit Memorial</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/destroy/memorial" :active="request()->is('auth/destroy/memorial')">Delete Memorial</x-nav-link>
                                     </ul>
                                 </div>
                             </li>
@@ -113,10 +113,10 @@
                                 </button>
                                 <div class="left-0 bg-gray-600 rounded-bl-xl rounded-br-xl p-2 hidden dash-drop-content">
                                     <ul class="space-y-3 py-2 link-group">
-                                        <x-nav-link href="/auth/auth-memorial-images" :active="request()->is('auth/auth-memorial-images')">All Memorial Images</x-nav-link>
-                                        <x-nav-link href="/auth/create/memorial-images" :active="request()->is('auth/create/memorial-images')">Create Memorial Image</x-nav-link>
-                                        <x-nav-link href="/auth/edit/memorial-images" :active="request()->is('auth/edit/memorial-images')">Edit Memorial Image</x-nav-link>
-                                        <x-nav-link href="/auth/destroy/memorial-images" :active="request()->is('auth/destroy/memorial-images')">Delete Memorial Image</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/auth-memorial-images" :active="request()->is('auth/auth-memorial-images')">All Memorial Images</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/create/memorial-images" :active="request()->is('auth/create/memorial-images')">Create Memorial Image</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/edit/memorial-images" :active="request()->is('auth/edit/memorial-images')">Edit Memorial Image</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/destroy/memorial-images" :active="request()->is('auth/destroy/memorial-images')">Delete Memorial Image</x-nav-link>
                                     </ul>
                                 </div>
                             </li>
@@ -131,10 +131,10 @@
                                 </button>
                                 <div class="left-0 bg-gray-600 rounded-bl-xl rounded-br-xl p-2 hidden dash-drop-content">
                                     <ul class="space-y-3 py-2 link-group">
-                                        <x-nav-link href="/auth/auth-users" :active="request()->is('auth/auth-users')">All Users</x-nav-link>
-                                        <x-nav-link href="/auth/create/user" :active="request()->is('auth/create/user')">Create User</x-nav-link>
-                                        <x-nav-link href="/auth/edit/user" :active="request()->is('auth/edit/user')">Edit User</x-nav-link>
-                                        <x-nav-link href="/auth/destroy/user" :active="request()->is('auth/destroy/user')">Delete User</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/auth-users" :active="request()->is('auth/auth-users')">All Users</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/create/user" :active="request()->is('auth/create/user')">Create User</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/edit/user" :active="request()->is('auth/edit/user')">Edit User</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/destroy/user" :active="request()->is('auth/destroy/user')">Delete User</x-nav-link>
                                     </ul>
                                 </div>
                             </li>
@@ -149,10 +149,10 @@
                                 </button>
                                 <div class="left-0 bg-gray-600 rounded-bl-xl rounded-br-xl p-2 hidden dash-drop-content">
                                     <ul class="space-y-3 py-2 link-group">
-                                        <x-nav-link href="/auth/auth-testimonials" :active="request()->is('auth/auth-testimonials')">All Testimonials</x-nav-link>
-                                        <x-nav-link href="/auth/create/testimonial" :active="request()->is('auth/create/testimonial')">Create Testimonial</x-nav-link>
-                                        <x-nav-link href="/auth/edit/testimonial" :active="request()->is('auth/edit/testimonial')">Edit Testimonial</x-nav-link>
-                                        <x-nav-link href="/auth/destroy/testimonial" :active="request()->is('auth/destroy/testimonial')">Delete Testimonial</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/auth-testimonials" :active="request()->is('auth/auth-testimonials')">All Testimonials</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/create/testimonial" :active="request()->is('auth/create/testimonial')">Create Testimonial</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/edit/testimonial" :active="request()->is('auth/edit/testimonial')">Edit Testimonial</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/destroy/testimonial" :active="request()->is('auth/destroy/testimonial')">Delete Testimonial</x-nav-link>
                                     </ul>
                                 </div>
                             </li>
@@ -167,10 +167,10 @@
                                 </button>
                                 <div class="left-0 bg-gray-600 rounded-bl-xl rounded-br-xl p-2 hidden dash-drop-content">
                                     <ul class="space-y-3 py-2 link-group">
-                                        <x-nav-link href="/auth/auth-links" :active="request()->is('auth/auth-links')">All Links</x-nav-link>
-                                        <x-nav-link href="/auth/create/links" :active="request()->is('auth/create/links')">Create Link</x-nav-link>
-                                        <x-nav-link href="/auth/edit/links" :active="request()->is('auth/edit/links')">Edit Link</x-nav-link>
-                                        <x-nav-link href="/auth/destroy/links" :active="request()->is('auth/destroy/links')">Delete Link</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/auth-links" :active="request()->is('auth/auth-links')">All Links</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/create/links" :active="request()->is('auth/create/links')">Create Link</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/edit/links" :active="request()->is('auth/edit/links')">Edit Link</x-nav-link>
+                                        <x-nav-link class="block link-size-sm" href="/auth/destroy/links" :active="request()->is('auth/destroy/links')">Delete Link</x-nav-link>
                                     </ul>
                                 </div>
                             </li> 
