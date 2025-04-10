@@ -1,3 +1,5 @@
+@props(['tags', 'selectedTags', 'allCareersUrl'])
+
 <div class="role-btn-filter-container">
     <form action="{{ url()->current() }}" method="GET" id="filter-form" class="grid grid-cols-2 gap-4 lg:flex lg:gap-4 lg:wrap p-4">
         @foreach ($tags as $tag)
@@ -20,7 +22,7 @@
             </label>
         @endforeach
 
-        <a href="/testimonials" class="role-btn all">
+        <a href="{{ $allCareersUrl }}" class="role-btn cursor-pointer all">
             <x-all/>
             All Careers
         </a>

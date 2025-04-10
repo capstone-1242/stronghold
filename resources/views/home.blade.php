@@ -17,7 +17,7 @@
         </div>
 
         <section class="welcome pt-[50rem]">
-            <div class="lg:flex lg:flex-wrap gap-6 container items-center p-6">
+            <div class="lg:flex lg:flex-wrap gap-6 container items-center p-6 bg-blue-900/20 rounded-md">
                 <div class="lg:max-w-[360px] items-start mb-4">
                     <h2 class="flex flex-col"><span>Welcome to the</span> <span>STRONGHOLD</span></h2>
                     <p>— a nonprofit, video-based mental health resource for first responders. Here, you’ll find support, stories, and strategies to help you stay strong in mind and body. You’re not alone—welcome to your safehaven.</p>
@@ -40,7 +40,7 @@
             </div>
         </section>
 
-        <section class="home-videos">
+        <section class="home-videos mt-[3.2rem]">
             <div class="container">
                 <h2>Explore Insightful Videos</h2>
                 <p>Browse our mental health video collection for support on everything from depression to overall well-being.</p>
@@ -82,7 +82,7 @@
             <a href="/videos" :active="request()->is('videos')" class="button m-0">Explore More Videos</a>
         </section>
 
-        <section class="home-testimonial">
+        <section class="home-testimonial mt-[4.8rem]">
             <h2 class="container">Our Testimonials of Triumph</h2>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 md:p-[1.6rem]">

@@ -2,6 +2,7 @@
     use App\Models\Tag;
     $tags = Tag::all();
     $selectedTags = request()->input('tags', []);
+    $allCareersUrl = '/memorials';
 @endphp
 
 <x-layout :title="'Memorials'">
@@ -19,7 +20,7 @@
 
             <section>
                 <h3>Filter by Career</h3>
-                <x-filter-dropdown :tags="$tags" :selectedTags="$selectedTags" />
+                <x-filter-dropdown :tags="$tags" :selectedTags="$selectedTags" :allCareersUrl="$allCareersUrl"/>
             </section>
 
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6 p-[1.6rem]">

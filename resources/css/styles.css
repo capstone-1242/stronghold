@@ -834,13 +834,6 @@ header nav li a:focus {
     padding: var(--min-spacing);
 }
 
-.related-videos-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.6rem;
-    padding-top: 0;
-}
-
 .related-videos-grid iframe {
     min-width: unset;
     margin-bottom: 0;

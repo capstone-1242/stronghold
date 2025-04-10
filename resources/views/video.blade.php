@@ -81,7 +81,7 @@
 
         <div>
             <h3>More from {{ $author->first_name }} {{ $author->last_name }}</h3>
-            <div class="related-videos-grid grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="related-videos-grid grid sm:grid-cols-2 gap-[1.6rem]">
                 @foreach ($author->videos->take(4) as $relatedVideo)
                     @php
                         $relatedVideoId = null;

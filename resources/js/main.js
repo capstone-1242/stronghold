@@ -1,11 +1,3 @@
-$(':hidden').each(function() {
-    var backgroundImage = $(this).css("background-image");
-    if (backgroundImage != 'none') {
-      tempImage = new Image();
-      tempImage.src = backgroundImage;
-    }
-  });
-  
 let btn = document.querySelector('.tog-btn');
 let menu = document.querySelector('.main-menu');
 
