@@ -7,7 +7,7 @@
         <section class="resources container pt-24 pb-[422px] px-[1.6rem]">
             <h2>Local Resources</h2>
 
-            <div class="lg:max-w-6xl">
+            <div class="lg:max-w-6xl pb-[3.2rem]">
                 <div class="bg-white rounded-md p-6 text-black font-bold mb-8">
                     <p>If you're thinking about suicide, text 988</p>
                 </div>
@@ -18,7 +18,7 @@
             </div>
 
             <div class="lg:grid lg:grid-cols-2 gap-8">
-                <section class="bg-blue-900/35 p-8 my-8 rounded-md">
+                <section class="bg-blue-900/35 p-8 my-8 rounded-md mb-[4.8rem]">
                     <h3 class="lg:text-5xl! mt-6">Canada Help Lines</h3>
 
                     <div class="divider mb-12"></div>

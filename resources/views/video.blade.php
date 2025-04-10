@@ -3,7 +3,7 @@
         {{ Breadcrumbs::render('video-single', $video->id) }}
     </div>
 
-    <div class="single-video-top">
+    <div class="single-video-top container">
         <div>
             <a href="{{ url()->previous() }}" class="back-button flex items-center gap-2 text-blue-700 hover:underline">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -16,7 +16,7 @@
         <h2>{{ $video->title }}</h2>
     </div>
 
-    <div class="single-video">
+    <div class="single-video container">
         <div>
             @php
                 $videoId = null;

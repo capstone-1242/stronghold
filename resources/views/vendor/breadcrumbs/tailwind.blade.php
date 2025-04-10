@@ -1,7 +1,7 @@
 <div class="breadcrumbs">
     @unless ($breadcrumbs->isEmpty())
         <nav>
-            <ol class="p-3 rounded flex flex-wrap items-center gap-2">
+            <ol class="py-3 rounded flex flex-wrap items-center gap-2 container px-[1.6rem]">
                 @foreach ($breadcrumbs as $breadcrumb)
     
                     @if ($loop->first)

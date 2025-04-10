@@ -35,7 +35,7 @@
         </form>
 
         @if($videos->isEmpty())
-            <p>No videos found matching your search criteria.</p>
+            <p>No videos found.</p>
         @else
             <div>
                 @foreach ($videos->groupBy('author_id') as $authorId => $authorVideos)
@@ -80,10 +80,8 @@
                                             @endif
                                         </a>
                                     </div>
-                                    <div>
-                                        <a href="{{ route('video', ['video' => $video->id]) }}">
-                                            {{ $video->title }}
-                                        </a>
+                                    <div class="mb-4">
+                                        <a href="{{ route('video', ['video' => $video->id]) }}">{{ $video->title }}</a>
                                     </div>
                                 </div>
                             @endforeach

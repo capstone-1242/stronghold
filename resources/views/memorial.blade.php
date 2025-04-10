@@ -18,14 +18,14 @@
 
             <div class="lg:flex lg:gap-6">
                 @if($memorial->memorialImages->count() > 0)
-                    <div class="gallery-container lg:min-w-6xl">
-                        <div class="main-image-container ">
+                    <div class="gallery-container md:w-[80%] mx-auto lg:min-w-5xl">
+                        <div class="main-image-container rounded-md">
                             @php
                                 $mainImage = $memorial->memorialImages->first()->filename;
                                 $isCdn = strpos($mainImage, 'http') === 0;
                             @endphp
 
-                            <img id="main-image" src="{{ $isCdn ? $mainImage : Storage::url($mainImage) }}" alt="Memorial Image" class="object-cover">
+                            <img id="main-image" src="{{ $isCdn ? $mainImage : Storage::url($mainImage) }}" alt="Memorial Image" class="object-cover rounded-md">
                         </div>
 
                         <div class="thumbnail-container flex justify-start mt-4">
@@ -34,15 +34,15 @@
                                     $isCdn = strpos($image->filename, 'http') === 0;
                                 @endphp
 
-                                <div class="thumbnail relative w-40 h-40 pl-[1.6rem]">
+                                <div class="thumbnail rounded-md relative w-40 h-40 pl-[1.6rem]">
                                     <img src="{{ $isCdn ? $image->filename : Storage::url($image->filename) }}" alt="Memorial Thumbnail" class="object-cover cursor-pointer rounded-sm" onclick="changeMainImage('{{ $isCdn ? $image->filename : Storage::url($image->filename) }}')" loading="lazy">
                                 </div>
                             @endforeach
                         </div>
-                    </div>
-                @else
-                    <p>No images available.</p>
-                @endif
+                    @else
+                        <p>No images available.</p>
+                    @endif
+                </div>
 
                <div class="info bg-blue-900/15 rounded-md backdrop-blur-xl p-8">
                     <section class="flex justify-between">
