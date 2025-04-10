@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'Delete a Memorial'">
     <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Delete a Memorial</h2>
         
@@ -14,10 +14,9 @@
                     <tr>
                         <th class="px-6 text-left">First Name</th>
                         <th class="px-6 text-left">Last Name</th>
-                        <th class="px-6 text-left">Biography</th>
                         <th class="px-6 text-left">Birth Year</th>
                         <th class="px-6 text-left">Death Year</th>
-                        <th class="px-6 text-left">Tag</th>
+                        <th class="px-6 text-left">Biography</th>
                         <th class="px-6 text-left">Actions</th>
                     </tr>
                 </thead>
@@ -26,12 +25,9 @@
                         <tr class="border-b">
                             <td class="px-6 py-4">{{ $memorial->first_name }}</td>
                             <td class="px-6 py-4">{{ $memorial->last_name }}</td>
-                            <td class="px-6 py-4">{{ Str::limit($memorial->biography, 50) }}</td>
                             <td class="px-6 py-4">{{ $memorial->birth_year ?: '-' }}</td>
                             <td class="px-6 py-4">{{ $memorial->death_year ?: '-' }}</td>
-                            <td class="px-6 py-4">
-                                {{ $memorial->tag ? $memorial->tag->name : 'No tag' }}
-                            </td>
+                            <td class="px-6 py-4">{{ Str::limit($memorial->biography, 50) }}</td>
                             <td class="px-6 py-4">
                                 <form action="{{ route('auth.destroy.memorial.delete', $memorial->id) }}" method="POST">
                                     @csrf

@@ -1,5 +1,5 @@
-<x-layout>
-<main class="memorials">
+<x-layout :title="$memorial->first_name . ' ' . $memorial->last_name">
+    <main class="memorials">
         <div class="memorials backdrop-blur-md">
             {{ Breadcrumbs::render('memorial', $memorial->id) }}
         </div>
@@ -98,7 +98,7 @@
                 </a>
             @endif
         </div>
-</main>
+    </main>
 </x-layout>
 
 <script>

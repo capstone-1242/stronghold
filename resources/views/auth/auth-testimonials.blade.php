@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'Testimonials'">
    <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Testimonails</h2>
     

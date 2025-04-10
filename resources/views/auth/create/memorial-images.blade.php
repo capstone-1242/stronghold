@@ -1,6 +1,6 @@
-<x-admin-layout>
+<x-admin-layout :title="'Create a Memorial Image'">
    <section class="p-6 md:p-12">
-        <h2 class="font-semibold text-4xl my-12">Add a Memorial Image</h2>
+        <h2 class="font-semibold text-4xl my-12">Create a Memorial Image</h2>
     
         @if(session('success'))
             <div class="bg-green-700 text-white text-center rounded-xl p-4 mb-6">

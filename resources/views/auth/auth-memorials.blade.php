@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'Memorials'">
     <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Memorials</h2>
     

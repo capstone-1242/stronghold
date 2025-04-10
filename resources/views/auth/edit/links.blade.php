@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'Edit a Link'">
    <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Edit a Link</h2>
     

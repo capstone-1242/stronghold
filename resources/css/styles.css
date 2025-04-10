@@ -509,7 +509,7 @@ header nav {
     display: none;
     background-color: #728C98;
     position: absolute;
-    top: 8rem;
+    top: 7rem;
     left: 0;
     width: 100%;
     height: fit-content;
@@ -949,6 +949,13 @@ body.dashboard .link-group a:focus,
     margin: auto;
 }
 
+.edit-image {
+    max-width: 600px;
+    object-fit: cover;
+    aspect-ratio: 1;
+    border-radius: var(--border-radius);
+}
+
 /* Footer */
 footer {
     background-image: url("../../public/images/footer-bg.png");
@@ -1029,5 +1036,9 @@ footer .divider {
     .navbar-content-dash {
         min-width: 20rem;
         min-height: 94vh;
+    }
+
+    .edit-image {
+        width: 80%;
     }
 }

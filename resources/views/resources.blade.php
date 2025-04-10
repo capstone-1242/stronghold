@@ -1,5 +1,5 @@
-<x-layout>
-<main>
+<x-layout :title="'Resources'">
+    <main>
         <div>
             {{ Breadcrumbs::render('resources') }}
         </div>
@@ -54,5 +54,5 @@
                 </section>
             </div>
         </section>
-</main>
+    </main>
 </x-layout>

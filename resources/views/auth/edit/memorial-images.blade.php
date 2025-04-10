@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'Edit a Memorial Image'">
     <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Edit a Memorial Image</h2>
     
@@ -10,7 +10,7 @@
     
         @if (!$memorialImage)
             <form method="GET" action="{{ route('auth.edit.memorial-images') }}" class="mb-6">
-                <label for="select-memorial" class="block w-full">Select Memorial:</label>
+                <label for="select-memorial" class="block w-full">Select Memorial</label>
                 <select id="select-memorial" name="memorial_id" onchange="this.form.submit()" class="border border-gray-800 p-2 w-full rounded-xl bg-white">
                     <option value="">Select a Memorial</option>
                     @foreach ($memorials as $memorialOption)
@@ -25,7 +25,7 @@
     
         @if ($selectedMemorial)
             <form method="GET" action="{{ route('auth.edit.memorial-images') }}" class="mb-6">
-                <label for="select-memorial-image" class="block w-full">Select Memorial Image:</label>
+                <label for="select-memorial-image" class="block w-full">Select Memorial Image</label>
                 <select id="select-memorial-image" name="memorial_image_id" onchange="this.form.submit()" class="border border-gray-800 p-2 w-full rounded-xl bg-white">
                     <option value="">Select a Memorial Image</option>
                     @if ($selectedMemorial->memorialImages->count() > 0)
@@ -50,7 +50,7 @@
                 <div class="mb-6">
                     <label for="current_image" class="block w-full font-semibold mb-2">Current Image</label>
                     <div>
-                        <img src="{{ asset('storage/' . $memorialImage->filename) }}" alt="{{ $memorialImage->description }}" class="w-32 h-32 object-cover mb-2">
+                        <img src="{{ asset('storage/' . $memorialImage->filename) }}" alt="{{ $memorialImage->description }}" class="edit-image">
                     </div>
                 </div>
     

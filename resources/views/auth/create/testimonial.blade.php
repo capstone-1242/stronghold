@@ -4,7 +4,7 @@
     $selectedTags = request()->input('tags', []);
 @endphp
 
-<x-admin-layout>
+<x-admin-layout :title="'Create a Testimonial'">
     <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Create a Testimonial</h2>
     
@@ -36,7 +36,7 @@
             </div>
     
             <div class="mb-6">
-                <label for="tag_id" class="block w-full">Tag</label>
+                <label for="tag_id" class="block w-full">Career Tag</label>
                 <select id="tag_id" name="tag_id" class="border border-gray-800 p-2 w-full rounded-xl bg-white" required>
                     <option value="">Select a Tag</option>
                     @foreach ($tags as $tag)

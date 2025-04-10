@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'Create a Memorial'">
     <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Create a Memorial</h2>
     

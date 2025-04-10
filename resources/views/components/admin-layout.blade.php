@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>STRONGHOLD Dashboard</title>
+        <title>{{ isset($title) ? $title . ' | STRONGHOLD' : 'STRONGHOLD' }}</title>
 
         @vite(['resources/css/styles.css', 'resources/js/main.js'])
         <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -114,9 +114,9 @@
                                 <div class="left-0 bg-gray-600 rounded-bl-xl rounded-br-xl p-2 hidden dash-drop-content">
                                     <ul class="space-y-3 py-2 link-group">
                                         <x-nav-link href="/auth/auth-memorial-images" :active="request()->is('auth/auth-memorial-images')">All Memorial Images</x-nav-link>
-                                        <x-nav-link href="/auth/create/memorial-images" :active="request()->is('auth/create/memorial-images')">Add Memorial Images</x-nav-link>
-                                        <x-nav-link href="/auth/edit/memorial-images" :active="request()->is('auth/edit/memorial-images')">Edit Memorial Images</x-nav-link>
-                                        <x-nav-link href="/auth/destroy/memorial-images" :active="request()->is('auth/destroy/memorial-images')">Delete Memorial Images</x-nav-link>
+                                        <x-nav-link href="/auth/create/memorial-images" :active="request()->is('auth/create/memorial-images')">Create Memorial Image</x-nav-link>
+                                        <x-nav-link href="/auth/edit/memorial-images" :active="request()->is('auth/edit/memorial-images')">Edit Memorial Image</x-nav-link>
+                                        <x-nav-link href="/auth/destroy/memorial-images" :active="request()->is('auth/destroy/memorial-images')">Delete Memorial Image</x-nav-link>
                                     </ul>
                                 </div>
                             </li>

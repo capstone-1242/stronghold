@@ -4,7 +4,7 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
 
-        <title>STRONGHOLD</title>
+        <title>{{ isset($title) ? $title . ' | STRONGHOLD' : 'STRONGHOLD' }}</title>
 
         @vite(['resources/css/styles.css', 'resources/js/main.js'])
         <link rel="preconnect" href="https://fonts.googleapis.com">

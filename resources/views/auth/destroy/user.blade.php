@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'Delete a User'">
     <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Delete a User</h2>
     

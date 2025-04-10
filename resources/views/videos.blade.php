@@ -15,7 +15,7 @@
         ->get();
 @endphp
 
-<x-layout>
+<x-layout :title="'Insightful Videos'">
     <div>
         {{ Breadcrumbs::render('videos') }}
     </div>

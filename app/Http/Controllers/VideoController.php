@@ -47,15 +47,14 @@ class VideoController extends Controller
         $video = Video::findOrFail($videoId);
         $author = $video->author()->with('links')->first();
 
-        $previousVideo = Video::where('author_id', $author->id)
-            ->where('id', '<', $video->id)
-            ->orderBy('id', 'desc')
-            ->first();
+        $videos = Video::orderBy('created_at', 'desc')->get();
 
-        $nextVideo = Video::where('author_id', $author->id)
-            ->where('id', '>', $video->id)
-            ->orderBy('id', 'asc')
-            ->first();
+        $currentVideoIndex = $videos->search(function($video) use ($videoId) {
+            return $video->id == $videoId;
+        });
+
+        $previousVideo = $videos->get($currentVideoIndex - 1);
+        $nextVideo = $videos->get($currentVideoIndex + 1);
 
         $relatedVideos = $author->videos->take(4);
 

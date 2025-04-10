@@ -4,8 +4,8 @@
     $selectedTags = request()->input('tags', []);
 @endphp
 
-<x-layout>
-<main class="testimonials">
+<x-layout :title="'Testimonials'">
+    <main class="testimonials">
         <div>
             {{ Breadcrumbs::render('testimonials') }}
         </div>
@@ -17,7 +17,7 @@
 
         <section class="container py-12">
             <h3>Filter by Career</h3>
-                <x-filter-dropdown :tags="$tags" :selectedTags="$selectedTags" />
+            <x-filter-dropdown :tags="$tags" :selectedTags="$selectedTags" />
         </section>
 
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 container">
@@ -54,5 +54,5 @@
         <div class="pb-[422px]">
             {{ $testimonialVideos->appends(request()->query())->links('pagination::semantic-ui') }}
         </div>
-</main>
+    </main>
 </x-layout>

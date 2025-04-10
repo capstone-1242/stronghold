@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'Memorial Images'">
     <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Memorial Images</h2>
     
@@ -32,7 +32,7 @@
                 @endphp
     
                 <div class="mb-6 min-h-fit">
-                    <h2 class="text-2xl font-semibold">{{ $memorial->first_name }} {{ $memorial->last_name }}</h2>
+                    <h3 class="text-2xl font-semibold">{{ $memorial->first_name }} {{ $memorial->last_name }}</h3>
                     <hr class="my-2">
     
                     <div class="flex flex-wrap space-x-4 py-2">

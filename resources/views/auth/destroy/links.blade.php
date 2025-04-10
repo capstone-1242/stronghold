@@ -1,4 +1,4 @@
-<x-admin-layout>
+<x-admin-layout :title="'Delete a Link'">
    <section class="p-6 md:p-12">
         <h2 class="font-semibold text-4xl my-12">Delete a Link</h2>
     
@@ -14,7 +14,7 @@
                     <tr>
                         <th class="px-6 text-left">Title</th>
                         <th class="px-6 text-left">URL</th>
-                        <th class="px-6 text-left">Author</th>
+                        <th class="px-6 text-left">Presenter</th>
                         <th class="px-6 text-left">Actions</th>
                     </tr>
                 </thead>

@@ -4,7 +4,7 @@
     $selectedTags = request()->input('tags', []);
 @endphp
 
-<x-layout>
+<x-layout :title="'Memorials'">
    <main class="memorials">
         <div>
             {{ Breadcrumbs::render('memorials') }}

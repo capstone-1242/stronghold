@@ -1,4 +1,4 @@
-<x-layout>
+<x-layout :title="$author->first_name . ' ' . $author->last_name . ' Videos'">
     <div>
         {{ Breadcrumbs::render('video-author', $author->id) }}
     </div>
