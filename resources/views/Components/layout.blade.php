@@ -18,7 +18,7 @@
         <script src="https://cdn.jsdelivr.net/npm/lite-youtube-embed@0.1.3/src/lite-yt-embed.js" defer></script>
     </head>
 
-    <body>
+    <body style="{{ $bodyStyle ?? '' }}">
         <div class="min-h-full">
             <header>
                 <div class="container">

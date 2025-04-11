@@ -5,7 +5,7 @@
     $allCareersUrl = '/testimonials';
 @endphp
 
-<x-layout :title="'Testimonials'">
+<x-layout :title="'Testimonials'" :bodyStyle="'background-color: #86B3DD'">
     <main class="testimonials">
         <div>
             {{ Breadcrumbs::render('testimonials') }}
@@ -35,10 +35,10 @@
 
                 <div>
                     @if ($videoId)
-                        <lite-youtube 
-                            videoid="{{ $videoId }}" 
-                            width="100%" 
-                            height="auto"  
+                        <lite-youtube
+                            videoid="{{ $videoId }}"
+                            width="100%"
+                            height="auto"
                             frameborder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; web-share"
                             referrerpolicy="strict-origin-when-cross-origin"

@@ -44,7 +44,7 @@ body {
     font-family: var(--font-family-body);
 }
 
-body:not(.dashboard)  main{
+body:not(.dashboard) main {
     background-image: url(../../public/images/bottom-bg.webp);
     background-repeat: no-repeat;
     background-position: center bottom;
@@ -56,7 +56,7 @@ body main.testimonials {
     background-image: url('../../public/images/testimonials-bg.avif');
     background-repeat: no-repeat;
     background-position: center bottom;
-    background-size: 100%;
+    background-size: 100% auto;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -825,6 +825,89 @@ header nav li a:focus {
 .related-videos-grid iframe {
     min-width: unset;
     margin-bottom: 0;
+}
+
+/* Testimonials */
+
+main.testimonials h2,
+main.testimonials h3,
+main.testimonials p,
+main.testimonials label,
+main.testimonials a {
+    color: var(--text-primary);
+}
+
+main.testimonials svg {
+    fill: var(--text-primary);
+}
+
+main.testimonials div.dispatcher svg {
+    stroke: var(--text-primary);
+}
+
+main.testimonials label.firefighter:hover svg {
+    fill: var(--red);
+}
+
+main.testimonials label.firefighter.checked svg {
+    fill: var(--red);
+}
+
+main.testimonials label.dispatcher:hover svg {
+    fill: var(--text-accent);
+    stroke: var(--text-accent);
+}
+
+main.testimonials label.dispatcher.checked svg {
+    fill: var(--text-accent);
+    stroke: var(--text-accent);
+}
+
+main.testimonials label.police:hover svg {
+    fill: var(--bg-primary);
+}
+
+main.testimonials label.police.checked svg {
+    fill: var(--bg-primary);
+}
+
+main.testimonials label.paramedic:hover svg,
+main.testimonials label.families:hover svg {
+    fill: var(--text-accent);
+}
+
+main.testimonials label.paramedic.checked svg,
+main.testimonials label.families.checked svg {
+    fill: var(--text-accent);
+}
+
+main.testimonials label.hospital:hover svg {
+    fill: var(--green);
+}
+
+main.testimonials label.hospital.checked svg {
+    fill: var(--green);
+}
+
+main.testimonials label a.all {
+    color: var(--text-primary);
+}
+
+main.testimonials a:hover svg{
+    fill: var(--red);
+}
+
+main.testimonials a:hover svg{
+    fill: var(--red);
+}
+
+main.testimonials div.pagination-container a.pagination-item.active {
+    font-weight: bold;
+}
+
+main.testimonials div.pagination-container a.pagination-item {
+    color: var(--text-primary)!important;
+    background-color:  #f5faffaf !important;
 }
 
 /* About */

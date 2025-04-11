@@ -3,7 +3,7 @@
 <div class="role-btn-filter-container">
     <form action="{{ url()->current() }}" method="GET" id="filter-form" class="grid grid-cols-2 gap-4 lg:flex lg:gap-4 lg:wrap p-4">
         @foreach ($tags as $tag)
-            <label class="role-btn military cursor-pointer {{ strtolower($tag->name) }}">
+            <label class="role-btn cursor-pointer {{ strtolower($tag->name) }}">
                 <input type="checkbox" name="tags[]" value="{{ $tag->id }}" id="{{ $tag->id }}" class="hidden"
                     @if(in_array($tag->id, $selectedTags)) checked @endif
                     onclick="this.form.submit()">
