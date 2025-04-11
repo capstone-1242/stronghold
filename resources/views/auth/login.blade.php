@@ -33,14 +33,6 @@
                                 <span>Remember me</span>
                             </label>
                         </div>
-                
-                        <div class="my-4">
-                            @if (Route::has('password.request'))
-                                <a class="underline rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                                    Forgot your password?
-                                </a>
-                            @endif
-                        </div>
                     </div>
             
                     <input type="submit" value="Log in" class="bg-gray-900 text-white p-2 rounded-xl hover:bg-gray-800 cursor-pointer w-full mb-12">
