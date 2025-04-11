@@ -89,7 +89,7 @@ class VideoController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
-            'url' => ['required', 'url'],
+            'url' => ['required', 'url', 'regex:/^(https?\:\/\/)?(www\.youtube\.com|youtu\.be)\/.+$/'],
             'author_id' => ['required', 'exists:authors,id'],
         ], [
             'title.required' => 'The title is required.',
@@ -99,6 +99,7 @@ class VideoController extends Controller
         
             'url.required' => 'The URL is required.',
             'url.url' => 'Please provide a valid URL.',
+            'url.regex' => 'Please provide a valid YouTube link.',
         
             'author_id.required' => 'The author is required.',
             'author_id.exists' => 'The selected author is invalid.',
@@ -139,7 +140,7 @@ class VideoController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
-            'url' => ['required', 'url'],
+            'url' => ['required', 'url', 'regex:/^(https?\:\/\/)?(www\.youtube\.com|youtu\.be)\/.+$/'],
             'author_id' => ['required', 'exists:authors,id'],
         ], [
             'title.required' => 'The title field is required.',
@@ -149,6 +150,7 @@ class VideoController extends Controller
         
             'url.required' => 'The URL field is required.',
             'url.url' => 'Please provide a valid URL.',
+            'url.regex' => 'Please provide a valid YouTube link.',
         
             'author_id.required' => 'The author is required.',
             'author_id.exists' => 'The selected author is invalid.',

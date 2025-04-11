@@ -1,5 +1,5 @@
 <x-admin-layout :title="'Delete a Testimonial'">
-    <section class="p-6 md:p-12">
+    <section class="p-6 md:p-12 container">
         <h2 class="font-semibold text-4xl my-12">Delete a Testimonial</h2>
     
         @if(session('success'))

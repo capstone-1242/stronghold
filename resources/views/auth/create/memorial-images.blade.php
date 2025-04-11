@@ -1,5 +1,5 @@
 <x-admin-layout :title="'Create a Memorial Image'">
-   <section class="p-6 md:p-12">
+   <section class="p-6 md:p-12 container">
         <h2 class="font-semibold text-4xl my-12">Create a Memorial Image</h2>
     
         @if(session('success'))
@@ -39,7 +39,7 @@
             </div>
     
             <div class="mb-6">
-                <input type="submit" value="Create Memorial Image" class="bg-sky-900 text-white p-2 rounded-xl hover:bg-sky-600 w-full">
+                <input type="submit" value="Create Memorial Image" class="cursor-pointer bg-sky-900 text-white p-2 rounded-xl hover:bg-sky-600 w-full">
             </div>
         </form>
     

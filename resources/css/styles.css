@@ -1114,7 +1114,21 @@ footer .divider {
     }
 
     .edit-image {
-        width: 80%;
+        width: 40%;
+    }
+
+    td a,
+    .email {
+        word-break: break-all;
+    }
+
+    table {
+        width: 100%;
+        table-layout: fixed;
+    }
+
+    th, td {
+        word-wrap: normal;
     }
 }
 

@@ -1,5 +1,5 @@
 <x-admin-layout :title="'Create a Video'">
-    <section class="p-6 md:p-12">
+    <section class="p-6 md:p-12 container">
         <h2 class="font-semibold text-4xl my-12">Create a Video</h2>
     
         @if(session('success'))
@@ -45,7 +45,7 @@
             </div>
     
             <div class="mb-6">
-                <input type="submit" value="Create Video" class="bg-sky-900 text-white p-2 rounded-xl hover:bg-sky-600 w-full">
+                <input type="submit" value="Create Video" class="bg-sky-900 text-white p-2 rounded-xl hover:bg-sky-600 w-full cursor-pointer">
             </div>
         </form>    
     

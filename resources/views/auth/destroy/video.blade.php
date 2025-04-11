@@ -1,5 +1,5 @@
 <x-admin-layout :title="'Delete a Video'">
-    <section class="p-6 md:p-12">
+    <section class="p-6 md:p-12 container">
         <h2 class="font-semibold text-4xl my-12">Delete a Video</h2>
         
         @if(session('success'))
@@ -8,7 +8,7 @@
             </div>
         @endif
     
-        <div class="table-container mt-18">
+        <div class="table-container mt-18 overflow-x-auto">
             <table>
                 <thead class="bg-gray-100">
                     <tr>

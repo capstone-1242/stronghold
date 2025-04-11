@@ -1,5 +1,5 @@
 <x-admin-layout :title="'Testimonials'">
-   <section class="p-6 md:p-12">
+   <section class="p-6 md:p-12 container">
         <h2 class="font-semibold text-4xl my-12">Testimonails</h2>
     
         <div class="flex flex-wrap justify-evenly my-18 gap-6">

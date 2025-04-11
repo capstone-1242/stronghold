@@ -1,5 +1,5 @@
 <x-admin-layout :title="'Edit a User'">
-    <section class="p-6 md:p-12">
+    <section class="p-6 md:p-12 container">
         <h2 class="font-semibold text-4xl my-12">Edit a User</h2>
     
         @if(session('success'))
@@ -68,7 +68,7 @@
                 </div>
     
                 <div class="mb-6">
-                    <input type="submit" value="Update User" class="bg-sky-900 text-white p-2 rounded-xl hover:bg-sky-600 w-full">
+                    <input type="submit" value="Update User" class="cursor-pointer bg-sky-900 text-white p-2 rounded-xl hover:bg-sky-600 w-full">
                 </div>
             </form>
         @endif

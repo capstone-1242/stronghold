@@ -1,5 +1,5 @@
 <x-admin-layout :title="'Dashboard'">
-    <div class="py-12">
+    <div class="py-12 container">
         <div class="sm:px-6 lg:px-8">
             <div class="p-6 text-gray-900">
                 <p class="text-4xl font-semibold">Welcome, {{ Auth::user()->first_name }}!</p>
