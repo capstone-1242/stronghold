@@ -893,11 +893,7 @@ main.testimonials label a.all {
     color: var(--text-primary);
 }
 
-main.testimonials a:hover svg{
-    fill: var(--red);
-}
-
-main.testimonials a:hover svg{
+main.testimonials a:hover div svg{
     fill: var(--red);
 }
 
