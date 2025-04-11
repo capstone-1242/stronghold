@@ -1,5 +1,5 @@
 <x-admin-layout :title="'Delete a User'">
-    <section class="p-6 md:p-12">
+    <section class="p-6 md:p-12 container">
         <h2 class="font-semibold text-4xl my-12">Delete a User</h2>
     
         @if(session('success'))
@@ -24,7 +24,7 @@
                         <tr class="border-b">
                             <td class="px-6 py-4">{{ $user->first_name }}</td>
                             <td class="px-6 py-4">{{ $user->last_name }}</td>
-                            <td class="px-6 py-4">{{ $user->email }}</td>
+                            <td class="px-6 py-4 email">{{ $user->email }}</td>
                             <td class="px-6 py-4">{{ ucfirst($user->role) }}</td>
                             <td class="px-6 py-4">
                                 <form action="{{ route('auth.destroy.user.delete', $user->id) }}" method="POST">

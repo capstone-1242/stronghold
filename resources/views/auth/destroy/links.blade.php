@@ -1,9 +1,9 @@
 <x-admin-layout :title="'Delete a Link'">
-   <section class="p-6 md:p-12">
+   <section class="p-6 md:p-12 container">
         <h2 class="font-semibold text-4xl my-12">Delete a Link</h2>
     
         @if(session('success'))
-            <div class="bg-green-700 text-white text-center rounded-xl p- mb-6">
+            <div class="bg-green-700 text-white text-center rounded-xl p-4 mb-6">
                 {{ session('success') }}
             </div>
         @endif

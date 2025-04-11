@@ -51,7 +51,7 @@ class TestimonialVideoController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['nullable', 'string'],
-            'url' => ['required', 'url'],
+            'url' => ['required', 'url', 'regex:/^(https?\:\/\/)?(www\.youtube\.com|youtu\.be)\/.+$/'],
             'tag_id' => ['required', 'exists:tags,id'],
         ], [
             'title.required' => 'The title is required.',
@@ -59,6 +59,7 @@ class TestimonialVideoController extends Controller
             
             'url.required' => 'The URL is required.',
             'url.url' => 'Please provide a valid URL.',
+            'url.regex' => 'Please provide a valid YouTube link.',
             
             'tag_id.required' => 'The tag is required.',
             'tag_id.exists' => 'The selected tag is invalid.',
@@ -99,7 +100,7 @@ class TestimonialVideoController extends Controller
         $request->validate([
             'title' => ['required', 'string', 'max:255'],
             'description' => ['required', 'string'],
-            'url' => ['required', 'url'],
+            'url' => ['required', 'url', 'regex:/^(https?\:\/\/)?(www\.youtube\.com|youtu\.be)\/.+$/'],
             'tag_id' => ['required', 'exists:tags,id'], 
         ], [
             'title.required' => 'The title is required.',
@@ -107,6 +108,7 @@ class TestimonialVideoController extends Controller
             
             'url.required' => 'The URL is required.',
             'url.url' => 'Please provide a valid URL.',
+            'url.regex' => 'Please provide a valid YouTube link.',
             
             'tag_id.required' => 'The tag is required.',
             'tag_id.exists' => 'The selected tag is invalid.',

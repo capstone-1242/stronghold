@@ -1,5 +1,5 @@
 <x-admin-layout :title="'Users'">
-   <section class="p-6 md:p-12">
+   <section class="p-6 md:p-12 container">
         <h2 class="font-semibold text-4xl my-12">Users</h2>
     
         <div class="flex flex-wrap justify-evenly my-18 gap-6">
@@ -40,7 +40,7 @@
                         <tr class="border-b">
                             <td class="p-6">{{ $user->first_name }}</td>
                             <td class="p-6">{{ $user->last_name }}</td>
-                            <td class="p-6">{{ $user->email }}</td>
+                            <td class="p-6 email">{{ $user->email }}</td>
                             <td class="p-6">{{ $user->role }}</td>
                         </tr>
                     @endforeach

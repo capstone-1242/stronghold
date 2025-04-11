@@ -43,7 +43,7 @@ class ResourceController extends Controller
      */
     public function create()
     {
-        $tags = Tag::all(); 
+        $tags = Tag::all();
 
         return view('auth.create.resource', compact('tags'));
     }

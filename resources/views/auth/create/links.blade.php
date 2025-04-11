@@ -1,5 +1,5 @@
 <x-admin-layout :title="'Create a Link'">
-   <section class="p-6 md:p-12">
+   <section class="p-6 md:p-12 container">
         <h2 class="font-semibold text-4xl my-12">Create a Link for a Presenter</h2>
     
         <p class="my-8 note"><strong>Note:</strong> If the link you're entering is for a YouTube video, please visit the <a href="/auth/create/video" class="underline">Create Video</a> page to add it to the video database. These links are for external resources and will be shown below the video for that presenter.</p>
@@ -39,7 +39,7 @@
             </div>
     
             <div class="mb-6">
-                <input type="submit" value="Create Link" class="bg-sky-900 text-white p-2 rounded-xl hover:bg-sky-600 w-full">
+                <input type="submit" value="Create Link" class="cursor-pointer bg-sky-900 text-white p-2 rounded-xl hover:bg-sky-600 w-full">
             </div>
         </form>
     

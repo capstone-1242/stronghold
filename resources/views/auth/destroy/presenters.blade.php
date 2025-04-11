@@ -1,5 +1,5 @@
 <x-admin-layout :title="'Delete a Presenter'">
-    <section class="p-6 md:p-12">
+    <section class="p-6 md:p-12 container">
         <h2 class="font-semibold text-4xl my-12">Delete a Presenter</h2>
     
         <p class="my-8 note"><strong>Note:</strong> Deleting a presenter will also remove all their videos and links from the website and database.</p>
