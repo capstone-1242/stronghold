@@ -837,7 +837,7 @@ main.testimonials a {
     color: var(--text-primary);
 }
 
-main.testimonials svg {
+main.testimonials svg:not(div.breadcrumbs svg) {
     fill: var(--text-primary);
 }
 
