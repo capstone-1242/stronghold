@@ -68,18 +68,21 @@
             @endif
         </div>        
 
-        <div>
+        @if ($author->links->isNotEmpty())
+        <div class="more-author">
             <h3>Resources by {{ $author->first_name }} {{ $author->last_name }}</h3>
             <ul class="author-links">
                 @foreach ($author->links as $link)
-                    <li>
-                        <a href="{{ $link->url }}" target="_blank" class="underline">{{ $link->title }}</a>
-                    </li>
+                <li>
+                    <a href="{{ $link->url }}" target="_blank" class="underline">{{ $link->title }}</a>
+                </li>
                 @endforeach
             </ul>
         </div>
+        @endif
 
-        <div>
+
+        <div class="related">
             <h3>More from {{ $author->first_name }} {{ $author->last_name }}</h3>
             <div class="related-videos-grid grid sm:grid-cols-2 gap-[1.6rem]">
                 @foreach ($author->videos->take(4) as $relatedVideo)

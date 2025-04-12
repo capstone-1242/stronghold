@@ -805,7 +805,7 @@ header nav li a:focus {
     margin: 1.6rem 1.6rem 1.6rem auto;
 }
 
-.single-video>div:nth-of-type(4) {
+.single-video .more-author {
     background-color: #2355a5d5;
     border-radius: var(--border-radius);
     backdrop-filter: blur(10.2px);
@@ -814,11 +814,11 @@ header nav li a:focus {
     box-shadow: 0 2px 6.3px 0 rgba(24, 49, 85, 0.12);
 }
 
-.single-video>div:nth-of-type(4) h3 {
+.single-video .more-author h3 {
     font-size: 2rem;
 }
 
-.single-video>div:nth-of-type(5) {
+.single-video .related {
     padding: var(--min-spacing);
 }
 
